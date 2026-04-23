@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=960">
+<meta name="generator" content="TCL_OS · /deck">
+<title>Ascend — Maximizing Corporate and Personal Travel</title>
+<!-- Fonts loaded via brand.css @font-face declarations -->
+<link rel="stylesheet" href="../brand.css">
+<link rel="stylesheet" href="../ascend-deck.css">
+</head>
+<body>
+
+<!-- ─────────────────────────────────────────────────────────────────
+     ICON SPRITE SHEET — Ascend Deck Icons + Lucide (1px stroke)
+     Source: https://lucide.dev · Stroke: 1px (per Ascend brand spec)
+     Usage: <svg class="..." width="W" height="H"><use href="#icon-name"/></svg>
+     ───────────────────────────────────────────────────────────────── -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <!-- Ascend Custom -->
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M7 10l5 5 5-5"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M5 13l4 4L19 7"/>
+    </symbol>
+    <symbol id="icon-ascend-arrow" viewBox="0 0 112 64" fill="currentColor">
+      <path d="M110.535 34.1101H82.6104C81.8444 34.1101 80.8032 34.728 80.8032 35.494L81.2265 62.6103C81.2265 64.1212 79.1442 64.5402 78.5601 63.1478L57.2294 15.0394C56.7427 13.9432 55.1852 13.9432 54.6985 15.0394L33.3678 63.1478C32.7838 64.5444 30.7015 64.1254 30.7015 62.6103V35.494C30.7015 34.728 30.0836 34.1101 29.3175 34.1101H1.3887C-0.0291135 34.1101 -0.532748 32.2352 0.694613 31.5199L52.6628 1.32258L54.051 0.514221C55.2318 -0.17141 56.6919 -0.17141 57.8727 0.514221L59.2609 1.32258L111.229 31.5199C112.452 32.2352 111.953 34.1101 110.535 34.1101Z"/>
+    </symbol>
+
+    <!-- Core Services & Travel -->
+    <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+    </symbol>
+    <symbol id="icon-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
+    </symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+    </symbol>
+    <symbol id="icon-percent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/>
+    </symbol>
+    <symbol id="icon-dollar-sign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+    </symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+    </symbol>
+    <symbol id="icon-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+    </symbol>
+    <symbol id="icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>
+    </symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+    </symbol>
+    <symbol id="icon-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ASCEND WEBINAR — Maximizing Corporate and Personal Travel
+     9 slides · Educational tone · Sentence case
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="deck-shell" data-theme="light">
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     01 · COVER SPEAKERS — Webinar presenters
+     Midnight BG. Wordmark + title + subtitle + speaker cards.
+     No topbar chrome.
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--cover-speakers">
+  <div class="cover-content">
+    <div class="cover-wordmark">
+      <img src="../Assets/Logo/Wordmark/ascend-wordmark-white.svg" alt="Ascend">
+    </div>
+    <h1 class="cover-title">Maximizing corporate and&nbsp;personal&nbsp;travel</h1>
+    <p class="cover-subtitle">Credit cards, points strategy, and consolidator&nbsp;access</p>
+    <div class="speakers">
+      <div class="speaker">
+        <div class="speaker-photo"><img src="../Assets/Headshots/Zach Rensick.jpeg" alt="Zach Resnick"></div>
+        <p class="speaker-name">Zach Resnick</p>
+        <p class="speaker-role">Founder &amp; CEO</p>
+      </div>
+      <div class="speaker">
+        <div class="speaker-photo"><img src="../Assets/Headshots/Cameron Resnick.jpeg" alt="Cameron Resnick"></div>
+        <p class="speaker-name">Cameron Resnick</p>
+        <p class="speaker-role">CXO</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     02 · SECTION BREAK — Purple
+     Frames the educational content.
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--section-purple">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">02</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Every booking is a<br>strategy&nbsp;decision</h2>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     03 · THREE-COL NUMBERED — 3 optimization levers
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-numbered">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">03</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">3 levers most travelers&nbsp;miss</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="mono-number">01</span>
+        <p><b>Credit card strategy.</b> Choose cards that earn 3&ndash;5x on travel and stack category bonuses for $250K+ annual&nbsp;spend.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number">02</span>
+        <p><b>Points optimization.</b> Transfer points to airline programs at peak value instead of redeeming at fixed&nbsp;rates.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number">03</span>
+        <p><b>Consolidator access.</b> Below-retail fares on premium cabins through industry inventory most travelers never&nbsp;see.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     04 · MATRIX — Card program comparison
+     Featured: AMEX · Columns: Chase | Cash back
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--matrix">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">04</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Card programs at a&nbsp;glance</h2>
+    <div class="matrix-grid" style="grid-template-columns: 1.2fr 1fr 1fr 1fr;">
+      <!-- Header row — 4 cols (label + 3 data), no featured column -->
+      <div class="matrix-cell matrix-header matrix-header-empty"></div>
+      <div class="matrix-cell matrix-header matrix-col-alt matrix-col-alt-first">AMEX MR</div>
+      <div class="matrix-cell matrix-header matrix-col-alt">Chase UR</div>
+      <div class="matrix-cell matrix-header matrix-col-alt matrix-col-alt-last">Cash back</div>
+      <!-- Row 1 -->
+      <div class="matrix-cell matrix-col-label matrix-row-first">Travel earn rate</div>
+      <div class="matrix-cell matrix-col-alt">5x (Platinum)</div>
+      <div class="matrix-cell matrix-col-alt">3x (Reserve)</div>
+      <div class="matrix-cell matrix-col-alt">1&ndash;2%</div>
+      <!-- Row 2 -->
+      <div class="matrix-cell matrix-col-label">Transfer partners</div>
+      <div class="matrix-cell matrix-col-alt">20+ airlines</div>
+      <div class="matrix-cell matrix-col-alt">14+ airlines</div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <!-- Row 3 -->
+      <div class="matrix-cell matrix-col-label">Points rebate / boost</div>
+      <div class="matrix-cell matrix-col-alt">Up to 50% rebate</div>
+      <div class="matrix-cell matrix-col-alt">Up to 100% boost</div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <!-- Row 4 -->
+      <div class="matrix-cell matrix-col-label">Annual travel credits</div>
+      <div class="matrix-cell matrix-col-alt">$200 airline + $200 hotel</div>
+      <div class="matrix-cell matrix-col-alt">$300 travel credit</div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <!-- Row 5 (last) -->
+      <div class="matrix-cell matrix-col-label matrix-row-last">Concierge access</div>
+      <div class="matrix-cell matrix-col-alt matrix-row-last matrix-col-alt-first">Platinum line</div>
+      <div class="matrix-cell matrix-col-alt matrix-row-last"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt matrix-row-last matrix-col-alt-last"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     05 · LOGO WALL — AMEX Membership Rewards transfer partners
+     Placeholder logos — replace with airline logo files.
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--logo-wall" data-cols="4">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">05</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <p class="slide-eyebrow">AMEX Membership Rewards</p>
+    <h2 class="slide-title">Transfer partners</h2>
+    <div class="logo-grid">
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/ana-mileage-club.png" alt="ANA Mileage Club"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/singapore-krisflyer.png" alt="Singapore Airlines KrisFlyer"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/british-airways.png" alt="British Airways Executive Club"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/delta-skymiles.png" alt="Delta SkyMiles"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/flying-blue.png" alt="Air France-KLM Flying Blue"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/emirates-skywards.png" alt="Emirates Skywards"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/jetblue-trueblue.png" alt="JetBlue TrueBlue"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/cathay-pacific.png" alt="Cathay Pacific Asia Miles"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     06 · LOGO WALL — AMEX Membership Rewards (continued)
+     Remaining 7 transfer partners.
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--logo-wall" data-cols="4">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">06</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <p class="slide-eyebrow">AMEX Membership Rewards</p>
+    <h2 class="slide-title">Transfer partners (cont.)</h2>
+    <div class="logo-grid">
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/aeroplan.png" alt="Aeroplan"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/lifemiles.png" alt="Avianca LifeMiles"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/hawaiian-miles.png" alt="Hawaiian Miles"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/qantas-frequent-flyer.png" alt="Qantas Frequent Flyer"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/velocity-frequent-flyer.png" alt="Velocity Frequent Flyer"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/hilton-honors.png" alt="Hilton Honors"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/AMEX membership rewards/marriott-bonvoy.png" alt="Marriott Bonvoy"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     07 · LOGO WALL — Chase Ultimate Rewards transfer partners
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--logo-wall" data-cols="3">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">07</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <p class="slide-eyebrow">Chase Ultimate Rewards</p>
+    <h2 class="slide-title">Transfer partners</h2>
+    <div class="logo-grid">
+      <div class="logo-item"><img src="../Assets/Airline logos/Chase ultimate rewards/united.png" alt="United MileagePlus"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/Chase ultimate rewards/british-airways.png" alt="British Airways"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/Chase ultimate rewards/singapore-airlines.png" alt="Singapore Airlines"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/Chase ultimate rewards/virgin-atlantic.png" alt="Virgin Atlantic"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/Chase ultimate rewards/emirates.png" alt="Emirates"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/Chase ultimate rewards/hyatt.png" alt="Hyatt"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/Chase ultimate rewards/ihg.png" alt="IHG Hotels &amp; Resorts"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/Chase ultimate rewards/marriott.png" alt="Marriott"></div>
+      <div class="logo-item"><img src="../Assets/Airline logos/Chase ultimate rewards/chase.png" alt="Chase"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     08 · RESULTS — AMEX points rebate: Platinum vs Centurion
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--results">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">08</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">AMEX airline rebate: 35% vs&nbsp;50%</h2>
+    <div class="results-grid">
+      <div class="results-card">
+        <span class="pill pill--midnight">BUSINESS PLATINUM</span>
+        <span class="results-value">35%</span>
+        <span class="results-unit">Rebate on 1 selected airline</span>
+        <span class="results-delta">Up to 1M MR pts/year</span>
+      </div>
+      <div class="results-card">
+        <span class="pill pill--purple">BUSINESS CENTURION</span>
+        <span class="results-value">50%</span>
+        <span class="results-unit">Rebate on airline purchases</span>
+        <span class="results-delta">+43% higher return</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     09 · RESULTS — Chase Points Boost comparison
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--results">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">09</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Chase Points Boost: up to&nbsp;100%</h2>
+    <div class="results-grid">
+      <div class="results-card">
+        <span class="pill pill--midnight">SAPPHIRE PREFERRED / INK</span>
+        <span class="results-value">100%</span>
+        <span class="results-unit">Maximum Points Boost</span>
+        <span class="results-delta">$95 annual fee</span>
+      </div>
+      <div class="results-card">
+        <span class="pill pill--purple">SAPPHIRE RESERVE</span>
+        <span class="results-value">100%</span>
+        <span class="results-unit">Maximum Points Boost</span>
+        <span class="results-delta">3x travel earn + $300 credit</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     10 · CLOSING PHOTO — Q&A prompt
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--closing-photo">
+  <img class="photo-bg" src="../Assets/Imagery/traveler-man-blue-sky.jpg" alt="" class="photo-fill">
+  <div class="closing-content">
+    Questions?
+  </div>
+</section>
+
+
+</div><!-- /.deck-shell -->
+
+</body>
+</html>

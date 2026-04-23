@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=960">
+<meta name="generator" content="TCL_OS · /deck">
+<title>Ascend — Sales Deck</title>
+<!-- Fonts loaded via brand.css @font-face declarations -->
+<link rel="stylesheet" href="../brand.css">
+<link rel="stylesheet" href="../ascend-deck.css">
+</head>
+<body>
+
+<!-- ─────────────────────────────────────────────────────────────────
+     ICON SPRITE SHEET — Ascend Deck Icons + Lucide (1px stroke)
+     Source: https://lucide.dev · Stroke: 1px (per Ascend brand spec)
+     Usage: <svg class="..." width="W" height="H"><use href="#icon-name"/></svg>
+     ───────────────────────────────────────────────────────────────── -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <!-- Ascend Custom -->
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M7 10l5 5 5-5"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M5 13l4 4L19 7"/>
+    </symbol>
+    <symbol id="icon-ascend-arrow" viewBox="0 0 112 64" fill="currentColor">
+      <path d="M110.535 34.1101H82.6104C81.8444 34.1101 80.8032 34.728 80.8032 35.494L81.2265 62.6103C81.2265 64.1212 79.1442 64.5402 78.5601 63.1478L57.2294 15.0394C56.7427 13.9432 55.1852 13.9432 54.6985 15.0394L33.3678 63.1478C32.7838 64.5444 30.7015 64.1254 30.7015 62.6103V35.494C30.7015 34.728 30.0836 34.1101 29.3175 34.1101H1.3887C-0.0291135 34.1101 -0.532748 32.2352 0.694613 31.5199L52.6628 1.32258L54.051 0.514221C55.2318 -0.17141 56.6919 -0.17141 57.8727 0.514221L59.2609 1.32258L111.229 31.5199C112.452 32.2352 111.953 34.1101 110.535 34.1101Z"/>
+    </symbol>
+
+    <!-- Core Services & Travel -->
+    <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+    </symbol>
+    <symbol id="icon-hotel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+    </symbol>
+    <symbol id="icon-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
+    </symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+    </symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+    </symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </symbol>
+    <symbol id="icon-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    </symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+    </symbol>
+    <symbol id="icon-percent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/>
+    </symbol>
+    <symbol id="icon-dollar-sign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+    </symbol>
+    <symbol id="icon-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+    </symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+    </symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+    </symbol>
+
+    <!-- UI & Navigation -->
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m9 18 6-6-6-6"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ASCEND SALES DECK — 34 slides
+     Production file. Based on ascend-deck-template.html catalog.
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="deck-shell" data-theme="light">
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 1 · COVER PHOTO
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--cover-photo">
+  <img class="cover-bg" src="../Assets/Imagery/aerial-fields-autumn.jpg" alt="" class="photo-fill">
+  <div class="cover-content">
+    <div class="cover-wordmark">
+      <svg width="112" height="64"><use href="#icon-ascend-arrow"/></svg>
+      ascend
+    </div>
+    <p class="cover-tagline">Make booking travel effortless</p>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 2 · SECTION BREAK — Midnight · "The problem"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-midnight">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">01</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">The problem</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 3 · THREE-COL NUMBERED — "Booking travel shouldn't be this hard"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--three-col-numbered">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">02</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Booking travel shouldn't be this hard</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="mono-number">01</span>
+        <p>Hours wasted searching across sites and portals and coordinating details.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number">02</span>
+        <p>Paying retail fares without access to proprietary inventory.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number">03</span>
+        <p>Disruptions handled alone, often at inconvenient hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 4 · SECTION BREAK — Land · "What is Ascend"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-land">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">03</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">What is Ascend</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 5 · HERO PHOTO TAGS — Concierge value prop
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--hero-photo-tags">
+  <img class="photo-bg" src="../Assets/Imagery/aerial-clouds-town.jpg" alt="" class="photo-fill">
+  <div class="overlay"></div>
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">04</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="floating-pills">
+    <span class="pill pill--sun" style="top:100px; left:200px;">Paris</span>
+    <span class="pill pill--sun" style="top:140px; left:40px;">London</span>
+    <span class="pill pill--sun" style="top:380px; right:140px;">New York</span>
+  </div>
+  <div class="content">
+    <h2 class="headline">Your 24/7 travel concierge,<br>for premium, stress-free journeys.</h2>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 6 · SPLIT IMAGE LIST — Light · Key benefits
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--split-image-list">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">05</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/traveler-businessman-suitcase.jpg" alt="" class="photo-panel">
+      <div class="pills-overlay">
+        <svg width="24" height="14"><use href="#icon-ascend-arrow"/></svg>
+        <span class="pill">Lucy</span>
+        <span class="pill">Return</span>
+        <span class="chevron-circle">
+          <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="list-row">
+      <span class="list-num">01</span>
+      <span class="list-text">Real humans. No chatbots, portals or hold music.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">02</span>
+      <span class="list-text">Book flights, hotels, and ground transport from one WhatsApp Group.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">03</span>
+      <span class="list-text">Save an average of 35% on business and first class.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">04</span>
+      <span class="list-text">We monitor every leg and fix problems before you notice.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 7 · SPLIT IMAGE LIST — Purple · Key benefits (variant)
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--split-image-list">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">06</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel left-panel--purple">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/traveler-man-airport-phone.jpg" alt="" class="photo-panel">
+      <div class="pills-overlay">
+        <span class="pill">Jake</span>
+        <span class="pill">One-way</span>
+        <span class="chevron-circle">
+          <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+        </span>
+        <span class="pill">7h</span>
+      </div>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="list-row">
+      <span class="list-num">01</span>
+      <span class="list-text">Real humans. No chatbots, portals or hold music.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">02</span>
+      <span class="list-text">Book flights, hotels, and ground transport from one WhatsApp Group.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">03</span>
+      <span class="list-text">Save an average of 35% on business and first class.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">04</span>
+      <span class="list-text">We monitor every leg and fix problems before you notice.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 8 · SECTION BREAK — Midnight · "How it works"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-midnight">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">07</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">How it works</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 9 · THREE-COL STEPS — "Text. Approve. Done."
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--three-col-steps">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">08</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Text. Approve. Done.</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-ascend-arrow"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 01</p>
+          <h3 class="step-name">Text</h3>
+          <p class="step-desc">Send us your travel plans on WhatsApp. Dates, destinations, preferences. One message is all we need.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-ascend-arrow"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 02</p>
+          <h3 class="step-name">Approve</h3>
+          <p class="step-desc">Within 60 minutes, we send personalized options with transparent pricing. You review and approve.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-ascend-arrow"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 03</p>
+          <h3 class="step-name">Done</h3>
+          <p class="step-desc">We book everything, monitor your journey, and handle any changes. You travel with complete peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 10 · SECTION BREAK — Purple · "Meet your travel team"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-purple">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">09</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Meet your travel team</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 11 · TEAM GRID — "Real people. Available 24/7."
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--team-grid">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">10</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Real people. Available 24/7.</h2>
+    <p class="slide-subtitle">Your dedicated team includes:</p>
+    <div class="team-row">
+      <div class="team-member">
+        <div class="avatar"></div>
+        <span class="member-title">Chief Executive Officer</span>
+        <span class="member-name">Zach</span>
+      </div>
+      <div class="team-member">
+        <div class="avatar"></div>
+        <span class="member-title">Chief Experience Officer</span>
+        <span class="member-name">Cameron</span>
+      </div>
+      <div class="team-member">
+        <div class="avatar"></div>
+        <span class="member-title">Chief Operating Officer</span>
+        <span class="member-name">Omar</span>
+      </div>
+      <div class="team-member">
+        <div class="avatar"></div>
+        <span class="member-title">Head of Strategic Growth</span>
+        <span class="member-name">Chloe</span>
+      </div>
+      <div class="team-member">
+        <div class="avatar"></div>
+        <span class="member-title">Account Director</span>
+        <span class="member-name">Mike</span>
+      </div>
+    </div>
+    <div class="team-row">
+      <div class="team-member">
+        <div class="avatar"></div>
+        <span class="member-title">Head of Concierge</span>
+        <span class="member-name">Maleeha</span>
+      </div>
+      <div class="team-member">
+        <div class="avatar"></div>
+        <span class="member-title">Head of Product</span>
+        <span class="member-name">Deeksha</span>
+      </div>
+      <div class="team-member">
+        <div class="avatar"></div>
+        <span class="member-title">Chief of Staff</span>
+        <span class="member-name">Dave</span>
+      </div>
+      <div class="team-member">
+        <div class="avatar"></div>
+        <span class="member-title">Head of People</span>
+        <span class="member-name">Nishit</span>
+      </div>
+    </div>
+    <div class="team-stat">
+      <span class="pill pill--outline pill--xs">+60 TEAM MEMBERS ACROSS FOUR TIME ZONES ENSURING 24/7 COVERAGE</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 12 · SECTION BREAK — Land · "Gain unrivaled access and value"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-land">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">11</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Gain unrivaled access and value</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 13 · FOUR-COL METRICS — "Save more on every trip"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--four-col-metrics">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">12</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Save more on every trip</h2>
+    <div class="metrics-grid">
+      <div class="metric-col">
+        <span class="pill pill--purple">Business Class</span>
+        <span class="metric-number">35%</span>
+        <p class="metric-subtitle">Average savings</p>
+        <p class="metric-desc">on business and first class (North America-Europe routes).</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">Long-Haul</span>
+        <span class="metric-number">20%</span>
+        <p class="metric-subtitle">Average savings</p>
+        <p class="metric-desc">other long-haul premium routes.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">Last-Minute</span>
+        <span class="metric-number">62%</span>
+        <p class="metric-subtitle">Average savings</p>
+        <p class="metric-desc">on last-minute business class.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">Fees</span>
+        <span class="metric-number">0</span>
+        <p class="metric-subtitle">Booking fees</p>
+        <p class="metric-desc">or hidden charges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 14 · SECTION BREAK — Purple · "You decide. We do the heavy lifting."
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-purple">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">13</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">You decide. We do the heavy lifting.</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 15 · SPLIT IMAGE LIST — Light · Service details
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--split-image-list">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">14</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/traveler-businessman-suitcase.jpg" alt="" class="photo-panel">
+      <div class="pills-overlay">
+        <svg width="24" height="14"><use href="#icon-ascend-arrow"/></svg>
+        <span class="pill">Service</span>
+        <span class="pill">Details</span>
+        <span class="chevron-circle">
+          <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="list-row">
+      <span class="list-num">01</span>
+      <span class="list-text">60 seconds average response time via WhatsApp.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">02</span>
+      <span class="list-text">60-minute quote turnaround with transparent pricing.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">03</span>
+      <span class="list-text">Proactive monitoring on every leg of your journey.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">04</span>
+      <span class="list-text">Changes, cancellations, and rebookings handled at no extra cost.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 16 · SECTION BREAK — Midnight · "Door to destination. We're with you."
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-midnight">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">15</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Door to destination. We're with you.</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 17 · SECTION BREAK — Land · "Real example"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-land">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">16</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Real example</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 18 · TIMELINE TWO-COL — SFO to London case study
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--timeline-two-col">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">17</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Executive flying San Francisco to London</h2>
+    <div class="timeline-grid">
+      <!-- Left column -->
+      <div>
+        <div class="timeline-row">
+          <span class="tl-num">01</span>
+          <div>
+            <p class="tl-title">Request (Monday morning):</p>
+            <p class="tl-desc">"Need SFO to London this Friday, business class, return following Wednesday".</p>
+          </div>
+          <span class="chevron-circle icon-chevron">
+            <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+          </span>
+        </div>
+        <div class="timeline-row">
+          <span class="tl-num">02</span>
+          <div>
+            <p class="tl-title">Response (45 minutes later):</p>
+            <p class="tl-desc">Three complete options with transparent pricing. British Airways direct, business class: $3,200 (retail: $4,850). Savings: $1,650.</p>
+          </div>
+          <span class="chevron-circle icon-chevron">
+            <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+          </span>
+        </div>
+        <div class="timeline-row">
+          <span class="tl-num">03</span>
+          <div>
+            <p class="tl-title">Approved and booked:</p>
+            <p class="tl-desc">Flight, hotel near office, car service confirmed. Added to calendar.</p>
+          </div>
+          <span class="chevron-circle icon-chevron">
+            <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+          </span>
+        </div>
+      </div>
+      <!-- Right column -->
+      <div>
+        <div class="timeline-row">
+          <span class="tl-num">04</span>
+          <div>
+            <p class="tl-title">Proactive handling (Friday morning):</p>
+            <p class="tl-desc">Inbound connection delayed. Team rebooks onto later BA flight, adjusts hotel check-in. Member receives update before reaching airport.</p>
+          </div>
+          <span class="chevron-circle icon-chevron">
+            <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+          </span>
+        </div>
+        <div class="timeline-row">
+          <span class="tl-num">05</span>
+          <div>
+            <p class="tl-title">Outcome:</p>
+            <p class="tl-desc">Member arrives on time. Total time spent on travel coordination: 3 minutes.</p>
+          </div>
+          <span class="chevron-circle icon-chevron">
+            <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 19 · SECTION BREAK — Purple · "Proven results"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-purple">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">18</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Proven results</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 20 · THREE-COL TESTIMONIALS — "Real savings from real members"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--three-col-testimonials">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">19</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Real savings from real members</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-col">
+        <span class="pill pill--purple">Enterprise</span>
+        <span class="testimonial-amount">$127,000</span>
+        <span class="testimonial-saved">Saved for Bitkraft</span>
+        <p class="testimonial-detail">Bitkraft Ventures: $127,000 saved over 6 months, 47 bookings, 32% average savings.</p>
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote-text">The time we save on travel coordination is time we spend with founders. That's the real ROI.</p>
+      </div>
+      <div class="testimonial-col">
+        <span class="pill pill--purple">Enterprise</span>
+        <span class="testimonial-amount">$42,000</span>
+        <span class="testimonial-saved">Saved for Charlotte Tilbury</span>
+        <p class="testimonial-detail">Charlotte Tilbury: $42,000 saved over 3 months, 18 bookings.</p>
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote-text">We're reviewing options instead of searching for them. I'm not buying cheaper travel -- I'm buying calm.</p>
+      </div>
+      <div class="testimonial-col">
+        <span class="pill pill--midnight">Individual</span>
+        <span class="testimonial-amount">$18,500</span>
+        <span class="testimonial-saved">Saved for Individual executive</span>
+        <p class="testimonial-detail">Individual executive: $18,500 saved over 12 months, 14 trips, 38% average savings.</p>
+        <span class="quote-mark quote-mark--land">&ldquo;</span>
+        <p class="quote-text">It's become my default travel brain. I don't even check other sites anymore.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 21 · SECTION BREAK — Midnight · "What you get"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-midnight">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">20</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">What you get</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 22 · THREE-COL FEATURES — "Everything included, no surprises"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--three-col-features">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">21</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Everything included, no surprises</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-photo">
+          <img src="../Assets/Imagery/plane-window-wing-clouds.jpg" alt="" class="photo-panel">
+        </div>
+        <div class="feature-body">
+          <h3 class="feature-subtitle">Unlimited travel:</h3>
+          <ul class="feature-checklist">
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Flights, hotels, ground transport.
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Business and personal trips.
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Family travel included.
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              No per-booking fees.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-photo">
+          <img src="../Assets/Imagery/traveler-businesswoman-arriving.jpg" alt="" class="photo-panel">
+        </div>
+        <div class="feature-body">
+          <h3 class="feature-subtitle">24/7 service:</h3>
+          <ul class="feature-checklist">
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Real humans via WhatsApp.
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              1-minute response time.
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Proactive monitoring and rebooking.
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              No hold music, no chatbots.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-photo">
+          <img src="../Assets/Imagery/sky-blue-clouds.jpg" alt="" class="photo-panel">
+        </div>
+        <div class="feature-body">
+          <h3 class="feature-subtitle">Your preferences protected:</h3>
+          <ul class="feature-checklist">
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Loyalty numbers and status preserved.
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Preferred airlines, seats, hotels.
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Points and upgrades maintained.
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Works inside corporate policies.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 23 · SECTION BREAK — Land · "Designed for discerning travelers"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-land">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">22</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Designed for discerning travelers</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 24 · TWO-COL COMPARISON — "Is Ascend right for you?"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--two-col-comparison">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">23</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Is Ascend right for you?</h2>
+    <div class="comparison-grid">
+      <div class="comparison-card">
+        <div class="comparison-photo">
+          <img src="../Assets/Imagery/traveler-airport-stride.jpg" alt="" class="photo-panel">
+        </div>
+        <div class="comparison-body">
+          <h3 class="comparison-subtitle">Ascend is for you if you:</h3>
+          <ul class="comparison-checklist">
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Fly frequently (6+ trips per year).
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Value reliability, precision, and speed.
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Prefer real humans over apps or call centers.
+            </li>
+            <li class="check-item">
+              <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+              Expect issues to be solved before you know they exist.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="comparison-card">
+        <div class="comparison-photo">
+          <img src="../Assets/Imagery/traveler-mobile-phone.jpg" alt="" class="photo-panel">
+        </div>
+        <div class="comparison-body">
+          <h3 class="comparison-subtitle">Ascend isn't for you if you:</h3>
+          <ul class="comparison-checklist">
+            <li class="check-item check-item--muted">
+              <svg class="icon-check--muted" width="16" height="16"><use href="#icon-check"/></svg>
+              Fly infrequently.
+            </li>
+            <li class="check-item check-item--muted">
+              <svg class="icon-check--muted" width="16" height="16"><use href="#icon-check"/></svg>
+              Enjoy searching for fares yourself.
+            </li>
+            <li class="check-item check-item--muted">
+              <svg class="icon-check--muted" width="16" height="16"><use href="#icon-check"/></svg>
+              Prefer self-service comparison sites.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 25 · SECTION BREAK — Purple · "Membership that pays for itself"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-purple">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">24</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Membership that pays for itself</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 26 · THREE-COL PRICING — "Unlimited trips. No booking fees."
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--three-col-pricing">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">25</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Unlimited trips. No booking fees.</h2>
+    <div class="pricing-grid">
+      <!-- Pricing card -->
+      <div class="pricing-card">
+        <h3 class="pricing-card-title">Individual membership</h3>
+        <p class="pricing-price">$2,500<span class="price-unit">/year</span></p>
+        <p class="pricing-alt">(or $250 per month)</p>
+        <ul class="pricing-features">
+          <li class="check-item check-item--white">
+            <svg width="16" height="16"><use href="#icon-check"/></svg>
+            Unlimited trips.
+          </li>
+          <li class="check-item check-item--white">
+            <svg width="16" height="16"><use href="#icon-check"/></svg>
+            No per-booking fees.
+          </li>
+          <li class="check-item check-item--white">
+            <svg width="16" height="16"><use href="#icon-check"/></svg>
+            Covers business, personal, and family travel.
+          </li>
+        </ul>
+      </div>
+      <!-- ROI card -->
+      <div class="roi-card">
+        <div class="roi-title">
+          ROI example
+          <span class="pill pill--outline pill--xs">PAYBACK IN 2-3 TRIPS</span>
+        </div>
+        <p class="roi-amount">$4,000</p>
+        <p class="roi-label">Savings</p>
+        <p class="roi-details">
+          &bull; 2 transatlantic business class trips: $4,000 saved.<br>
+          &bull; Membership cost: $2,500.<br>
+          &bull; <strong>Net benefit: $1,500+ in year one.</strong>
+        </p>
+        <p class="roi-details roi-footer">
+          Most members pay back their membership within 2-3 trips. <strong>Try before you commit:</strong> Selected applicants receive 1 month complimentary to experience the membership (worth $250).
+        </p>
+      </div>
+      <!-- Savings table -->
+      <div class="savings-card">
+        <h3 class="savings-heading">Savings by route and cabin:</h3>
+        <table class="savings-table">
+          <thead>
+            <tr>
+              <th>Route Type</th>
+              <th>Business/First</th>
+              <th>Economy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>US &gt; Europe</td>
+              <td>35% average</td>
+              <td>5-10%</td>
+            </tr>
+            <tr>
+              <td>Other long-haul</td>
+              <td>20% average</td>
+              <td>3-8%</td>
+            </tr>
+            <tr>
+              <td>Last-minute (any route)</td>
+              <td>Up to 62%</td>
+              <td>10-15%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 27 · SECTION BREAK — Midnight · "Getting started"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-midnight">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">26</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Getting started</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 28 · THREE-COL NUMBERED — "Get started in three steps"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--three-col-numbered">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">27</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Get started in three steps</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="mono-number">01</span>
+        <p>Apply for membership. We review every application to ensure the right fit.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number">02</span>
+        <p>Onboarding call. Share your travel preferences, loyalty numbers, and how you like to travel.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number">03</span>
+        <p>Start booking. Text us your next trip on WhatsApp and experience the difference.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 29 · SECTION BREAK — Land · "Common questions"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-land">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">28</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Common questions</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 30 · FAQ SPLIT — 5 Q&A items
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--faq-split">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">29</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="faq-row">
+      <span class="faq-num">01</span>
+      <div>
+        <p class="faq-question">Do you charge booking fees?</p>
+        <p class="faq-answer">No. Flat membership covers everything -- bookings, changes, cancellations.</p>
+      </div>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="faq-row">
+      <span class="faq-num">02</span>
+      <div>
+        <p class="faq-question">Will I lose my loyalty status and points?</p>
+        <p class="faq-answer">No. We book using your loyalty numbers. Status and points protected.</p>
+      </div>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="faq-row">
+      <span class="faq-num">03</span>
+      <div>
+        <p class="faq-question">Can my EA use this for me?</p>
+        <p class="faq-answer">Yes. Many members are EAs managing executive travel. Works seamlessly.</p>
+      </div>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="faq-row">
+      <span class="faq-num">04</span>
+      <div>
+        <p class="faq-question">What if I need to cancel or change?</p>
+        <p class="faq-answer">Included. We handle all changes within policy rules at no extra charge.</p>
+      </div>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="faq-row">
+      <span class="faq-num">05</span>
+      <div>
+        <p class="faq-question">What if savings aren't as advertised?</p>
+        <p class="faq-answer">We show comparison on every booking. When discounted fares exist, you get them.</p>
+      </div>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="faq-image">
+      <img src="../Assets/Imagery/traveler-man-train-platform.jpg" alt="" class="photo-panel">
+      <!-- Flight tag pills overlaid on image -->
+      <div class="faq-route-overlay">
+        <div class="faq-route-row">
+          <span class="pill pill--xs">LDN</span>
+          <svg width="24" height="2" viewBox="0 0 24 2" stroke="white" stroke-width="1.5" stroke-dasharray="3 3"><line x1="0" y1="1" x2="24" y2="1"/></svg>
+          <span class="pill pill--xs">LAX</span>
+        </div>
+        <div class="faq-route-meta">
+          <span>London</span><span>Los Angeles</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 31 · SECTION BREAK — Purple · "Next steps"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--section-purple">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">30</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Next steps</h2>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 32 · CTA CONTACTS — "Ready to make travel effortless?"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--cta-contacts">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">31</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="cta-headline">Ready to make travel effortless?<br>Apply for membership.</h2>
+    <div class="contacts">
+      <div class="contact-row">
+        <span class="contact-name">ZACH RESNICK</span>
+        <span class="contact-email">email</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-name">CHLOE X</span>
+        <span class="contact-email">email</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-name">MIKE X</span>
+        <span class="contact-email">email</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 33 · CLOSING PHOTO — "Thank you"
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--closing-photo">
+  <img class="photo-bg" src="../Assets/Imagery/traveler-man-blue-sky.jpg" alt="" class="photo-fill">
+  <div class="closing-content">
+    Thank you
+    <svg width="48" height="27"><use href="#icon-ascend-arrow"/></svg>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE 34 · MATRIX — Competitive landscape (appendix)
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--matrix">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num">32</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Competitive landscape</h2>
+    <div class="matrix-grid">
+      <!-- Header row -->
+      <div class="matrix-cell matrix-header matrix-header-empty"></div>
+      <div class="matrix-cell matrix-header matrix-col-featured"><div class="matrix-logo"><svg width="20" height="18"><use href="#icon-ascend-arrow"/></svg> ascend</div></div>
+      <div class="matrix-cell matrix-header matrix-col-alt matrix-col-alt-first">Navan / TravelPerk</div>
+      <div class="matrix-cell matrix-header matrix-col-alt">Traditional Agents</div>
+      <div class="matrix-cell matrix-header matrix-col-alt matrix-col-alt-last">Amex Travel</div>
+      <!-- Row 1 -->
+      <div class="matrix-cell matrix-col-label matrix-row-first">Chat-first (WhatsApp)</div>
+      <div class="matrix-cell matrix-col-featured"><span class="matrix-check"><svg width="16" height="16"><use href="#icon-check"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <!-- Row 2 -->
+      <div class="matrix-cell matrix-col-label">24/7 humans</div>
+      <div class="matrix-cell matrix-col-featured"><span class="matrix-check"><svg width="16" height="16"><use href="#icon-check"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt">Partial</div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <!-- Row 3 -->
+      <div class="matrix-cell matrix-col-label">35% avg flight savings</div>
+      <div class="matrix-cell matrix-col-featured"><span class="matrix-check"><svg width="16" height="16"><use href="#icon-check"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <!-- Row 4 -->
+      <div class="matrix-cell matrix-col-label">Proactive monitoring</div>
+      <div class="matrix-cell matrix-col-featured"><span class="matrix-check"><svg width="16" height="16"><use href="#icon-check"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt">Partial</div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <!-- Row 5 (last) -->
+      <div class="matrix-cell matrix-col-label matrix-row-last">Sub-60s response</div>
+      <div class="matrix-cell matrix-col-featured matrix-row-last"><span class="matrix-check"><svg width="16" height="16"><use href="#icon-check"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt matrix-row-last matrix-col-alt-first"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt matrix-row-last"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+      <div class="matrix-cell matrix-col-alt matrix-row-last matrix-col-alt-last"><span class="matrix-x"><svg width="14" height="14"><use href="#icon-x"/></svg></span></div>
+    </div>
+  </div>
+</section>
+
+
+</div><!-- /.deck-shell -->
+
+</body>
+</html>

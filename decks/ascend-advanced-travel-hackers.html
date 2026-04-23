@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=960">
+<meta name="generator" content="TCL_OS · /deck">
+<title>Ascend — Advanced Travel Hacking</title>
+<!-- Fonts loaded via brand.css @font-face declarations -->
+<link rel="stylesheet" href="../brand.css">
+<link rel="stylesheet" href="../ascend-deck.css">
+</head>
+<body>
+
+<!-- ─────────────────────────────────────────────────────────────────
+     ICON SPRITE SHEET — Ascend Deck Icons + Lucide (1px stroke)
+     ───────────────────────────────────────────────────────────────── -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M7 10l5 5 5-5"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M5 13l4 4L19 7"/>
+    </symbol>
+    <symbol id="icon-ascend-arrow" viewBox="0 0 112 64" fill="currentColor">
+      <path d="M110.535 34.1101H82.6104C81.8444 34.1101 80.8032 34.728 80.8032 35.494L81.2265 62.6103C81.2265 64.1212 79.1442 64.5402 78.5601 63.1478L57.2294 15.0394C56.7427 13.9432 55.1852 13.9432 54.6985 15.0394L33.3678 63.1478C32.7838 64.5444 30.7015 64.1254 30.7015 62.6103V35.494C30.7015 34.728 30.0836 34.1101 29.3175 34.1101H1.3887C-0.0291135 34.1101 -0.532748 32.2352 0.694613 31.5199L52.6628 1.32258L54.051 0.514221C55.2318 -0.17141 56.6919 -0.17141 57.8727 0.514221L59.2609 1.32258L111.229 31.5199C112.452 32.2352 111.953 34.1101 110.535 34.1101Z"/>
+    </symbol>
+    <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+    <symbol id="icon-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
+    </symbol>
+    <symbol id="icon-dollar-sign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+    </symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+    </symbol>
+    <!-- Experience portal icons — Lucide 1px stroke -->
+    <symbol id="icon-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+    </symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+    </symbol>
+    <symbol id="icon-utensils" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
+    </symbol>
+    <symbol id="icon-hotel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ASCEND — Advanced Travel Hacking
+     6 slides · Educational tone · Sentence case
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="deck-shell" data-theme="light">
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     01 · COVER SPEAKERS — 3 presenters
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--cover-speakers">
+  <div class="cover-content">
+    <div class="cover-wordmark" style="gap: var(--space-6); align-items: center;">
+      <img src="../Assets/Logo/Wordmark/ascend-wordmark-white.svg" alt="Ascend" style="height: 24px; width: auto;">
+      <span style="font-size: var(--text-xl); color: rgba(255,255,255,.4); font-weight: var(--font-regular);">&times;</span>
+      <img src="../Assets/Partner Logos/phantom-stays-white.webp" alt="Phantom Stays" style="height: 48px; width: auto;">
+    </div>
+    <h1 class="cover-title">Phantom Stays Webinar</h1>
+    <div class="speakers" style="justify-content: center;">
+      <div class="speaker" style="width: 160px;">
+        <div class="speaker-photo"><img src="../Assets/Headshots/Zach Rensick.jpeg" alt="Zach Resnick"></div>
+        <p class="speaker-name">Zach Resnick</p>
+        <p class="speaker-role">Founder &amp; CEO</p>
+      </div>
+      <div class="speaker" style="width: 160px;">
+        <div class="speaker-photo"><img src="../Assets/Headshots/Cameron Resnick.jpeg" alt="Cameron Resnick"></div>
+        <p class="speaker-name">Cameron Resnick</p>
+        <p class="speaker-role">CXO</p>
+      </div>
+      <div class="speaker" style="width: 160px;">
+        <div class="speaker-photo"><img src="../Assets/Headshots/Israel Stern.jpeg" alt="Israel Stern"></div>
+        <p class="speaker-name">Israel Stern</p>
+        <p class="speaker-role">Director of Flights</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     02 · SECTION BREAK — Frame
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--section-purple">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">02</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Every booking is a<br>strategy&nbsp;decision</h2>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     03 · SECTION BREAK — Advanced Points Hacking
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--section-sun">
+  <div class="topbar topbar--midnight">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">03</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Advanced points&nbsp;hacking</h2>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     04 · SPLIT — "Experience" portals
+     Left 2/3: headline + key points. Right 1/3: logos on midnight.
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list" style="grid-template-columns: 2fr 1fr;">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">04</span>
+    <span class="topbar__icon" style="color: var(--color-text-on-primary);">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title" style="margin: 0 0 var(--space-8);">Unlock exclusive&nbsp;experiences</h2>
+    <div class="list-row">
+      <span class="list-num">01</span>
+      <span class="list-text">Concert and music festival&nbsp;access</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-music"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">02</span>
+      <span class="list-text">Courtside seats and sporting&nbsp;events</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-award"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">03</span>
+      <span class="list-text">Chef&rsquo;s table and culinary&nbsp;experiences</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-utensils"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">04</span>
+      <span class="list-text">Exclusive hotel packages and&nbsp;upgrades</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-hotel"/></svg>
+      </span>
+    </div>
+  </div>
+  <div class="left-panel" style="background: var(--color-midnight); flex-direction: column; gap: var(--space-8); padding: var(--slide-pad);">
+    <div class="logo-item" style="width: 160px; height: 64px; background: var(--color-neutral-90); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+      <img src="../Assets/Airline logos/AMEX membership rewards/marriott-bonvoy.png" alt="Marriott Bonvoy" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    </div>
+    <div class="logo-item" style="width: 160px; height: 64px; background: var(--color-neutral-90); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+      <img src="../Assets/Airline logos/AMEX membership rewards/hilton-honors.png" alt="Hilton Honors" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    </div>
+    <div class="logo-item" style="width: 160px; height: 64px; background: var(--color-neutral-90); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+      <img src="../Assets/Airline logos/Alaska Mileage Plan.png" alt="Alaska Mileage Plan" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     05 · QUOTE — Invest rewards
+     Quote left (Cam), Schwab Platinum card right.
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--quote">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">05</span>
+    <span class="topbar__icon" style="color: var(--color-text-on-primary);">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="quote-left quote-single">
+    <p class="quote-text">Charles Schwab AMEX Platinum appears the same, but is yet&nbsp;different&hellip;</p>
+  </div>
+  <div class="quote-right" style="background: var(--color-midnight); flex-direction: column; gap: var(--space-4); padding: var(--slide-pad);">
+    <img src="../Assets/Cards/schwab-amex-platinum.png" alt="Charles Schwab AMEX Platinum" style="width: 240px; height: auto; object-fit: contain;">
+    <div style="display: flex; align-items: center; gap: var(--space-3);">
+      <span style="font-family: var(--font-mono); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-sky);">1 million points</span>
+      <span class="pill pill--sun">10% BONUS</span>
+    </div>
+    <span style="font-family: var(--font-mono); font-size: var(--text-5xl); font-weight: var(--font-medium); color: var(--color-text-on-primary); line-height: 1;">$11,000</span>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     06 · SECTION BREAK — Revenue Flight Hacking
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--section-midnight">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend</span>
+    <span class="topbar__num">06</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Revenue flight&nbsp;hacking</h2>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     07–15 · SCREENSHOT SLIDES — Revenue flight hacking examples
+     9 slides from Israel's walkthrough (updated).
+     ══════════════════════════════════════════════════════════════ -->
+
+<!-- 07 · GF BCN-JFK -->
+<section class="slide slide--content">
+  <div class="topbar topbar--dark"><span class="topbar__title">Ascend</span><span class="topbar__num">07</span><span class="topbar__icon"><svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg></span></div>
+  <div class="content" style="align-items: center; justify-content: center; gap: 0;"><img src="../Assets/Israel Slides/1. GF BCN-JFK.png" alt="Google Flights BCN-JFK" style="max-width: 100%; max-height: 420px; object-fit: contain; border-radius: var(--radius-lg);"></div>
+</section>
+
+<!-- 08 · BCN-JFK Price -->
+<section class="slide slide--content">
+  <div class="topbar topbar--dark"><span class="topbar__title">Ascend</span><span class="topbar__num">08</span><span class="topbar__icon"><svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg></span></div>
+  <div class="content" style="align-items: center; justify-content: center; gap: 0;"><img src="../Assets/Israel Slides/2. BCN-JFK Price.png" alt="BCN-JFK price" style="max-width: 100%; max-height: 420px; object-fit: contain; border-radius: var(--radius-lg);"></div>
+</section>
+
+<!-- 09 · BCN-JFK Breakdown -->
+<section class="slide slide--content">
+  <div class="topbar topbar--dark"><span class="topbar__title">Ascend</span><span class="topbar__num">09</span><span class="topbar__icon"><svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg></span></div>
+  <div class="content" style="align-items: center; justify-content: center; gap: 0;"><img src="../Assets/Israel Slides/3. BCN-JFK Breakdown.png" alt="BCN-JFK breakdown" style="max-width: 100%; max-height: 420px; object-fit: contain; border-radius: var(--radius-lg);"></div>
+</section>
+
+<!-- 10 · BCN-JFK FR Price -->
+<section class="slide slide--content">
+  <div class="topbar topbar--dark"><span class="topbar__title">Ascend</span><span class="topbar__num">10</span><span class="topbar__icon"><svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg></span></div>
+  <div class="content" style="align-items: center; justify-content: center; gap: 0;"><img src="../Assets/Israel Slides/4. BCN-JFK FR Price.png" alt="BCN-JFK fare rules price" style="max-width: 100%; max-height: 420px; object-fit: contain; border-radius: var(--radius-lg);"></div>
+</section>
+
+<!-- 11 · BCN-JFK FR Breakdown -->
+<section class="slide slide--content">
+  <div class="topbar topbar--dark"><span class="topbar__title">Ascend</span><span class="topbar__num">11</span><span class="topbar__icon"><svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg></span></div>
+  <div class="content" style="align-items: center; justify-content: center; gap: 0;"><img src="../Assets/Israel Slides/5. BCN-JFK FR Breakdown.png" alt="BCN-JFK fare rules breakdown" style="max-width: 100%; max-height: 420px; object-fit: contain; border-radius: var(--radius-lg);"></div>
+</section>
+
+<!-- 12 · GF LAX-FRA Business -->
+<section class="slide slide--content">
+  <div class="topbar topbar--dark"><span class="topbar__title">Ascend</span><span class="topbar__num">12</span><span class="topbar__icon"><svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg></span></div>
+  <div class="content" style="align-items: center; justify-content: center; gap: 0;"><img src="../Assets/Israel Slides/10. GF LAX-FRA Biz.png" alt="Google Flights LAX-FRA business" style="max-width: 100%; max-height: 420px; object-fit: contain; border-radius: var(--radius-lg);"></div>
+</section>
+
+<!-- 13 · GF LAX-FRA Economy -->
+<section class="slide slide--content">
+  <div class="topbar topbar--dark"><span class="topbar__title">Ascend</span><span class="topbar__num">13</span><span class="topbar__icon"><svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg></span></div>
+  <div class="content" style="align-items: center; justify-content: center; gap: 0;"><img src="../Assets/Israel Slides/11. GF LAX-FRA Eco.png" alt="Google Flights LAX-FRA economy" style="max-width: 100%; max-height: 420px; object-fit: contain; border-radius: var(--radius-lg);"></div>
+</section>
+
+<!-- 14 · LAX-FRA LH Upgrade Options -->
+<section class="slide slide--content">
+  <div class="topbar topbar--dark"><span class="topbar__title">Ascend</span><span class="topbar__num">14</span><span class="topbar__icon"><svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg></span></div>
+  <div class="content" style="align-items: center; justify-content: center; gap: 0;"><img src="../Assets/Israel Slides/12. LAX-FRA LH Upgrade Options.png" alt="LAX-FRA Lufthansa upgrade options" style="max-width: 100%; max-height: 420px; object-fit: contain; border-radius: var(--radius-lg);"></div>
+</section>
+
+<!-- 15 · LAX-FRA LH Upgrade Prices -->
+<section class="slide slide--content">
+  <div class="topbar topbar--dark"><span class="topbar__title">Ascend</span><span class="topbar__num">15</span><span class="topbar__icon"><svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg></span></div>
+  <div class="content" style="align-items: center; justify-content: center; gap: 0;"><img src="../Assets/Israel Slides/13. LAX-FRA LH Upgrade Prices.png" alt="LAX-FRA Lufthansa upgrade prices" style="max-width: 100%; max-height: 420px; object-fit: contain; border-radius: var(--radius-lg);"></div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     16 · CLOSING PHOTO — Q&A
+     ══════════════════════════════════════════════════════════════ -->
+<section class="slide slide--closing-photo">
+  <img class="photo-bg" src="../Assets/Imagery/traveler-man-blue-sky.jpg" alt="" class="photo-fill">
+  <div class="closing-content">
+    Questions?
+  </div>
+</section>
+
+
+</div><!-- /.deck-shell -->
+
+</body>
+</html>

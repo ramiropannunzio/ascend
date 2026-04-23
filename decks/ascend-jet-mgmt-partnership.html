@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=960">
+<meta name="generator" content="TCL_OS · /deck">
+<title>Ascend — JET Management Partnership</title>
+<link rel="stylesheet" href="../brand.css">
+<link rel="stylesheet" href="../ascend-deck.css">
+
+<style>
+/* ── Tour Timeline — custom slide (flight path narrative) ─────────
+   Direction: horizontal flight path on Midnight surface.
+   3 city nodes connected by 1.5pt line (Ascend §4.B).
+   Disruption segment in Sun. Resolution back to Purple.
+   ──────────────────────────────────────────────────────────────── */
+/* ── Tour slide — image left, title + data right ── */
+.slide--tour .left-panel {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+
+.slide--tour .left-panel img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide--tour .right-panel {
+  display: flex;
+  flex-direction: column;
+  padding: var(--slide-pad-inner) var(--space-16);
+  gap: 0;
+}
+
+/* Top half: headline */
+.tour-headline {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-deck-cover);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-neutral-0);
+  margin: 0 0 auto;
+}
+
+/* Bottom half: sub-two-column with timeline + status */
+.tour-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  padding: var(--space-8);
+  background: var(--color-midnight);
+  border-radius: var(--radius-lg, 12px);
+  color: #fff;
+}
+
+/* ── Vertical timeline ── */
+.tour-timeline-v {
+  display: flex;
+  flex-direction: column;
+}
+
+.tour-v-node {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 2;
+}
+
+.tour-v-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.tour-pill {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 100px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.tour-pill--city {
+  font-size: 14px;
+  color: #fff;
+  background: var(--color-primary);
+  padding: 9px 24px;
+}
+
+.tour-pill--alert {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  background: none;
+  padding: 0;
+}
+
+.tour-pill--resolved {
+  font-size: 11px;
+  color: var(--color-midnight);
+  background: var(--color-sun);
+  padding: 6px 14px;
+}
+
+.tour-label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tour-v-line {
+  width: 1.5px;
+  height: 28px;
+  background: rgba(255,255,255,0.18);
+  margin-left: 4.25px;
+}
+
+.tour-v-line--alert {
+  height: 40px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-sun) 0px,
+    var(--color-sun) 6px,
+    transparent 6px,
+    transparent 11px
+  );
+  position: relative;
+}
+
+.tour-alert-group {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.tour-alert-arrow {
+  color: var(--color-sun);
+  flex-shrink: 0;
+}
+
+/* ── Status column ── */
+.tour-status {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tour-status-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tour-status-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-sun);
+  flex-shrink: 0;
+}
+
+.tour-status-value {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+  line-height: 1;
+}
+
+.tour-status-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.5);
+  line-height: 1;
+  margin-top: 3px;
+}
+
+/* ── Partnership Overview — dense single-slide layout ────────
+   Midnight surface. Title + strategic role strip + two partner
+   cards + alignment footer. Custom for JET MGMT deck slide 09.
+   ──────────────────────────────────────────────────────────── */
+.slide--partnership-overview { background: var(--color-midnight); }
+.slide--partnership-overview .content {
+  padding: var(--slide-pad-top-sm) var(--slide-pad-x) 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.slide--partnership-overview .slide-title {
+  font-size: 32px;
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-on-primary);
+  margin: 0 0 16px;
+}
+
+/* Strategic role strip */
+.po-role-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.po-role-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.6);
+}
+.po-role-item svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--color-primary);
+}
+
+/* Divider between role strip and cards */
+.po-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  margin: 0 0 20px;
+}
+
+/* Partner cards grid */
+.po-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+.po-card {
+  background: var(--color-bg);
+  border-radius: var(--radius-xl);
+  padding: 16px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.po-card-name {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: var(--font-medium);
+  color: var(--color-neutral-0);
+  margin: 0 0 10px;
+}
+.po-section-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-neutral-40);
+  margin: 0 0 6px;
+}
+.po-section-label--comm {
+  margin-top: 0;
+  padding-top: 8px;
+}
+.po-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.po-check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--color-neutral-30);
+}
+.po-check-list li svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--color-primary);
+}
+.po-commercial-value {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-neutral-0);
+  margin: 0;
+}
+
+/* Alignment footer */
+.po-alignment {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.po-alignment-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+  padding-top: 1px;
+}
+.po-alignment-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+.po-alignment-item {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.6);
+}
+.po-alignment-item::before {
+  content: "→ ";
+  color: var(--color-primary);
+}
+/* ── Density overrides — fit 960×540 ──────────────────────
+   Problem grid and split-image-list overflow at default
+   spacing. These overrides reduce padding and sizes to fit.
+   ──────────────────────────────────────────────────────── */
+
+/* Problem grid: reduce card padding + gap */
+.slide--problem .problem-card {
+  padding: var(--space-6);
+  gap: var(--space-3);
+}
+
+/* Split image list: tighter right panel for text-heavy rows */
+.slide--split-image-list .right-panel {
+  padding: var(--slide-pad-inner) var(--space-8);
+}
+.slide--split-image-list .right-panel .slide-title {
+  font-size: 32px;
+  margin: 0 0 var(--space-4);
+}
+.slide--split-image-list .list-row {
+  padding: var(--space-4) 0;
+  grid-template-columns: 32px 1fr 32px;
+  gap: var(--space-3);
+}
+.slide--split-image-list .chevron-circle {
+  width: 32px;
+  height: 32px;
+}
+
+/* ── Three-col steps — white card wrapper ── */
+.slide--three-col-steps .step-card {
+  background: #fff;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+.slide--three-col-steps .step-mockup {
+  border-radius: 0;
+}
+
+.slide--three-col-steps .step-meta {
+  padding: var(--space-6) var(--space-6);
+}
+
+/* ── Split image list — reversed (image right, list left) ── */
+.slide--split-reversed .left-panel  { order: 2; }
+.slide--split-reversed .right-panel { order: 1; }
+
+/* ── Split image list — title inside right-panel ── */
+.slide--split-image-list .right-panel .slide-title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-deck-headline);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  color: var(--deck-text-primary);
+  margin: 0 0 var(--space-8);
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- Icon Sprite Sheet -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="icon-ascend-arrow" viewBox="0 0 112 64" fill="currentColor">
+      <path d="M110.535 34.1101H82.6104C81.8444 34.1101 80.8032 34.728 80.8032 35.494L81.2265 62.6103C81.2265 64.1212 79.1442 64.5402 78.5601 63.1478L57.2294 15.0394C56.7427 13.9432 55.1852 13.9432 54.6985 15.0394L33.3678 63.1478C32.7838 64.5444 30.7015 64.1254 30.7015 62.6103V35.494C30.7015 34.728 30.0836 34.1101 29.3175 34.1101H1.3887C-0.0291135 34.1101 -0.532748 32.2352 0.694613 31.5199L52.6628 1.32258L54.051 0.514221C55.2318 -0.17141 56.6919 -0.17141 57.8727 0.514221L59.2609 1.32258L111.229 31.5199C112.452 32.2352 111.953 34.1101 110.535 34.1101Z"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M5 13l4 4L19 7"/>
+    </symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M7 10l5 5 5-5"/>
+    </symbol>
+    <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+    </symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </symbol>
+    <symbol id="icon-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    </symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+    </symbol>
+    <symbol id="icon-dollar-sign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+    </symbol>
+    <symbol id="icon-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
+    </symbol>
+    <symbol id="icon-hotel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+    </symbol>
+    <symbol id="icon-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>
+    </symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<div class="deck-shell" data-theme="light">
+
+
+<!-- ══════════════════════════════════════════════════════════
+     01 · COVER PHOTO
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cover-photo">
+  <img class="cover-bg" src="../Assets/Imagery/traveler-man-window-thoughtful-2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+  <div class="cover-content">
+    <div class="cover-wordmark">
+      <img src="../Assets/Logo/Wordmark/ascend-wordmark-white.svg" alt="Ascend" style="height:72px; width:auto;">
+    </div>
+    <p class="cover-tagline">We make touring frictionless</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     02 · AGENDA — What we'll cover
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--agenda">
+  <div class="agenda-accent">
+    <img src="../Assets/Patterns/arrow-pattern-purple.svg" alt="" aria-hidden="true">
+  </div>
+  <div class="agenda-body">
+    <h2 class="slide-title">What we&rsquo;ll&nbsp;cover</h2>
+    <ol class="agenda-steps">
+      <li class="agenda-step">
+        <span class="agenda-step-num">01</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">The challenge</p>
+          <p class="agenda-step-desc">Why touring travel is the weakest link in artist&nbsp;operations</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">02</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">The solution</p>
+          <p class="agenda-step-desc">How Ascend handles end-to-end travel in real&nbsp;time</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">03</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">The impact</p>
+          <p class="agenda-step-desc">Revenue protection, cost savings, and time&nbsp;reclaimed</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">04</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">The partnership</p>
+          <p class="agenda-step-desc">Structure, terms, and next&nbsp;steps</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     03 · PROBLEM — 2×2 challenge grid
+     Touring is high-stakes. Travel is the weakest link.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--problem">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; JET Management</span>
+    <span class="topbar__num">02</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Travel is the weakest&nbsp;link</h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="icon-container icon-container--sm icon-container--light">
+          <svg width="20" height="20"><use href="#icon-dollar-sign"/></svg>
+        </div>
+        <h3 class="problem-card-title">Missed shows = lost&nbsp;revenue</h3>
+        <p class="problem-card-desc">A single missed performance means lost fees and damaged reputation with promoters and&nbsp;venues.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon-container icon-container--sm icon-container--light">
+          <svg width="20" height="20"><use href="#icon-refresh-cw"/></svg>
+        </div>
+        <h3 class="problem-card-title">Constant last-minute&nbsp;changes</h3>
+        <p class="problem-card-desc">Tour schedules shift daily. Routing changes need immediate resolution, not hold&nbsp;queues.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon-container icon-container--sm icon-container--light">
+          <svg width="20" height="20"><use href="#icon-users"/></svg>
+        </div>
+        <h3 class="problem-card-title">Managers acting as travel&nbsp;agents</h3>
+        <p class="problem-card-desc">Time spent coordinating flights and hotels is time not spent on deals and artist&nbsp;development.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon-container icon-container--sm icon-container--light">
+          <svg width="20" height="20"><use href="#icon-phone"/></svg>
+        </div>
+        <h3 class="problem-card-title">No real-time support</h3>
+        <p class="problem-card-desc">When something breaks at 2 AM in a foreign country, there&rsquo;s no one to&nbsp;call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     03 · THREE-COL STEPS — The solution
+     Text. Approve. Done.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-steps">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; JET Management</span>
+    <span class="topbar__num">03</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Text. Approve. Done.</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-message-circle"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 01</p>
+          <h3 class="step-name">Request</h3>
+          <p class="step-desc">Send travel needs via WhatsApp: dates, routes, preferences. That&rsquo;s&nbsp;it.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-check"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 02</p>
+          <h3 class="step-name">Approve</h3>
+          <p class="step-desc">Receive options with clear pricing within 60 minutes. Approve and booking is&nbsp;confirmed.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-shield"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 03</p>
+          <h3 class="step-name">Done</h3>
+          <p class="step-desc">Fully managed end-to-end. Flights, cars, hotels. Monitored and&nbsp;handled.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     04 · TOUR SCENARIO — split layout
+     Midnight left: vertical timeline + status. Right: headline large.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list slide--tour">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; JET Management</span>
+    <span class="topbar__num">04</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+
+  <!-- Left: full-bleed image -->
+  <div class="left-panel">
+    <img src="../Assets/Imagery/plane-window-wing-clouds.jpg" alt="">
+  </div>
+
+  <!-- Right: headline top + data bottom (sub-two-col) -->
+  <div class="right-panel">
+
+    <h2 class="tour-headline">48 hours<br>on tour,<br>handled<br>end-to-end</h2>
+
+    <!-- Sub-two-column: timeline left, status right -->
+    <div class="tour-data">
+
+      <!-- Col 1: vertical flight path -->
+      <div class="tour-timeline-v">
+        <div class="tour-v-node">
+          <div class="tour-v-dot"></div>
+          <span class="tour-pill tour-pill--city">IBZ</span>
+        </div>
+        <div class="tour-v-line"></div>
+        <div class="tour-v-node">
+          <div class="tour-v-dot"></div>
+          <span class="tour-pill tour-pill--city">BER</span>
+        </div>
+        <div class="tour-v-line tour-v-line--alert">
+          <div class="tour-alert-group">
+            <span class="tour-pill tour-pill--alert">DELAY</span>
+            <svg class="tour-alert-arrow" width="16" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span class="tour-pill tour-pill--resolved">REBOOKED</span>
+          </div>
+        </div>
+        <div class="tour-v-node">
+          <div class="tour-v-dot"></div>
+          <span class="tour-pill tour-pill--city">LHR</span>
+        </div>
+      </div>
+
+      <!-- Col 2: status icons -->
+      <div class="tour-status">
+        <div class="tour-status-item">
+          <div class="tour-status-icon">
+            <svg width="16" height="16"><use href="#icon-car"/></svg>
+          </div>
+          <div>
+            <div class="tour-status-value">Synced</div>
+            <div class="tour-status-label">Ground transport</div>
+          </div>
+        </div>
+        <div class="tour-status-item">
+          <div class="tour-status-icon">
+            <svg width="16" height="16"><use href="#icon-hotel"/></svg>
+          </div>
+          <div>
+            <div class="tour-status-value">Confirmed</div>
+            <div class="tour-status-label">Hotels</div>
+          </div>
+        </div>
+        <div class="tour-status-item">
+          <div class="tour-status-icon">
+            <svg width="16" height="16"><use href="#icon-clock"/></svg>
+          </div>
+          <div>
+            <div class="tour-status-value">Zero</div>
+            <div class="tour-status-label">Manager time</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     05 · FOUR-COL METRICS — Commercial value
+     Revenue protection, not travel support
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--four-col-metrics">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; JET Management</span>
+    <span class="topbar__num">05</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Revenue protection, not travel&nbsp;support</h2>
+    <div class="metrics-grid">
+      <div class="metric-col">
+        <span class="pill pill--purple">PREVENTION</span>
+        <span class="metric-number">$250K+</span>
+        <p class="metric-subtitle">Show revenue protected</p>
+        <p class="metric-desc">A single missed show costs $10K&ndash;$250K+. Ascend prevents&nbsp;that.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">SAVINGS</span>
+        <span class="metric-number">~$84K</span>
+        <p class="metric-subtitle">Annual savings</p>
+        <p class="metric-desc">Estimated savings on premium fares across a touring&nbsp;roster.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">TIME</span>
+        <span class="metric-number">100+</span>
+        <p class="metric-subtitle">Hours reclaimed</p>
+        <p class="metric-desc">Management hours redirected from logistics to deal-making and artist&nbsp;growth.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">OPERATIONS</span>
+        <span class="metric-number">Zero</span>
+        <p class="metric-subtitle">Operational burden</p>
+        <p class="metric-desc">No coordination, no hold queues, no platform&nbsp;juggling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     06 · SECTION BREAK — Purple
+     Impact closer statement
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--section-purple">
+  <h2 class="section-headline">Pays for itself the first time something goes&nbsp;wrong</h2>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     07 · SECTION BREAK — Midnight
+     Partnership structure intro
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--section-midnight">
+  <h2 class="section-headline">Partnership<br>structure</h2>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     06 · SPLIT IMAGE LIST — Strategic role
+     What Ascend does for the roster
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; JET Management</span>
+    <span class="topbar__num">06</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel left-panel--purple">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/traveler-businessman-suitcase.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+      <div class="pills-overlay">
+        <svg width="24" height="14"><use href="#icon-ascend-arrow"/></svg>
+        <span class="pill">STRATEGIC ROLE</span>
+      </div>
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">Strategic role</h2>
+    <div class="list-row">
+      <span class="list-num">01</span>
+      <span class="list-text">Operates as the travel layer behind every show, ensuring artists arrive on time, every&nbsp;time</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">02</span>
+      <span class="list-text">Removes travel as a point of failure across the entire&nbsp;roster</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">03</span>
+      <span class="list-text">Strengthens JET Management&rsquo;s offering to both existing and future&nbsp;talent</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">04</span>
+      <span class="list-text">Creates a scalable model that extends across other management&nbsp;companies</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     07 · PARTNERSHIP OVERVIEW — Full structure on one slide
+     Strategic role + JET MGMT / BLONDISH cards + alignment
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--partnership-overview">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend &times; JET Management</span>
+    <span class="topbar__num">07</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Partnership structure</h2>
+
+    <!-- Strategic role — 4-column strip -->
+    <div class="po-role-strip">
+      <div class="po-role-item">
+        <svg width="12" height="12"><use href="#icon-check"/></svg>
+        Operates as the travel layer behind every show, ensuring artists arrive on&nbsp;time
+      </div>
+      <div class="po-role-item">
+        <svg width="12" height="12"><use href="#icon-check"/></svg>
+        Removes travel as a point of failure across the entire&nbsp;roster
+      </div>
+      <div class="po-role-item">
+        <svg width="12" height="12"><use href="#icon-check"/></svg>
+        Strengthens JET MGMT&rsquo;s offering to existing and future&nbsp;talent
+      </div>
+      <div class="po-role-item">
+        <svg width="12" height="12"><use href="#icon-check"/></svg>
+        Creates a scalable model that extends across other management&nbsp;companies
+      </div>
+    </div>
+
+    <hr class="po-divider">
+
+    <!-- Partner cards -->
+    <div class="po-cards">
+
+      <!-- JET MGMT -->
+      <div class="po-card">
+        <h3 class="po-card-name">JET Management</h3>
+        <p class="po-section-label">What you get</p>
+        <ul class="po-check-list">
+          <li>
+            <svg width="12" height="12"><use href="#icon-check"/></svg>
+            Complimentary Year 1 access for all clients + internal&nbsp;team
+          </li>
+          <li>
+            <svg width="12" height="12"><use href="#icon-check"/></svg>
+            Premium travel operations across your entire&nbsp;roster
+          </li>
+          <li>
+            <svg width="12" height="12"><use href="#icon-check"/></svg>
+            Revenue share via referrals to other management&nbsp;companies
+          </li>
+        </ul>
+        <p class="po-section-label po-section-label--comm">Commercials</p>
+        <p class="po-commercial-value">50% travel credit ($1,250) per referred&nbsp;membership</p>
+      </div>
+
+      <!-- BLONDISH -->
+      <div class="po-card">
+        <h3 class="po-card-name">BLOND:ISH</h3>
+        <p class="po-section-label">What you get</p>
+        <ul class="po-check-list">
+          <li>
+            <svg width="12" height="12"><use href="#icon-check"/></svg>
+            Lifetime Ascend membership, no&nbsp;restrictions
+          </li>
+          <li>
+            <svg width="12" height="12"><use href="#icon-check"/></svg>
+            Priority service across all&nbsp;travel
+          </li>
+          <li>
+            <svg width="12" height="12"><use href="#icon-check"/></svg>
+            Dedicated support built for touring&nbsp;schedules
+          </li>
+        </ul>
+        <p class="po-section-label po-section-label--comm">Commercials</p>
+        <p class="po-commercial-value">100% credit ($2,500) per referred&nbsp;membership</p>
+      </div>
+
+    </div>
+
+    <!-- Alignment footer -->
+    <div class="po-alignment">
+      <span class="po-alignment-title">In return,<br>Ascend receives</span>
+      <div class="po-alignment-items">
+        <span class="po-alignment-item">Permission to use Blondish&rsquo;s name and likeness across landing pages and case&nbsp;studies</span>
+        <span class="po-alignment-item">Capture and use Blondish testimonial content for marketing and&nbsp;advertising</span>
+        <span class="po-alignment-item">One dedicated story mention on Blondish&rsquo;s IG per&nbsp;year</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ══════════════════════════════════════════════════════════
+     08 · THREE-COL NUMBERED — Next Steps
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-numbered">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; JET Management</span>
+    <span class="topbar__num">08</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Next steps</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="mono-number">01</span>
+        <p>Confirm roster size and identify priority artists for&nbsp;onboarding.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number">02</span>
+        <p>Align on partnership structure: cash, credit, or&nbsp;hybrid.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number">03</span>
+        <p>Launch onboarding. First booking within&nbsp;48&nbsp;hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div><!-- .deck-shell -->
+</body>
+</html>

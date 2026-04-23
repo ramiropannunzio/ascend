@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1456">
+<meta name="generator" content="TCL_OS · /deck">
+<title>Ascend — BLOND:ISH Case Study</title>
+<link rel="stylesheet" href="../brand.css">
+<link rel="stylesheet" href="../ascend-deck.css">
+</head>
+<body>
+
+<!-- Icon Sprite Sheet -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="icon-ascend-arrow" viewBox="0 0 112 64" fill="currentColor">
+      <path d="M110.535 34.1101H82.6104C81.8444 34.1101 80.8032 34.728 80.8032 35.494L81.2265 62.6103C81.2265 64.1212 79.1442 64.5402 78.5601 63.1478L57.2294 15.0394C56.7427 13.9432 55.1852 13.9432 54.6985 15.0394L33.3678 63.1478C32.7838 64.5444 30.7015 64.1254 30.7015 62.6103V35.494C30.7015 34.728 30.0836 34.1101 29.3175 34.1101H1.3887C-0.0291135 34.1101 -0.532748 32.2352 0.694613 31.5199L52.6628 1.32258L54.051 0.514221C55.2318 -0.17141 56.6919 -0.17141 57.8727 0.514221L59.2609 1.32258L111.229 31.5199C112.452 32.2352 111.953 34.1101 110.535 34.1101Z"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M5 13l4 4L19 7"/>
+    </symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M7 10l5 5 5-5"/>
+    </symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+    </symbol>
+    <symbol id="icon-dollar-sign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <symbol id="icon-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+    </symbol>
+    <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+    </symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<div class="deck-shell" data-theme="light">
+
+
+<!-- ══════════════════════════════════════════════════════════
+     01 · COVER PHOTO
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cover-photo">
+  <img class="cover-bg" src="../Assets/Imagery/plane-above-clouds.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+  <div class="cover-content">
+    <div class="cover-wordmark">
+      <svg width="112" height="64"><use href="#icon-ascend-arrow"/></svg>
+      ascend
+    </div>
+    <p class="cover-tagline">Case Study &mdash; BLOND:ISH</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     02 · SECTION BREAK — Midnight
+     Impact hook with total savings headline
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--section-midnight">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Case Study &mdash; BLOND:ISH</span>
+    <span class="topbar__num">01</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">$48,000 Saved<br>in 14&nbsp;Months</h2>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     03 · HERO PHOTO TAGS
+     Aerial photo with floating route pills — visual context
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--hero-photo-tags">
+  <img class="photo-bg" src="../Assets/Imagery/aerial-clouds-town.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+  <div class="overlay"></div>
+  <div class="topbar topbar--white" style="z-index:5;">
+    <span class="topbar__title">Case Study &mdash; BLOND:ISH</span>
+    <span class="topbar__num">02</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="floating-pills">
+    <span class="pill pill--sun" style="top:120px; left:180px;">LHR &rarr; DTW</span>
+    <span class="pill pill--sun" style="top:180px; left:60px;">JFK &rarr; IBZ</span>
+    <span class="pill pill--sun" style="top:260px; right:200px;">GVA &rarr; ASE</span>
+    <span class="pill pill--sun" style="top:340px; left:280px;">BUSINESS CLASS</span>
+    <span class="pill pill--sun" style="top:400px; right:120px;">46 BOOKINGS</span>
+  </div>
+  <div class="content">
+    <h2 class="headline">46 bookings. 4&nbsp;continents.<br>14&nbsp;months.</h2>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     04 · FOUR-COL METRICS
+     Key results at a glance — 4 data points
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--four-col-metrics">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Case Study &mdash; BLOND:ISH</span>
+    <span class="topbar__num">03</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Key Results at a&nbsp;Glance</h2>
+    <div class="metrics-grid">
+      <div class="metric-col">
+        <span class="pill pill--purple">SAVINGS</span>
+        <span class="metric-number">$48K</span>
+        <p class="metric-subtitle">Total Saved</p>
+        <p class="metric-desc">Across 46 bookings in 14 months of&nbsp;touring.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">DISCOUNT</span>
+        <span class="metric-number">22%</span>
+        <p class="metric-subtitle">Avg Discount</p>
+        <p class="metric-desc">On business and first class&nbsp;fares.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">TIME</span>
+        <span class="metric-number">24 hrs</span>
+        <p class="metric-subtitle">Hours Recovered</p>
+        <p class="metric-desc">Redirected to DJ sets and music&nbsp;production.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">VOLUME</span>
+        <span class="metric-number">46</span>
+        <p class="metric-subtitle">Total Bookings</p>
+        <p class="metric-desc">Business and first class flights&nbsp;worldwide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     05 · SPLIT IMAGE LIST — About BLOND:ISH
+     Photo left + profile details right
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Case Study &mdash; BLOND:ISH</span>
+    <span class="topbar__num">04</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel left-panel--purple">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/traveler-businesswoman-luggage.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+      <div class="pills-overlay">
+        <svg width="24" height="14"><use href="#icon-ascend-arrow"/></svg>
+        <span class="pill">BLOND:ISH</span>
+        <span class="pill">DJ &amp; PRODUCER</span>
+      </div>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="list-row">
+      <span class="list-num">01</span>
+      <span class="list-text">International DJ and producer touring year-round</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">02</span>
+      <span class="list-text">Performs across Europe, the Americas, Africa, and&nbsp;Asia</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">03</span>
+      <span class="list-text">Complex multi-city itineraries with tight connections between&nbsp;shows</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">04</span>
+      <span class="list-text">Constant coordination across countries and time&nbsp;zones</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     06 · PROBLEM — 2×2 challenge grid
+     The pain points of global touring travel
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--problem">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Case Study &mdash; BLOND:ISH</span>
+    <span class="topbar__num">05</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">The Challenges of Global&nbsp;Touring</h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="20" height="20"><use href="#icon-globe"/></svg>
+        </div>
+        <h3 class="problem-card-title">Multi-City Routing</h3>
+        <p class="problem-card-desc">Shows in different countries within days required itineraries across multiple airlines and&nbsp;connections.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="20" height="20"><use href="#icon-dollar-sign"/></svg>
+        </div>
+        <h3 class="problem-card-title">Retail Fares</h3>
+        <p class="problem-card-desc">Last-minute changes meant paying full retail prices on premium cabin&nbsp;tickets.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="20" height="20"><use href="#icon-phone"/></svg>
+        </div>
+        <h3 class="problem-card-title">No Single Point of&nbsp;Contact</h3>
+        <p class="problem-card-desc">Managing disruptions across multiple platforms with no dedicated travel&nbsp;support.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="20" height="20"><use href="#icon-clock"/></svg>
+        </div>
+        <h3 class="problem-card-title">Time Lost to Logistics</h3>
+        <p class="problem-card-desc">Hours spent coordinating travel took away from music production and show&nbsp;preparation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     07 · THREE-COL STEPS — How Ascend Works
+     Request → Approve → Relax
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-steps">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Case Study &mdash; BLOND:ISH</span>
+    <span class="topbar__num">06</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">How Ascend Works</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-message-circle"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 01</p>
+          <h3 class="step-name">Request</h3>
+          <p class="step-desc">Send your dates, routes, and preferences via WhatsApp. That&rsquo;s&nbsp;it.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-check"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 02</p>
+          <h3 class="step-name">Approve</h3>
+          <p class="step-desc">Receive options with clear pricing within 60 minutes. Approve and the booking is&nbsp;confirmed.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-shield"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 03</p>
+          <h3 class="step-name">Relax</h3>
+          <p class="step-desc">All bookings are completed and monitored from start to&nbsp;finish.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     08 · THREE-COL TESTIMONIALS — Route savings examples
+     3 real routes with Ascend vs Retail pricing
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-testimonials">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Case Study &mdash; BLOND:ISH</span>
+    <span class="topbar__num">07</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Real Savings, Real&nbsp;Routes</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-col">
+        <span class="pill pill--purple">LONDON &rarr; DETROIT</span>
+        <span class="testimonial-amount">$3,725</span>
+        <span class="testimonial-saved">Ascend Price</span>
+        <p class="testimonial-detail">Retail: $11,871. Business class. 69%&nbsp;saved.</p>
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote-text">$8,146 saved on a single business class&nbsp;booking.</p>
+      </div>
+      <div class="testimonial-col">
+        <span class="pill pill--purple">NEW YORK &rarr; IBIZA</span>
+        <span class="testimonial-amount">$4,354</span>
+        <span class="testimonial-saved">Ascend Price</span>
+        <p class="testimonial-detail">Retail: $8,108. Business class. 46%&nbsp;saved.</p>
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote-text">Nearly half-price on a peak-season transatlantic&nbsp;route.</p>
+      </div>
+      <div class="testimonial-col">
+        <span class="pill pill--midnight">GENEVA &rarr; ASPEN</span>
+        <span class="testimonial-amount">$4,765</span>
+        <span class="testimonial-saved">Ascend Price</span>
+        <p class="testimonial-detail">Retail: $9,367. Business class. 49%&nbsp;saved.</p>
+        <span class="quote-mark quote-mark--land">&ldquo;</span>
+        <p class="quote-text">Premium routing at less than half the retail&nbsp;fare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     09 · CONTENT — Total Impact
+     Summary of all results
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--content">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Case Study &mdash; BLOND:ISH</span>
+    <span class="topbar__num">08</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Total Impact</h2>
+    <ul class="slide-list">
+      <li>
+        <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+        $48,000 saved across 46&nbsp;bookings
+      </li>
+      <li>
+        <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+        22% average discount on premium&nbsp;fares
+      </li>
+      <li>
+        <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+        $0 in booking or change&nbsp;fees
+      </li>
+      <li>
+        <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+        5 minutes per booking (vs. 45+&nbsp;before)
+      </li>
+      <li>
+        <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+        1 membership for business, personal, and family&nbsp;travel
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     10 · SECTION BREAK — Purple
+     Featured quote from BLOND:ISH
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--section-purple">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Case Study &mdash; BLOND:ISH</span>
+    <span class="topbar__num">09</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">&ldquo;I&rsquo;m not looking for discounts. I&rsquo;m buying time and peace of&nbsp;mind.&rdquo;</h2>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     11 · CONTENT — Second quote + context
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--content">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Case Study &mdash; BLOND:ISH</span>
+    <span class="topbar__num">10</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Ascend Is Now Her Default</h2>
+    <p class="slide-body">&ldquo;It&rsquo;s become my default travel brain. I don&rsquo;t even check other sites anymore.&rdquo; &mdash;&nbsp;BLOND:ISH</p>
+    <p class="slide-body">From complex multi-city routing to last-minute changes, Ascend handles every detail so BLOND:ISH can focus on what matters&nbsp;most&mdash;the&nbsp;music.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     12 · CTA CONTACTS — Closing
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cta-contacts">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Case Study &mdash; BLOND:ISH</span>
+    <span class="topbar__num">11</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="cta-headline">Ready to travel<br>smarter?</h2>
+    <div class="contacts">
+      <div class="contact-row">
+        <span class="contact-name">WEB</span>
+        <span class="contact-email">www.joinascend.com</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-name">EMAIL</span>
+        <span class="contact-email"><a href="mailto:booking@joinascend.com">booking@joinascend.com</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-name">WHATSAPP</span>
+        <span class="contact-email">+1 (737) 388-9912</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div><!-- .deck-shell -->
+</body>
+</html>
