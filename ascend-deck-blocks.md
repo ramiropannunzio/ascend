@@ -9,6 +9,23 @@
 
 ---
 
+## Team Roster
+
+Single source of truth for team members with headshots. All blocks (`ascend-team`, `ascend-closing-zach`, `webinar-cover`) reference this roster.
+
+| Name | Role | Headshot |
+|---|---|---|
+| Zach Resnick | Founder & CEO | `Assets/Headshots/Zach Rensick.jpeg` |
+| Cameron Resnick | CXO | `Assets/Headshots/Cameron Resnick.jpeg` |
+| Omar Ismail | COO | `Assets/Headshots/Omar Ismail.jpeg` |
+| Chloe Rose Mitchell | Head of Strategic Growth | `Assets/Headshots/Chloe Rose Mitchell.jpeg` |
+| Mike Finneran | Account Executive | `Assets/Headshots/Mike Finneran.png` |
+| Israel Stern | Director of Flights | `Assets/Headshots/Israel Stern.jpeg` |
+
+> **Note:** Headshot paths are relative to `05-CreativeOps/Clients/Ascend/Brand Assets/`. Members without a headshot file (Maleeha, Deeksha, Dave, Nishit) are omitted — add them here when photos are available.
+
+---
+
 ## What's Already in the System
 
 All blocks available. `✓ Auto` = Part A (static, injected as-is). `✎ Fill` = requires project-specific content before use.
@@ -122,8 +139,8 @@ photo: Assets/Imagery/traveler-businessman-suitcase.jpg
 ## cta-contacts
 # Ready to make travel effortless?
 - name: Zach Resnick | email: zach@flyascend.com
-- name: Chloe Lam | email: chloe@flyascend.com
-- name: Mike Torres | email: mike@flyascend.com
+- name: Chloe Rose Mitchell | email: chloe@flyascend.com
+- name: Mike Finneran | email: mike@flyascend.com
 ```
 
 ### `ascend-closing-photo`
@@ -240,11 +257,12 @@ savings:
 # Real people. Available 24/7.
 Your dedicated team includes:
 members:
-- name: Zach | role: Chief Executive Officer
-- name: Cameron | role: Chief Experience Officer
-- name: Omar | role: Chief Operating Officer
-- name: Chloe | role: Head of Strategic Growth
-- name: Mike | role: Account Director
+- name: Zach Resnick | role: Founder & CEO | photo: Assets/Headshots/Zach Rensick.jpeg
+- name: Cameron Resnick | role: CXO | photo: Assets/Headshots/Cameron Resnick.jpeg
+- name: Omar Ismail | role: COO | photo: Assets/Headshots/Omar Ismail.jpeg
+- name: Chloe Rose Mitchell | role: Head of Strategic Growth | photo: Assets/Headshots/Chloe Rose Mitchell.jpeg
+- name: Mike Finneran | role: Account Executive | photo: Assets/Headshots/Mike Finneran.png
+- name: Israel Stern | role: Director of Flights | photo: Assets/Headshots/Israel Stern.jpeg
 ---
 - name: Maleeha | role: Head of Concierge
 - name: Deeksha | role: Head of Product

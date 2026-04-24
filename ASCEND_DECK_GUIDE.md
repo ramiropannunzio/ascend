@@ -10,10 +10,12 @@
 
 ## Prerequisites — Load Before Responding
 
-1. `ascend-deck-template.html` — slide catalog (30 types + variants). Single source: copy, strip unused slides, inject content.
-2. `ascend-deck.css` — slide system (layout, chrome, type modifiers, auto-shrink, print). Extends brand.css.
-3. `brand.css` — design tokens (colors, typography, spacing, radii, font-face declarations).
-4. `Fonts/` — FT System Trial (Grotesk: Regular, Medium, Semibold, Bold) + FT System Mono (Regular, Medium).
+1. `05-CreativeOps/Clients/Ascend/Brand Assets/Slides/ascend-deck-template.html` — slide catalog (25+ types) + shell (head, sprite sheet). Single source: copy this file, strip unused slides, inject content.
+2. `05-CreativeOps/Clients/Ascend/Brand Assets/Slides/ascend-deck.css` — slide system (Layout, chrome, type modifiers, auto-shrink, print). Extends brand.css.
+3. `05-CreativeOps/brain/raw/standards/Ascend/brand.css` — design tokens (colors, typography, spacing, radii, font-face declarations).
+4. `05-CreativeOps/Frameworks/deck-token-contract.md` — Layer 1 constants + Layer 2 variable naming contract.
+5. `05-CreativeOps/Clients/Ascend/Brand Assets/Ascend_StyleGuide.md` — brand rules and visual identity.
+6. `05-CreativeOps/Clients/Ascend/Brand Assets/Fonts/` — FT System Trial (Grotesk: Regular, Medium, Semibold, Bold) + FT System Mono (Regular, Medium).
 
 ---
 
@@ -933,67 +935,69 @@ speakers:
 | Plain paragraph | Subtitle or tagline | `.slide-subtitle` / `.cover-tagline` |
 | `---` between slides | Slide separator | (frontmatter uses first `---` pair) |
 | `theme: light` | Frontmatter — forces light mode | Inline `:root` override in template |
+| `variant: midnight` | Per-slide — midnight BG variant | `.slide--midnight` added to `<section>` |
 
 ---
 
-## Density Limits
+## Midnight Variants
+
+Slide types that support `.slide--midnight` modifier (midnight BG alternative):
+
+| Slide type | Default surface | Midnight effect |
+|---|---|---|
+| `three-col-numbered` | Sky | Midnight BG, translucent cards, white text |
+| `four-col-metrics` | Neutral-95 | Midnight BG, translucent borders, sun pills |
+| `quote` (single / 2 / 3) | Neutral-95 | Midnight BG, sun quote marks, translucent cards |
+| `problem` | Neutral-95 | Midnight BG, translucent cards, sun icon containers |
+| `results` | Neutral-95 | Midnight BG, translucent cards, sun delta badges |
+| `cards` | Neutral-95 | Midnight BG, translucent cards, sun icon containers |
+
+> Surface temperature rule, auto-fix logic, and `.md` syntax (`variant: midnight`) defined in SKILL.md Rule 20.
+
+---
+
+## Ascend-Specific Density Limits
+
+Extends the universal density limits in SKILL.md with Ascend-specific types:
 
 | Type | Hard limit | If exceeded |
 |---|---|---|
 | `cover-photo` | 1 headline + 1 tagline | Cannot expand |
 | `section-break` | 1 headline (80px, max 2 lines, ~20 chars/line) | Shorten copy |
-| `three-col-numbered` | 3 cards (fixed), ~20 words/card desc | Split into 2 slides |
 | `hero-photo-tags` | 1 headline (max 2 lines) + 6 tags | Remove excess tags |
 | `split-image-list` | 4 list items | Cannot exceed — layout is fixed |
 | `three-col-steps` | 3 steps (fixed), ~25 words/step desc | Shorten descriptions |
 | `team-grid` | 5 members/row, 2 rows max (10 total) + 1 stat | Split into 2 slides |
-| `four-col-metrics` | 4 metrics (fixed) | Cannot split — summarize |
-| `timeline-two-col` | 5 timeline items (3 left + 2 right) | 6+ -> split into 2 slides |
+| `timeline-two-col` | 5 timeline items (3 left + 2 right) | 6+ → split into 2 slides |
 | `three-col-testimonials` | 3 testimonials (fixed), ~25 words/quote | Shorten quotes |
 | `three-col-features` | 3 cards, 4 check items/card | Shorten or split |
 | `two-col-comparison` | 2 cards, 4 check items/card | Shorten or remove items |
 | `three-col-pricing` | 1 pricing + 1 ROI + 1 savings table (4 rows max) | Summarize |
-| `faq-split` | 5 Q&A items, ~15 words/answer | 6+ -> split into 2 slides |
+| `faq-split` | 5 Q&A items, ~15 words/answer | 6+ → split into 2 slides |
 | `cta-contacts` | 4 contact rows | Cannot exceed |
 | `closing-photo` | 1 headline only | Cannot expand |
 | `screenshot` | 1 headline + 1 image | Cannot expand |
-| `content` | Body ≤3 sentences OR ≤6 bullets | Split into 2 slides |
-| `agenda` | 4 default, 5 max steps | Cannot exceed 5 |
-| `problem` | 4 grid items (2×2 fixed) | Cannot split — summarize |
-| `results` | 2 cards (fixed) | Cannot split — summarize |
-| `cards` | 4 (2×2), 6 max (3-col variant) | Split into 2 slides |
-| `matrix` | 5 cols × 6 rows | Reduce columns or split |
-| `two-col-text` | 5 items per column | Split into 2 slides |
-| `logo-wall` | 8 logos, symmetric rows (12 max) | Remove excess |
-| `timeline` | 5 nodes | 6+ → split or simplify labels |
-| `quote` | 1 (single), 2 (stacked), 3 max (tight) | 4+ → split into 2 slides |
-| `blank` | n/a | Empty slide |
-| `map` | 12 markers, stat ≤80 chars | Remove excess markers |
 | `cover-speakers` | 1 headline + 1 subtitle + 4 speakers max | Reduce speakers or use separate intro slide |
+| `map` | 12 markers, stat ≤80 chars | Remove excess markers |
+
+> Universal types (content, problem, results, cards, metrics, matrix, etc.) use the limits in SKILL.md Step 1.6.
 
 ---
 
-## Content Budget Validation (pre-assembly)
+## Ascend Content Zones
 
-Before writing any HTML, validate that every slide's content fits within its available space. **Do not assemble a slide that fails this check.**
-
-### A. Content zone by slide type
+Pixel dimensions for the Ascend template (960×540, 48px padding):
 
 | Slide type | Content width (px) | Content height (px) | Notes |
 |---|---|---|---|
-| Full-width (content, problem, cards, metrics, results, three-col-*) | 864 | 444 | Slide 960×540 − padding 48px × 2 |
-| split-image-list (right panel, 50/50) | 352 | 444 | 50% of slide (480px) − padding 64px × 2 |
-| split-image-list (right panel, 2fr/1fr) | 544 | 444 | 66% of slide (640px) − padding 48px × 2 |
-| two-col-text (per column) | 380 | 380 | (864 − divider − gap) / 2. Height: 444 − headline − gap |
-| section-break | 864 | 444 | But headline at 80px = ~20 chars/line max |
+| Full-width (content, problem, cards, metrics, results, three-col-*) | 864 | 444 | Slide − padding × 2 |
+| split-image-list (right panel, 50/50) | 352 | 444 | 50% of slide − padding × 2 |
+| split-image-list (right panel, 2fr/1fr) | 544 | 444 | 66% of slide − padding × 2 |
+| two-col-text (per column) | 380 | 380 | (864 − divider − gap) / 2 |
+| section-break | 864 | 444 | Headline at 80px = ~20 chars/line max |
 | cover-speakers | 864 | ~400 | Depends on speaker count |
 
-### B. Headline line calculation
-
-```
-chars_per_line = content_width / (font_size × 0.55)
-lines_needed  = ceil(total_chars / chars_per_line)
-```
+Headline tiers for Ascend:
 
 | Context | Font size | Full-width chars/line | Split panel chars/line |
 |---|---|---|---|
@@ -1001,136 +1005,32 @@ lines_needed  = ceil(total_chars / chars_per_line)
 | Slide title (default) | 42px | ~37 | ~15 |
 | Hero-photo-tags | 32px | ~49 | n/a |
 
-### C. Height budget calculation
-
-```
-headline_height = lines × font_size × 1.1 + margin_bottom (32px)
-per_list_row    = 48px (split-image-list) | 24px (content bullets)
-total           = headline_height + (items × per_row_height)
-```
-
-**If total > available content height:** Do NOT assemble. Report:
-> "Slide [N] exceeds content zone by ~Xpx. Options: (a) shorten headline to ≤[N] chars, (b) reduce items, (c) apply data-autoshrink, (d) change slide type."
-
-Wait for user decision before proceeding.
-
-### D. No `white-space: nowrap` without verification
-
-Never apply `nowrap` unless the text is confirmed to fit in 1 line within the real content width.
+> Content budget formula, overflow handling, and auto-shrink thresholds defined in SKILL.md Rules 1 and 18.
 
 ---
 
-## Copy Fidelity (absolute rule)
+## Ascend Assembly — Overrides to SKILL.md Output Steps
 
-The content the user provides is the content that goes into the deck. No paraphrasing, no rewriting, no "improving."
+The assembly process follows SKILL.md Steps 1–4. Below are Ascend-specific overrides only:
 
-### Protocol
+**Step 2 overrides:**
+- Base file: `ascend-deck-template.html` (not TCL default)
+- Topbar color is **automatic** via CSS — no manual variant class needed. For mixed-BG slides, use `topbar-el--*` per-element overrides.
+- No topbar on: `cover-photo`, `closing-photo`, section-breaks, `agenda`
+- `cta-contacts` has topbar (white variant, Midnight BG)
+- Section-breaks use class variant: `.slide--section-midnight` / `land` / `purple` / `sun` / `sky`
 
-1. **Transcribe verbatim.** Headlines, bullets, body text — use exactly the user's text. The only permitted modifications:
-   - Add `&nbsp;` to prevent orphan words
-   - Convert special characters to HTML entities (`&mdash;`, `&rsquo;`, etc.)
-   - Adjust to sentence case if input arrives in Title Case (per brand rule)
-
-2. **If the text doesn't fit the chosen slide type**, do NOT truncate silently. Instead:
-   - Report the overflow with exact character counts
-   - Propose options: change slide type, split into 2 slides, or ask the user to shorten
-   - Wait for confirmation
-
-3. **If a headline is a "label" not a "takeaway"**, do NOT rewrite it. Flag it as an observation in the plan:
-   > "Headline is descriptive, not a takeaway. Keep as-is or adjust?"
-
-   Assemble with the original text until the user confirms a change.
-
-4. **After assembly**, produce a reconciliation table listing any deviations between input and HTML:
-
-   | Slide | User input | HTML output | Deviation |
-   |---|---|---|---|
-   | 04 | "What firms like yours typically lose" | "What firms like yours typically lose" | None |
-
-   If deviations exist → fix before proceeding to QA.
-
-**Rationale:** Every silent rewrite generates a manual iteration where the user hunts through HTML to find what changed. Getting it right the first time is always cheaper.
-
----
-
-## Output — 4 Steps
-
-### Step 1: Parse & Plan
-
-1. Extract frontmatter (`title`, `client`, `date`, `theme`).
-2. List each slide with: number, type, headline.
-3. Map each slide type to its CSS class (`.slide--[type]`).
-4. Flag unknowns — unrecognized types have no default. All 30 types must match exactly.
-5. Validate structure:
-   - One idea per slide?
-   - Headline-first (takeaway, not label)? If label → flag, don't rewrite (see Copy Fidelity §3).
-   - Surface alternation (no 2 identical layouts back-to-back)?
-   - Pacing rhythm (breather after 3 dense slides)?
-   - Max 18 slides recommended?
-6. **Density check** — verify item count against limits table above. If exceeded, split or shorten BEFORE assembling.
-7. **Content budget check** — for every slide, run the height budget calculation. If any slide exceeds its content zone, report and wait for user decision (see Content Budget Validation §C).
-
-**Output to user:** Slide plan table for confirmation before assembling.
-
-### Step 2: Assemble HTML
-
-1. Copy `ascend-deck-template.html` as base — strip all `<section>` slides from the `<body>`.
-2. Update `<title>` with deck title from frontmatter.
-3. For each slide, inject a `<section class="slide slide--[type]">` with:
-   - Content populated from `.md` using correct sub-classes per type.
-   - **Copy fidelity:** transcribe user content verbatim. No paraphrasing (see Copy Fidelity protocol).
-   - **Interior slides:** `.topbar` chrome — deck title (mono) + slide number (zero-padded) + Ascend arrow icon. Topbar color is automatic based on slide type. No variant class needed. For mixed-BG slides, use `topbar-el--*` per-element overrides.
-   - **No topbar:** `cover-photo`, `closing-photo`, section-breaks, and `agenda` have no chrome.
-   - **CTA-contacts:** Has topbar (white variant, Midnight BG).
-4. Adjust `photo` paths relative to output file location.
-5. For section-breaks: use the correct class variant (`.slide--section-midnight`, `.slide--section-land`, `.slide--section-purple`).
-
-### Step 3: Consistency Check
+**Step 3 — additional Ascend checks:**
 
 | Check | Pass criteria |
 |---|---|
-| All colors from tokens | Zero hardcoded hex/rgb values outside the `<style>` block |
-| All spacing from tokens | Zero raw px for padding/margin/gap in content |
-| Slide count matches `.md` | Every `## [type]` present in output |
-| Topbar present | Interior slides: topbar. Cover/closing/section-breaks/agenda: none |
-| Topbar color | Automatic via CSS — verify visually that text is legible on each slide |
-| Density limits respected | Every slide within type limits |
-| Content budget passed | Every slide passed pre-assembly height budget check |
-| Copy fidelity | Reconciliation table shows zero deviations from user input |
-| No text overflow | All content fits within the usable content zone (864×444) — not the raw 960×540 slide |
-| Font paths resolve | Relative to output file location |
-| Pills uppercase | All `.pill` text rendered in FT System Mono, uppercase |
+| Pills uppercase | All `.pill` text in FT System Mono, uppercase |
 | Sentence case | All headlines and body in sentence case (not Title Case) |
-| Emails hyperlinked | Every email uses `<a href="mailto:...">` |
 
-### Step 4: Visual QA
+**Step 4 — Visual QA:**
+Open in Chrome. Verify topbar consistency, pill rendering in FT System Mono, headline type scale (80px / 42px / 32px), Ascend palette compliance.
 
-After assembly, open the HTML in Chrome and verify:
-1. Each slide renders within 960×540 bounds with no overflow.
-2. Topbar positioning is consistent across all interior slides.
-3. Photo placeholders are correctly sized and positioned.
-4. Pills, numbers, and tags render in FT System Mono, uppercase.
-5. Headline type scale matches the tier (80px / 42px / 32px).
-6. Colors match the Ascend palette — no stray values.
-
----
-
-## Auto-Shrink Fallback
-
-For slides that are 5-10% over the content zone, apply `data-autoshrink` on the `<section>` instead of splitting:
-
-| Attribute | Effect |
-|---|---|
-| `data-autoshrink="1"` | Title 42→40px, body 16→15px, list/timeline gap → `--space-2` (~5% reduction) |
-| `data-autoshrink="2"` | Title 42→38px, body 16→14px, list/timeline gap → `--space-1` (~10% reduction) |
-
-**Decision rule:**
-- Content fits -> no attribute
-- Overflow <= 20px -> `data-autoshrink="1"`
-- Overflow 21-40px -> `data-autoshrink="2"`
-- Overflow > 40px -> split the slide
-
-**Never auto-shrink:** `cover-photo`, `section-break`, `closing-photo` (strict type scales).
+> Copy fidelity protocol, consistency checks, and `deck-qa.mjs` workflow defined in SKILL.md.
 
 ---
 
@@ -1165,93 +1065,53 @@ Usage: `<section class="slide slide--four-col-metrics" data-cols="3">`
 
 ---
 
-## Rules
+## Ascend-Specific Rules
 
-1. **Content area budget.** Slides are 960×540 with 48px uniform padding. Usable content zone is approximately **864×444**. Use these values to judge content fit BEFORE assembling. If overflow <= 40px, apply auto-shrink. If overflow > 40px, split the slide.
+> Universal rules (content budget, copy fidelity, density enforcement, auto-shrink, surface temperature, content-to-type matching, slide count warning) live in SKILL.md Rules 1–21. Below are Ascend-only rules.
 
-2. **Warn if >18 slides.** Suggest consolidation.
+1. **Theme default: `light`.** Ascend uses light mode by default. Set via frontmatter `theme: light|dark`.
 
-3. **Theme:** Default `light`. The Ascend deck template uses light mode by default. Dark mode (`data-theme="dark"` on `.deck-shell`) is available for Midnight-based layouts but is not the standard. Set via frontmatter `theme: light|dark`.
+2. **Topbar chrome.** Interior slides get `.topbar` with deck title (mono) + slide number (zero-padded, starting `01`) + Ascend arrow icon. Color is **automatic** via CSS:
+   - Dark BG → white | Light BG → dark | Sun/Sky → midnight
+   - No topbar on: `cover-photo`, `closing-photo`, section-breaks, `agenda`
+   - Mixed-BG slides: use `topbar-el--white` / `topbar-el--dark` / `topbar-el--midnight` per element
 
-4. **No JavaScript.** Decks are static HTML. No animations, no external scripts.
+3. **Cover slide.** Always first. Centered: arrow icon + "ascend" wordmark + tagline. BG: full-bleed photo or Land default. Auto-prepend if `.md` doesn't start with `## cover-photo`.
 
-5. **Self-contained output.** The HTML file links to `brand.css` via relative path. No CDN, no npm, no build step.
+4. **Closing slide.** Always last. Full-bleed photo + centered "Thank you" + arrow icon. Auto-append if `.md` doesn't end with `## closing-photo`.
 
-6. **Slide numbering.** Topbar uses zero-padded numbers starting at `01`. The numbering in the topbar represents slide position (excluding cover-photo and closing-photo which have no topbar).
+5. **Sentence case everywhere.** Per Ascend TOV. Exception: pills, tags, mono labels = ALL CAPS.
 
-7. **Topbar chrome.** Interior slides get `.topbar` with deck title + slide number + Ascend arrow icon. The topbar color is **automatic** — CSS rules on each slide type set the correct color based on background:
-   - Dark BG slides → white text/icon (automatic)
-   - Light BG slides → dark text/icon (automatic)
-   - Sun/Sky slides → midnight text/icon (automatic)
-   - Cover-photo, closing-photo, section-breaks, agenda: **no topbar**
+6. **Typography.**
+   - **FT System Mono** for data: numbers, pills, tags, step labels, timeline numbers, contact names, stat pills. Uppercase, tracking: 0.
+   - **FT System Grotesk** for narrative: headlines (Medium), body (Regular), subtitles (Regular). Semibold only for emphasis within body.
 
-   Manual override classes (`topbar--white`, `topbar--dark`, `topbar--midnight`) still work but are no longer required.
+7. **Surface temperatures.** Six branded backgrounds:
+   - **Midnight** (`#1E2F39`): section-break, two-col-comparison, cta-contacts, step mockups
+   - **Sky** (`#E0EFFF`): three-col-numbered, three-col-steps, three-col-features, three-col-pricing
+   - **Land** (`#727841`): section-break variant, cover-photo default bg
+   - **Purple** (`#6F57FF`): section-break variant, split-image-list panel variant, primary pills, agenda accent
+   - **White** (`#FFFFFF`): agenda, problem, cards, two-col-text, logo-wall, blank
+   - **Neutral-95** (`#F2F2F2`): content, results, matrix
 
-   **Mixed-background slides** (e.g., split-image-list with purple left panel): Use per-element overrides `topbar-el--white`, `topbar-el--dark`, or `topbar-el--midnight` on individual topbar children when the topbar spans two color zones.
+8. **Flight-path overlays.** Dashed SVG lines (1.5pt, white, `stroke-dasharray="4 4"`) inside feature/comparison card photos. Decorative, auto-generated — not in `.md` input.
 
-8. **Cover slide.** Always first. Centered layout with arrow icon SVG + "ascend" wordmark + tagline. Background is full-bleed photo or Land color default. If the `.md` doesn't start with `## cover-photo`, prepend one from frontmatter.
+9. **Rounded windows.** `border-radius: var(--radius-2xl)` (24px). Three-col-numbered cards: `var(--radius-3xl)` (64px).
 
-9. **Closing slide.** Always last. Full-bleed photo with centered "Thank you" + arrow icon. If the `.md` doesn't end with `## closing-photo`, append a default one.
+10. **Pills.** `--radius-full`, FT System Mono, uppercase. Variants: `pill--sun`, `pill--purple`, `pill--midnight`, `pill--light`, `pill--outline`, `pill--outline-white`, `pill--land`.
 
-10. **Density enforcement.** Apply density limits during parsing. Split BEFORE assembly, not after. Insert breathers (section-breaks) between consecutive dense slides.
+11. **Check icons.** Purple stroke (positive), muted gray (negative/exclusion), white (dark backgrounds).
 
-11. **Sentence case everywhere.** Per Ascend TOV, all headlines and body text use sentence case. The only exception: pills, tags, and mono labels are ALL CAPS.
+12. **Chevron circles.** 44px, 1.5px border. Purple on light BGs, white on dark BGs. Used in: split-image-list, timeline, FAQ.
 
-12. **FT System Mono for data.** Numbers, pills, tags, step labels, timeline numbers, contact names, and stat pills all render in FT System Mono, uppercase, tracking: 0.
+13. **Print.** `@page: 10in 5.625in landscape, margin: 0`. `page-break-after: always`. No box shadows.
 
-13. **FT System Grotesk for narrative.** Headlines (Medium weight), body text (Regular weight), subtitles (Regular weight). Semibold only for emphasizing key info within body text.
+14. **Ascend arrow icon.** Sprite sheet `#icon-ascend-arrow`, `fill="currentColor"`. Sizes: cover (112×64), topbar (32×18), closing (48×27), mockup/matrix (20×18).
 
-14. **Surface temperatures.** Four branded backgrounds:
-    - **Midnight** (`#1E2F39`): section-break, two-col-comparison, cta-contacts, step mockups
-    - **Sky** (`#E0EFFF`): three-col-numbered, three-col-steps, three-col-features, three-col-pricing
-    - **Land** (`#727841`): section-break variant, cover-photo default bg
-    - **Purple** (`#6F57FF`): section-break variant, split-image-list left panel variant, primary pills, agenda accent strip
-    - **White** (`#FFFFFF`): agenda, problem, cards, two-col-text, logo-wall, blank
-    - **Neutral-95** (`#F2F2F2`): content, results, matrix
-
-15. **Flight-path decorative overlays.** Feature and comparison cards include a dashed SVG flight-path line (1.5pt, white, `stroke-dasharray="4 4"`) inside photo areas. These are purely decorative and auto-generated — not specified in the `.md` input.
-
-16. **Rounded windows.** Image containers use `border-radius: var(--radius-2xl)` (24px). Featured cards and large containers use `border-radius: var(--radius-3xl)` (64px) — this applies to three-col-numbered cards only.
-
-17. **Pills.** 100px border-radius (`--radius-full`), FT System Mono, uppercase, regular weight. Available variants:
-    - `pill--sun`: Sun bg, dark text
-    - `pill--purple`: Primary bg, white text
-    - `pill--midnight`: Midnight bg, white text
-    - `pill--light`: Neutral-95 bg, dark text
-    - `pill--outline`: Transparent, border, dark text
-    - `pill--outline-white`: Transparent, white border, white text
-    - `pill--land`: Land bg, white text
-
-18. **Check icons.** Purple stroke (`icon-check`) for positive items. Muted gray stroke (`icon-check--muted`) for negative/exclusion items. White stroke (`check-item--white`) for items on dark backgrounds.
-
-19. **Chevron circles.** 44px circle with 1.5px border. Purple border on light BGs, white border on dark BGs. Contains a chevron-down SVG. Used in: split-image-list rows, timeline rows, FAQ rows.
-
-20. **Emails always hyperlinked.** Every email in the deck uses `<a href="mailto:...">`. Applies to `.contact-email` and any inline email reference.
-
-21. **Print.** `@page` set to `10in 5.625in landscape, margin: 0` (960×540 at 96dpi). Slides get `page-break-after: always` except the last one. Box shadows removed in print.
-
-22. **Ascend arrow icon.** Uses the real isotipo SVG from `Assets/Logo/Icon/`. Appears in: cover-photo (112x64), topbar (32x18), closing-photo (48x27), step mockup circles (20x18), matrix logo (20x18). Rendered via sprite sheet `#icon-ascend-arrow` with `fill="currentColor"` — inherits color from parent container.
-
-23. **Imagery selection — contrast safety.** All photography used in slides with white text overlay (cover-photo, hero-photo-tags, closing-photo, split-image rounded windows, FAQ right panel) must meet these criteria:
-
-    **Mandatory:**
-    - Predominantly dark or mid-tone (avoid bright/washed-out images)
-    - No large white or light areas in the zone where text or pills will sit
-    - Subject should not compete with overlaid UI elements (pills, headlines, icons)
-
-    **Preferred:**
-    - Aerial/landscape with natural dark tones (forests, oceans, dusk/dawn)
-    - Silhouettes or backlit subjects
-    - Urban scenes with shadow/contrast
-    - Executive travelers in low-key lighting
-
-    **Reject:**
-    - Overexposed or high-key photography
-    - Bright sky filling >50% of the frame without subject
-    - Flash photography or flat studio lighting
-    - Images where the primary subject is in the same area as overlaid text
-
-    **Pre-flight check:** Before assigning an image, mentally overlay white text at 16px — if it's not legible without squinting, reject the image or crop to a darker region.
+15. **Imagery — contrast safety.** For slides with white text overlay (cover-photo, hero-photo-tags, closing-photo, split-image, FAQ):
+    - **Use:** dark/mid-tone images, silhouettes, backlit subjects, urban shadow/contrast, low-key executive travelers
+    - **Reject:** overexposed, bright sky >50%, flash/studio lighting, subject competing with text overlay
+    - **Pre-flight:** mentally overlay white text at 16px — if not legible, reject or crop to darker region
 
 ---
 
@@ -1303,4 +1163,4 @@ Usage: `<section class="slide slide--four-col-metrics" data-cols="3">`
 
 ---
 
-*Guide v2.2 — The Creative Lever for Ascend (960×540)*
+*Guide v3.0 — The Creative Lever for Ascend (960×540)*

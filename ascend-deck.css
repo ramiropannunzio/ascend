@@ -685,6 +685,14 @@ body {
   margin: 0;
 }
 
+/* ── 03m. Three-Col Numbered — Midnight variant ────────── */
+.slide--three-col-numbered.slide--midnight { background: var(--color-midnight); }
+.slide--three-col-numbered.slide--midnight .topbar { color: var(--color-text-on-primary); }
+.slide--three-col-numbered.slide--midnight .slide-title { color: var(--color-text-on-primary); }
+.slide--three-col-numbered.slide--midnight .card { background: rgba(255,255,255,.08); }
+.slide--three-col-numbered.slide--midnight .card .mono-number { color: var(--color-text-on-primary); }
+.slide--three-col-numbered.slide--midnight .card p { color: var(--color-text-on-primary); }
+
 /* ── 04. Hero Photo Tags ──────────────────────────────── */
 .slide--hero-photo-tags {
   position: relative;
@@ -1011,6 +1019,16 @@ body {
   line-height: var(--leading-normal);
   margin: 0;
 }
+
+/* ── 08m. Four-Col Metrics — Midnight variant ─────────── */
+.slide--four-col-metrics.slide--midnight { background: var(--color-midnight); }
+.slide--four-col-metrics.slide--midnight .topbar { color: var(--color-text-on-primary); }
+.slide--four-col-metrics.slide--midnight .slide-title { color: var(--color-text-on-primary); }
+.slide--four-col-metrics.slide--midnight .metric-col { border-left-color: rgba(255,255,255,.2); }
+.slide--four-col-metrics.slide--midnight .metric-number { color: var(--color-text-on-primary); }
+.slide--four-col-metrics.slide--midnight .metric-subtitle { color: var(--color-text-on-primary); }
+.slide--four-col-metrics.slide--midnight .metric-desc { color: rgba(255,255,255,.7); }
+.slide--four-col-metrics.slide--midnight .pill--purple { background: var(--color-sun); color: var(--color-neutral-0); }
 
 /* ── 09. Timeline (horizontal nodes) ──────────────────── */
 .slide--timeline { background: var(--color-neutral-95); }
@@ -1800,6 +1818,15 @@ body {
   margin: 0;
 }
 
+/* ── 19m. Problem — Midnight variant ──────────────────── */
+.slide--problem.slide--midnight { background: var(--color-midnight); }
+.slide--problem.slide--midnight .topbar { color: var(--color-text-on-primary); }
+.slide--problem.slide--midnight .slide-title { color: var(--color-text-on-primary); }
+.slide--problem.slide--midnight .problem-card { background: rgba(255,255,255,.08); }
+.slide--problem.slide--midnight .problem-card-title { color: var(--color-text-on-primary); }
+.slide--problem.slide--midnight .problem-card-desc { color: rgba(255,255,255,.7); }
+.slide--problem.slide--midnight .icon-container--light { background: var(--color-sun); color: var(--color-midnight); }
+
 /* ── 20. Results ──────────────────────────────────────── */
 .slide--results { background: var(--color-neutral-95); }
 .slide--results .content {
@@ -1862,6 +1889,16 @@ body {
   margin-top: auto;
 }
 
+/* ── 20m. Results — Midnight variant ──────────────────── */
+.slide--results.slide--midnight { background: var(--color-midnight); }
+.slide--results.slide--midnight .topbar { color: var(--color-text-on-primary); }
+.slide--results.slide--midnight .slide-title { color: var(--color-text-on-primary); }
+.slide--results.slide--midnight .results-card { background: rgba(255,255,255,.08); }
+.slide--results.slide--midnight .results-value { color: var(--color-text-on-primary); }
+.slide--results.slide--midnight .results-unit { color: rgba(255,255,255,.5); }
+.slide--results.slide--midnight .results-delta { background: var(--color-sun); color: var(--color-neutral-0); }
+.slide--results.slide--midnight .pill--midnight { background: rgba(255,255,255,.15); color: var(--color-text-on-primary); }
+
 /* ── 21. Cards ────────────────────────────────────────── */
 .slide--cards { background: var(--color-neutral-95); }
 .slide--cards .content {
@@ -1910,6 +1947,15 @@ body {
   color: var(--color-neutral-0);
   margin: 0;
 }
+
+/* ── 21m. Cards — Midnight variant ────────────────────── */
+.slide--cards.slide--midnight { background: var(--color-midnight); }
+.slide--cards.slide--midnight .topbar { color: var(--color-text-on-primary); }
+.slide--cards.slide--midnight .slide-title { color: var(--color-text-on-primary); }
+.slide--cards.slide--midnight .card-item { background: rgba(255,255,255,.08); }
+.slide--cards.slide--midnight .card-title { color: var(--color-text-on-primary); }
+.slide--cards.slide--midnight .card-desc { color: rgba(255,255,255,.7); }
+.slide--cards.slide--midnight .icon-container--light { background: var(--color-sun); color: var(--color-midnight); }
 
 /* ── 22. Matrix ───────────────────────────────────────── */
 .slide--matrix { background: var(--color-neutral-95); }
@@ -2360,6 +2406,18 @@ body {
   margin-bottom: var(--space-2);
 }
 
+
+/* ── 26m. Quote — Midnight variant ────────────────────── */
+.slide--quote.slide--midnight { background: var(--color-midnight); }
+.slide--quote.slide--midnight .topbar { color: var(--color-text-on-primary); }
+.slide--quote.slide--midnight .quote-text { color: var(--color-text-on-primary); }
+.slide--quote.slide--midnight .quote-text::before { color: var(--color-sun); }
+.slide--quote.slide--midnight .quote-author-name { color: var(--color-text-on-primary); }
+.slide--quote.slide--midnight .quote-author-role { color: rgba(255,255,255,.5); }
+.slide--quote.slide--midnight .quote-avatar { background: rgba(255,255,255,.1); }
+.slide--quote.slide--midnight .quote-avatar-initials { color: var(--color-text-on-primary); }
+.slide--quote.slide--midnight .quote-card { background: rgba(255,255,255,.08); }
+.slide--quote.slide--midnight .pills-overlay .pill { background: rgba(255,255,255,.15); color: var(--color-text-on-primary); }
 
 /* ── 27. Map — Geographic presence ───────────────────── */
 .slide--map { background: var(--color-midnight); }
