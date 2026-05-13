@@ -1957,7 +1957,7 @@ body {
 .slide--cards.slide--midnight .card-desc { color: rgba(255,255,255,.7); }
 .slide--cards.slide--midnight .icon-container--light { background: var(--color-sun); color: var(--color-midnight); }
 
-/* ── 22. Matrix ───────────────────────────────────────── */
+/* ── 22. Matrix — Row-based layout ────────────────────── */
 .slide--matrix { background: var(--color-neutral-95); }
 .slide--matrix .content {
   padding: var(--slide-pad-top) var(--slide-pad-x) var(--slide-pad-inner);
@@ -1974,43 +1974,82 @@ body {
   margin: 0 0 var(--space-8);
   color: var(--color-neutral-0);
 }
-/* Switch to CSS Grid layout for proper border-radius support */
+/* Container: vertical stack of rows. Outer radius clips all corners. */
 .slide--matrix .matrix-grid {
-  display: grid;
-  /* label | featured | alt1 | alt2 | alt3 */
-  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  /* Small gap between column groups for visible radius */
-  column-gap: 2px;
+  gap: 0;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
 }
+/* Each row: grid with label + data columns.
+   Default: 5 cols (label + featured + 3 alt). Override with data-cols on <section>. */
+.slide--matrix .matrix-row {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 0;
+}
+/* Column count overrides via data-cols on <section> */
+.slide--matrix[data-cols="3"] .matrix-row { grid-template-columns: 1.4fr repeat(2, 1fr); }
+.slide--matrix[data-cols="4"] .matrix-row { grid-template-columns: 1.4fr repeat(3, 1fr); }
+
 /* All cells base */
 .slide--matrix .matrix-cell {
   padding: var(--space-4) var(--space-6);
   font-size: var(--text-sm);
+  line-height: var(--leading-normal);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-/* Header cells */
-.slide--matrix .matrix-header {
-  font-weight: var(--font-semibold);
-  padding: var(--space-6) var(--space-6);
+
+/* Label column — Sun */
+.slide--matrix .matrix-label {
+  background: var(--color-sun);
+  color: var(--color-neutral-0);
+  font-weight: var(--font-medium);
+  justify-content: flex-start;
 }
-/* Empty top-left header */
-.slide--matrix .matrix-header-empty {
-  background: transparent;
-}
-/* Featured column (Ascend) — Midnight block */
-.slide--matrix .matrix-col-featured {
+
+/* Featured column — Midnight */
+.slide--matrix .matrix-featured {
   background: var(--color-midnight);
   color: var(--color-text-on-primary);
 }
-.slide--matrix .matrix-col-featured.matrix-header {
+
+/* Alt columns — neutral-90 */
+.slide--matrix .matrix-alt {
+  background: var(--color-neutral-90);
+  color: var(--color-neutral-0);
+}
+
+/* Header row */
+.slide--matrix .matrix-row--header .matrix-label {
+  background: transparent;
+}
+.slide--matrix .matrix-row--header .matrix-featured {
+  font-family: var(--font-sans);
+  font-weight: var(--font-semibold);
+  padding: var(--space-6);
+}
+.slide--matrix .matrix-row--header .matrix-alt {
+  font-weight: var(--font-semibold);
+  padding: var(--space-6);
+}
+
+/* Featured column border-radius: top on first row, bottom on last row */
+.slide--matrix .matrix-row:first-child .matrix-featured {
   border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
 }
-.slide--matrix .matrix-col-featured.matrix-row-last {
+.slide--matrix .matrix-row:last-child .matrix-featured {
   border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
 }
+.slide--matrix .matrix-row:first-child:last-child .matrix-featured {
+  border-radius: var(--radius-2xl);
+}
+
+/* Logo in featured header */
 .slide--matrix .matrix-logo {
   display: flex;
   align-items: center;
@@ -2025,77 +2064,24 @@ body {
   color: var(--color-text-on-primary);
   margin-top: -2px;
 }
-/* Label column — Sun */
-.slide--matrix .matrix-col-label {
-  background: var(--color-sun);
-  color: var(--color-neutral-0);
-  font-weight: var(--font-medium);
-  justify-content: flex-start;
-}
-.slide--matrix .matrix-col-label.matrix-row-first {
-  border-radius: var(--radius-2xl) 0 0 0;
-}
-.slide--matrix .matrix-col-label.matrix-row-last {
-  border-radius: 0 0 0 var(--radius-2xl);
-  border-bottom: none;
-}
-/* Alt columns — neutral-90 */
-.slide--matrix .matrix-col-alt {
-  background: var(--color-neutral-90);
-  color: var(--color-neutral-0);
-}
-/* Alt group outer corners */
-.slide--matrix .matrix-col-alt.matrix-header.matrix-col-alt-first {
-  border-radius: var(--radius-2xl) 0 0 0;
-}
-.slide--matrix .matrix-col-alt.matrix-header.matrix-col-alt-last {
-  border-radius: 0 var(--radius-2xl) 0 0;
-}
-.slide--matrix .matrix-col-alt.matrix-row-last.matrix-col-alt-first {
-  border-radius: 0 0 0 var(--radius-2xl);
-}
-.slide--matrix .matrix-col-alt.matrix-row-last.matrix-col-alt-last {
-  border-radius: 0 0 var(--radius-2xl) 0;
-}
-/* Row separators inside featured column */
-.slide--matrix .matrix-col-featured + .matrix-col-featured {
-  border-top: 1px solid rgba(255,255,255,.1);
-}
-/* Base matrix — fewer than 5 columns. Default is 5 (1.2fr + 4×1fr).
-   Override with data-cols="3" or data-cols="4" on the <section>. */
-.slide--matrix[data-cols="3"] .matrix-grid { grid-template-columns: 1.2fr repeat(2, 1fr); }
-.slide--matrix[data-cols="4"] .matrix-grid { grid-template-columns: 1.2fr repeat(3, 1fr); }
 
 /* ── Matrix flat variant — no featured column ── */
-/* Add class: slide--matrix-flat. All columns render as neutral alt.
-   Override grid to match actual column count via data-cols. */
-.slide--matrix-flat .matrix-grid {
-  grid-template-columns: 1.2fr repeat(3, 1fr);
-}
-.slide--matrix-flat[data-cols="2"] .matrix-grid { grid-template-columns: 1.2fr repeat(2, 1fr); }
-.slide--matrix-flat[data-cols="4"] .matrix-grid { grid-template-columns: 1.2fr repeat(4, 1fr); }
-.slide--matrix-flat[data-cols="5"] .matrix-grid { grid-template-columns: 1.2fr repeat(5, 1fr); }
-.slide--matrix-flat .matrix-col-featured {
+.slide--matrix-flat .matrix-featured {
   background: var(--color-neutral-90);
   color: var(--color-neutral-0);
 }
-.slide--matrix-flat .matrix-col-featured.matrix-header {
+.slide--matrix-flat .matrix-row:first-child .matrix-featured,
+.slide--matrix-flat .matrix-row:last-child .matrix-featured {
   border-radius: 0;
+}
+.slide--matrix-flat .matrix-row--header .matrix-featured {
   font-weight: var(--font-semibold);
 }
-.slide--matrix-flat .matrix-col-featured.matrix-row-last {
-  border-radius: 0;
-}
-/* The featured header no longer has special logo treatment */
 .slide--matrix-flat .matrix-logo {
   font-size: var(--text-sm);
   color: var(--color-neutral-0);
 }
 .slide--matrix-flat .matrix-logo svg { display: none; }
-/* Row separator same as alt columns */
-.slide--matrix-flat .matrix-col-featured + .matrix-col-featured {
-  border-top: none;
-}
 
 /* Check/X icons in matrix */
 .slide--matrix .matrix-check {
