@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=960">
+<meta name="generator" content="TCL_OS · /deck">
+<title>Ascend — Logo Wall</title>
+<link rel="stylesheet" href="../../../../brain/raw/standards/Ascend/brand.css">
+<link rel="stylesheet" href="ascend-deck.css">
+<style>
+/* ── Override: 3-col grid to match reference layout ── */
+.slide--logo-wall .logo-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 40px;
+  max-width: 680px;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/* ── Text-based logo placeholders (replace with <img> when assets ready) ── */
+.slide--logo-wall .logo-item {
+  background: transparent;
+  border-radius: 0;
+  width: 180px;
+  height: 64px;
+}
+.slide--logo-wall .logo-item .logo-text {
+  font-family: var(--font-sans);
+  font-weight: var(--font-medium);
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--color-neutral-0);
+  white-space: nowrap;
+  user-select: none;
+}
+/* Center the single item in the last row */
+.slide--logo-wall .logo-grid .logo-item:last-child:nth-child(3n+1) {
+  grid-column: 2;
+}
+</style>
+</head>
+<body>
+
+<!-- ──────────────────────────────────────────────────────────
+     ICON SPRITE — Ascend arrow only
+     ────────────────────────────────────────────────────────── -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="icon-ascend-arrow" viewBox="0 0 112 64" fill="currentColor">
+      <path d="M110.535 34.1101H82.6104C81.8444 34.1101 80.8032 34.728 80.8032 35.494L81.2265 62.6103C81.2265 64.1212 79.1442 64.5402 78.5601 63.1478L57.2294 15.0394C56.7427 13.9432 55.1852 13.9432 54.6985 15.0394L33.3678 63.1478C32.7838 64.5444 30.7015 64.1254 30.7015 62.6103V35.494C30.7015 34.728 30.0836 34.1101 29.3175 34.1101H1.3887C-0.0291135 34.1101 -0.532748 32.2352 0.694613 31.5199L52.6628 1.32258L54.051 0.514221C55.2318 -0.17141 56.6919 -0.17141 57.8727 0.514221L59.2609 1.32258L111.229 31.5199C112.452 32.2352 111.953 34.1101 110.535 34.1101Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ──────────────────────────────────────────────────────────
+     SLIDE: Logo Wall — Client logos (3×3 grid, 7 logos)
+     Replace .logo-text spans with <img src="path.svg" alt="Name">
+     when actual logo assets are available.
+     ────────────────────────────────────────────────────────── -->
+<section class="slide slide--logo-wall">
+  <div class="topbar">
+    <span class="topbar__title">Ascend Sales Deck</span>
+    <span class="topbar__num"></span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+
+  <div class="content">
+    <div class="logo-grid">
+
+      <!-- Row 1 -->
+      <div class="logo-item">
+        <!-- <img src="../Assets/Client logos/plasma.svg" alt="Plasma"> -->
+        <span class="logo-text">Plasma</span>
+      </div>
+      <div class="logo-item">
+        <!-- <img src="../Assets/Client logos/jasper-ai.svg" alt="Jasper AI"> -->
+        <span class="logo-text">Jasper AI</span>
+      </div>
+      <div class="logo-item">
+        <!-- <img src="../Assets/Client logos/intel471.svg" alt="Intel 471"> -->
+        <span class="logo-text">Intel 471</span>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="logo-item">
+        <!-- <img src="../Assets/Client logos/luxsupply.svg" alt="LuxSupply"> -->
+        <span class="logo-text">LuxSupply</span>
+      </div>
+      <div class="logo-item">
+        <!-- <img src="../Assets/Client logos/goldenla.svg" alt="GoldenLA"> -->
+        <span class="logo-text">GoldenLA</span>
+      </div>
+      <div class="logo-item">
+        <!-- <img src="../Assets/Client logos/calibre-scientific.svg" alt="Calibre Scientific"> -->
+        <span class="logo-text">Calibre Scientific</span>
+      </div>
+
+      <!-- Row 3 (centered via CSS) -->
+      <div class="logo-item">
+        <!-- <img src="../Assets/Client logos/gymshark.svg" alt="Gymshark"> -->
+        <span class="logo-text">Gymshark</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

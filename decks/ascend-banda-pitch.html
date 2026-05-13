@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=960">
+<meta name="generator" content="TCL_OS · /deck">
+<title>Ascend x Banda Pitch</title>
+<!-- Fonts loaded via brand.css @font-face declarations -->
+<link rel="stylesheet" href="../../../../brain/raw/standards/Ascend/brand.css">
+<link rel="stylesheet" href="ascend-deck.css">
+</head>
+<body>
+
+<!-- ─────────────────────────────────────────────────────────────────
+     ICON SPRITE SHEET — Ascend Deck Icons + Lucide (1px stroke)
+     ───────────────────────────────────────────────────────────────── -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M7 10l5 5 5-5"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M5 13l4 4L19 7"/>
+    </symbol>
+    <symbol id="icon-ascend-arrow" viewBox="0 0 112 64" fill="currentColor">
+      <path d="M110.535 34.1101H82.6104C81.8444 34.1101 80.8032 34.728 80.8032 35.494L81.2265 62.6103C81.2265 64.1212 79.1442 64.5402 78.5601 63.1478L57.2294 15.0394C56.7427 13.9432 55.1852 13.9432 54.6985 15.0394L33.3678 63.1478C32.7838 64.5444 30.7015 64.1254 30.7015 62.6103V35.494C30.7015 34.728 30.0836 34.1101 29.3175 34.1101H1.3887C-0.0291135 34.1101 -0.532748 32.2352 0.694613 31.5199L52.6628 1.32258L54.051 0.514221C55.2318 -0.17141 56.6919 -0.17141 57.8727 0.514221L59.2609 1.32258L111.229 31.5199C112.452 32.2352 111.953 34.1101 110.535 34.1101Z"/>
+    </symbol>
+    <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+    </symbol>
+    <symbol id="icon-hotel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+    </symbol>
+    <symbol id="icon-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
+    </symbol>
+    <symbol id="icon-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+    </symbol>
+    <symbol id="icon-dollar-sign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </symbol>
+    <symbol id="icon-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+    </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+    </symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     01 · COVER — Non-linear travel. Expertly done.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cover-photo">
+  <img class="cover-bg photo-fill" src="../Assets/Imagery/Travel/plane-foggy-mountains.jpg" alt="">
+  <div class="cover-content">
+    <div class="cover-wordmark">
+      <img src="../Assets/Logo/Wordmark/ascend-wordmark-white.svg" alt="Ascend" class="cover-logo">
+    </div>
+    <p class="cover-tagline">Non-linear travel. Expertly done.</p>
+    <div style="display:flex;gap:var(--space-2);margin-top:var(--space-2);">
+      <span class="pill" style="background:white;color:var(--color-neutral-0);">One-way</span>
+      <span class="pill" style="background:white;color:var(--color-neutral-0);">Multi-city</span>
+      <span class="pill" style="background:white;color:var(--color-neutral-0);">Long haul</span>
+      <span class="pill" style="background:white;color:var(--color-neutral-0);">Short-stay</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     02 · SPLIT IMAGE — Standard travel breaks here.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend x Banda</span>
+    <span class="topbar__num">02</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/traveler-man-window-thoughtful.jpg" alt="" class="photo-panel">
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">Standard travel breaks here.</h2>
+    <p style="font-size:var(--text-base);line-height:var(--leading-normal);color:var(--color-neutral-0);margin:0;">Most providers are built for simple returns. But executive travel often moves differently: one-way flights, multi-city routes, last-minute changes and long-haul trips returning within a week.</p>
+    <p style="font-size:var(--text-base);line-height:var(--leading-normal);color:var(--color-neutral-0);margin:var(--space-4) 0 0;">That is where prices rise, options narrow and time gets wasted.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     03 · SPLIT IMAGE (reversed) — We build the trip.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list slide--split-reversed">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend x Banda</span>
+    <span class="topbar__num">03</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/traveler-businessman-suitcase.jpg" alt="" class="photo-panel">
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">We build the trip.<br>Not just the booking.</h2>
+    <p style="font-size:var(--text-base);line-height:var(--leading-normal);color:var(--color-neutral-0);margin:0;">Ascend is built for the routes traditional agencies struggle to solve. We look across routing, fare rules, timing, cabin, flexibility and traveller preference to find a better way through.</p>
+    <p style="font-size:var(--text-base);line-height:var(--leading-normal);color:var(--color-neutral-0);margin:var(--space-4) 0 0;">Then we handle the journey from first message to arrival.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     04 · THREE-COL-STEPS — Text. Approve. Done.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-steps">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend x Banda</span>
+    <span class="topbar__num">04</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Text. Approve. Done.</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-ascend-arrow"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 01</p>
+          <h3 class="step-name">Text</h3>
+          <p class="step-desc">Send the travel brief by WhatsApp.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-ascend-arrow"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 02</p>
+          <h3 class="step-name">Approve</h3>
+          <p class="step-desc">Receive clear options with price, route and any trade-offs.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-ascend-arrow"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 03</p>
+          <h3 class="step-name">Done</h3>
+          <p class="step-desc">We book, monitor and adjust the trip as plans change.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     05 · CARDS — One service. Full trip.
+     Light-mode icon cards (icon-container--sm icon-container--light).
+     4-col grid, 8 items (4+4). Icon + title only.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cards">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend x Banda</span>
+    <span class="topbar__num">05</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content" style="gap:var(--space-4);">
+    <h2 class="slide-title">One service. Full trip.</h2>
+    <div class="cards-grid" style="grid-template-columns:repeat(4,1fr);gap:var(--space-4);">
+      <div class="card-item" style="flex-direction:row;align-items:center;padding:var(--space-4);gap:var(--space-3);">
+        <div class="icon-container icon-container--sm icon-container--light" style="flex-shrink:0;">
+          <svg width="16" height="16"><use href="#icon-plane"/></svg>
+        </div>
+        <h3 class="card-title" style="font-size:var(--text-sm);margin:0;">Flights</h3>
+      </div>
+      <div class="card-item" style="flex-direction:row;align-items:center;padding:var(--space-4);gap:var(--space-3);">
+        <div class="icon-container icon-container--sm icon-container--light" style="flex-shrink:0;">
+          <svg width="16" height="16"><use href="#icon-hotel"/></svg>
+        </div>
+        <h3 class="card-title" style="font-size:var(--text-sm);margin:0;">Hotels</h3>
+      </div>
+      <div class="card-item" style="flex-direction:row;align-items:center;padding:var(--space-4);gap:var(--space-3);">
+        <div class="icon-container icon-container--sm icon-container--light" style="flex-shrink:0;">
+          <svg width="16" height="16"><use href="#icon-car"/></svg>
+        </div>
+        <h3 class="card-title" style="font-size:var(--text-sm);margin:0;">Cars</h3>
+      </div>
+      <div class="card-item" style="flex-direction:row;align-items:center;padding:var(--space-4);gap:var(--space-3);">
+        <div class="icon-container icon-container--sm icon-container--light" style="flex-shrink:0;">
+          <svg width="16" height="16"><use href="#icon-refresh-cw"/></svg>
+        </div>
+        <h3 class="card-title" style="font-size:var(--text-sm);margin:0;">Changes*</h3>
+      </div>
+      <div class="card-item" style="flex-direction:row;align-items:center;padding:var(--space-4);gap:var(--space-3);">
+        <div class="icon-container icon-container--sm icon-container--light" style="flex-shrink:0;">
+          <svg width="16" height="16"><use href="#icon-x"/></svg>
+        </div>
+        <h3 class="card-title" style="font-size:var(--text-sm);margin:0;">Cancellations*</h3>
+      </div>
+      <div class="card-item" style="flex-direction:row;align-items:center;padding:var(--space-4);gap:var(--space-3);">
+        <div class="icon-container icon-container--sm icon-container--light" style="flex-shrink:0;">
+          <svg width="16" height="16"><use href="#icon-settings"/></svg>
+        </div>
+        <h3 class="card-title" style="font-size:var(--text-sm);margin:0;">Preferences</h3>
+      </div>
+      <div class="card-item" style="flex-direction:row;align-items:center;padding:var(--space-4);gap:var(--space-3);">
+        <div class="icon-container icon-container--sm icon-container--light" style="flex-shrink:0;">
+          <svg width="16" height="16"><use href="#icon-award"/></svg>
+        </div>
+        <h3 class="card-title" style="font-size:var(--text-sm);margin:0;">Loyalty details</h3>
+      </div>
+      <div class="card-item" style="flex-direction:row;align-items:center;padding:var(--space-4);gap:var(--space-3);">
+        <div class="icon-container icon-container--sm icon-container--light" style="flex-shrink:0;">
+          <svg width="16" height="16"><use href="#icon-user"/></svg>
+        </div>
+        <h3 class="card-title" style="font-size:var(--text-sm);margin:0;">Traveller profiles</h3>
+      </div>
+    </div>
+    <p style="font-size:var(--text-base);color:var(--color-neutral-0);text-align:center;margin:var(--space-4) 0 0;">Everything handled through Ascend, without adding work for the team.</p>
+    <p style="font-size:var(--text-xs);color:var(--color-neutral-40);text-align:center;margin:0;">*Subject to occasional change/cancellation fees.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     06 · FOUR-COL-METRICS (3-col × 2 rows) — Business case.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--four-col-metrics slide--midnight" data-cols="3">
+  <div class="topbar">
+    <span class="topbar__title">Ascend x Banda</span>
+    <span class="topbar__num">06</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content" style="padding-top:var(--space-16);padding-bottom:var(--space-6);">
+    <h2 class="slide-title" style="margin-bottom:var(--space-4);font-size:32px;">Business case.</h2>
+    <div class="metrics-grid" style="row-gap:var(--space-4);">
+      <div class="metric-col" style="padding:var(--space-4) var(--space-6);gap:var(--space-2);">
+        <span class="pill pill--purple">Team</span>
+        <span class="metric-number" style="font-size:36px;">10</span>
+        <p class="metric-subtitle" style="font-size:var(--text-base);">Executives</p>
+        <p class="metric-desc">travelling once per month.</p>
+      </div>
+      <div class="metric-col" style="padding:var(--space-4) var(--space-6);gap:var(--space-2);">
+        <span class="pill pill--purple">Volume</span>
+        <span class="metric-number" style="font-size:36px;">120</span>
+        <p class="metric-subtitle" style="font-size:var(--text-base);">Trips per year</p>
+        <p class="metric-desc">across the team.</p>
+      </div>
+      <div class="metric-col" style="padding:var(--space-4) var(--space-6);gap:var(--space-2);">
+        <span class="pill pill--purple">Savings</span>
+        <span class="metric-number" style="font-size:36px;">$1,250</span>
+        <p class="metric-subtitle" style="font-size:var(--text-base);">Mid-case saving</p>
+        <p class="metric-desc">per US–EU trip.</p>
+      </div>
+      <div class="metric-col" style="padding:var(--space-4) var(--space-6);gap:var(--space-2);">
+        <span class="pill pill--purple">Annual</span>
+        <span class="metric-number" style="font-size:36px;">$150K</span>
+        <p class="metric-subtitle" style="font-size:var(--text-base);">Estimated saving</p>
+        <p class="metric-desc">per year.</p>
+      </div>
+      <div class="metric-col" style="padding:var(--space-4) var(--space-6);gap:var(--space-2);">
+        <span class="pill pill--purple">Year one</span>
+        <span class="metric-number" style="font-size:36px;">$14K</span>
+        <p class="metric-subtitle" style="font-size:var(--text-base);">Total cost</p>
+        <p class="metric-desc">$5K joining + $750/mo.</p>
+      </div>
+      <div class="metric-col" style="padding:var(--space-4) var(--space-6);gap:var(--space-2);">
+        <span class="pill pill--purple">ROI</span>
+        <span class="metric-number" style="font-size:36px;">10.7×</span>
+        <p class="metric-subtitle" style="font-size:var(--text-base);">Gross ROI</p>
+        <p class="metric-desc">$136K net year-one value.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     07 · THREE-COL-NUMBERED — Proposal.
+     Sky BG, 3 white cards with large mono values.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-numbered">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend x Banda</span>
+    <span class="topbar__num">07</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Proposal.</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="mono-number">10</span>
+        <p><b>Interchangeable seats.</b> <br>Access can move across the team as needs change.</br></p>
+      </div>
+      <div class="card">
+        <span class="mono-number">$5K</span>
+        <p><b>Joining fee.</b><br>One-time setup and onboarding.</br></p>
+      </div>
+      <div class="card">
+        <span class="mono-number">$750</span>
+        <p><b>Per month.</b> <br>Ongoing access to Ascend.</br></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     08 · AGENDA — Ready when the project moves.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--agenda">
+  <div class="agenda-accent">
+    <img src="../Assets/Patterns/arrow-pattern-purple.svg" alt="" aria-hidden="true">
+  </div>
+  <div class="agenda-body" style="gap:var(--space-6);">
+    <h2 class="slide-title" style="font-size:32px;">Next steps</h2>
+    <ol class="agenda-steps" style="gap:var(--space-6);">
+      <li class="agenda-step">
+        <span class="agenda-step-num">01</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Confirm seats</p>
+          <p class="agenda-step-desc">Move Banda to 10 person interchangeable membership.</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">02</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Set profiles</p>
+          <p class="agenda-step-desc">Add traveller details, preferences, approvals and billing.</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">03</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Launch access</p>
+          <p class="agenda-step-desc">Create WhatsApp groups for the agreed team members.</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">04</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Review value</p>
+          <p class="agenda-step-desc">Track savings, usage and service performance.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     09 · CLOSING — Make booking travel effortless.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--closing-photo closing-column">
+  <img class="photo-bg" src="../Assets/Imagery/Travel/traveler-man-blue-sky.jpg" alt="" class="photo-fill">
+  <div class="closing-content">
+    Thank you
+    <svg width="64" height="37"><use href="#icon-ascend-arrow"/></svg>
+  </div>
+  <p style="position:absolute;bottom:var(--space-12);left:0;right:0;text-align:center;font-size:var(--text-lg);color:rgba(255,255,255,.7);z-index:2;margin:0;">Make booking travel effortless.</p>
+</section>
+
+
+</body>
+</html>

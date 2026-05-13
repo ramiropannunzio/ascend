@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=960">
+<meta name="generator" content="TCL_OS · /deck">
+<title>Ascend &times; VivoPower</title>
+<!-- Fonts loaded via brand.css @font-face declarations -->
+<link rel="stylesheet" href="../../../../brain/raw/standards/Ascend/brand.css">
+<link rel="stylesheet" href="ascend-deck.css">
+</head>
+<body>
+
+<!-- ─────────────────────────────────────────────────────────────────
+     ICON SPRITE SHEET — Ascend Deck Icons + Lucide (1px stroke)
+     Source: https://lucide.dev · Stroke: 1px (per Ascend brand spec)
+     Usage: <svg class="..." width="W" height="H"><use href="#icon-name"/></svg>
+     ───────────────────────────────────────────────────────────────── -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <!-- Ascend Custom -->
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M7 10l5 5 5-5"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M5 13l4 4L19 7"/>
+    </symbol>
+    <symbol id="icon-ascend-arrow" viewBox="0 0 112 64" fill="currentColor">
+      <path d="M110.535 34.1101H82.6104C81.8444 34.1101 80.8032 34.728 80.8032 35.494L81.2265 62.6103C81.2265 64.1212 79.1442 64.5402 78.5601 63.1478L57.2294 15.0394C56.7427 13.9432 55.1852 13.9432 54.6985 15.0394L33.3678 63.1478C32.7838 64.5444 30.7015 64.1254 30.7015 62.6103V35.494C30.7015 34.728 30.0836 34.1101 29.3175 34.1101H1.3887C-0.0291135 34.1101 -0.532748 32.2352 0.694613 31.5199L52.6628 1.32258L54.051 0.514221C55.2318 -0.17141 56.6919 -0.17141 57.8727 0.514221L59.2609 1.32258L111.229 31.5199C112.452 32.2352 111.953 34.1101 110.535 34.1101Z"/>
+    </symbol>
+
+    <!-- Core Services & Travel -->
+    <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+    </symbol>
+    <symbol id="icon-hotel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+    </symbol>
+    <symbol id="icon-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
+    </symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+    </symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+    </symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </symbol>
+    <symbol id="icon-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    </symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+    </symbol>
+    <symbol id="icon-percent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/>
+    </symbol>
+    <symbol id="icon-dollar-sign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+    </symbol>
+    <symbol id="icon-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+    </symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+    </symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+    </symbol>
+
+    <!-- UI & Navigation -->
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </symbol>
+    <symbol id="icon-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+    </symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m9 18 6-6-6-6"/>
+    </symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/><path d="M12 5v14"/>
+    </symbol>
+    <symbol id="icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </symbol>
+    <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+    </symbol>
+    <symbol id="icon-external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+    </symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
+    </symbol>
+    <symbol id="icon-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/>
+    </symbol>
+    <symbol id="icon-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>
+    </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </symbol>
+    <symbol id="icon-unlock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/>
+    </symbol>
+
+    <!-- Data & Business -->
+    <symbol id="icon-bar-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/>
+    </symbol>
+    <symbol id="icon-pie-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/>
+    </symbol>
+    <symbol id="icon-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+    </symbol>
+    <symbol id="icon-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+    </symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>
+    </symbol>
+    <symbol id="icon-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+    </symbol>
+    <symbol id="icon-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9h4"/><path d="M10 13h4"/><path d="M10 17h4"/>
+    </symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>
+    </symbol>
+
+  </defs>
+</svg>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ASCEND &times; VIVOPOWER
+     ─────────────────────
+     17 slides (incl. ALT options) · Sentence case · Light theme
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="deck-shell" data-theme="light">
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 01 · COVER SPEAKERS — Co-branding lockup
+     No topbar.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cover-speakers">
+  <div class="cover-content">
+    <div class="cover-wordmark" style="gap: var(--space-6); align-items: center;">
+      <img src="../Assets/Logo/Wordmark/ascend-wordmark-white.svg" alt="Ascend" style="height: 24px; width: auto;">
+      <span style="font-size: var(--text-xl); color: rgba(255,255,255,.4); font-weight: var(--font-regular);">&times;</span>
+      <img src="../Assets/Partner Logos/vivopower-logo.png" alt="VivoPower" style="height: 36px; width: auto;">
+    </div>
+    <h1 class="cover-title">Ascend for&nbsp;VivoPower</h1>
+    <p class="cover-subtitle">Reducing travel spend. Reclaiming partner time. Scaling global&nbsp;operations.</p>
+    <div class="speakers" style="justify-content: center;">
+      <div class="speaker" style="width: 160px;">
+        <div class="speaker-photo"><img src="../Assets/Headshots/Chloe Rose Mitchell.jpeg" alt="Chloe Rose Mitchell"></div>
+        <p class="speaker-name">Chloe Rose Mitchell</p>
+        <p class="speaker-role">Head of Growth</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 02 · PROBLEM — 2&times;2 grid
+     Hidden travel complexity at scale
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--problem" data-autoshrink="1">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">02</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Hidden travel complexity at&nbsp;scale</h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-card-header">
+          <div class="icon-container icon-container--sm icon-container--light">
+            <svg width="16" height="16"><use href="#icon-globe"/></svg>
+          </div>
+          <h3 class="problem-card-title">Distributed partnership</h3>
+        </div>
+        <p class="problem-card-desc">4 senior partners across Abu Dhabi, Brisbane, Austria,&nbsp;Dublin</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-header">
+          <div class="icon-container icon-container--sm icon-container--light">
+            <svg width="16" height="16"><use href="#icon-plane"/></svg>
+          </div>
+          <h3 class="problem-card-title">US long-haul volume</h3>
+        </div>
+        <p class="problem-card-desc">Frequent transatlantic travel with growing Asia&nbsp;corridor</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-header">
+          <div class="icon-container icon-container--sm icon-container--light">
+            <svg width="16" height="16"><use href="#icon-users"/></svg>
+          </div>
+          <h3 class="problem-card-title">Increasing headcount</h3>
+        </div>
+        <p class="problem-card-desc">New hires adding travel volume without adding coordination&nbsp;capacity</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-header">
+          <div class="icon-container icon-container--sm icon-container--light">
+            <svg width="16" height="16"><use href="#icon-trending-up"/></svg>
+          </div>
+          <h3 class="problem-card-title">Operational overhead</h3>
+        </div>
+        <p class="problem-card-desc">Travel is no longer admin &mdash; it&rsquo;s a partner-level&nbsp;burden</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 05 · FOUR-COL METRICS — ALT for slide 04
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list slide--split-reversed">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">05</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/traveler-airport-stride.jpg" alt="" class="photo-panel">
+      <div class="pills-overlay">
+        <svg width="24" height="14"><use href="#icon-ascend-arrow"/></svg>
+        <span class="pill">120+ hrs</span>
+        <span class="pill">~35%</span>
+      </div>
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">High-value partner time spent on&nbsp;logistics</h2>
+    <div class="list-row">
+      <span class="list-num">01</span>
+      <span class="list-text">120+ hours/year coordinating travel&nbsp;logistics</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">02</span>
+      <span class="list-text">2&ndash;5 hours per complex trip managing changes and&nbsp;delays</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">03</span>
+      <span class="list-text">~35% overspend on premium route&nbsp;fares</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 06 · THREE-COL NUMBERED — What firms like yours typically lose
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-numbered">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">06</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">What firms like yours typically&nbsp;lose</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="mono-number">01</span>
+        <p><b>US&ndash;Europe premium cabins</b><br>~35% overspend vs consolidator&nbsp;rates</p>
+      </div>
+      <div class="card">
+        <span class="mono-number">02</span>
+        <p><b>US&ndash;Rest of World</b><br>Inconsistent pricing on growing&nbsp;corridors</p>
+      </div>
+      <div class="card">
+        <span class="mono-number">03</span>
+        <p><b>Last-minute and one-way</b><br>~20% inefficiency plus 2+ hours per&nbsp;trip</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 07 · SECTION BREAK — Purple
+     Not a travel agent — your execution layer
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--section-purple">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">07</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <h2 class="section-headline">Not a travel agent.<br>Your execution&nbsp;layer.</h2>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 08 · SPLIT IMAGE LIST — One message, full trip executed
+     Topbar dark variant
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">08</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/traveler-businessman-suitcase.jpg" alt="" class="photo-panel">
+      <div class="pills-overlay">
+        <svg width="24" height="14"><use href="#icon-ascend-arrow"/></svg>
+        <span class="pill">WhatsApp</span>
+        <span class="pill">24/7</span>
+        <span class="chevron-circle">
+          <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">One message, full trip&nbsp;executed</h2>
+    <div class="list-row">
+      <span class="list-num">01</span>
+      <span class="list-text">Flights, hotels, ground transport handled&nbsp;centrally</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">02</span>
+      <span class="list-text">24/7 monitoring and proactive&nbsp;rebooking</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">03</span>
+      <span class="list-text">Works across all geographies and time&nbsp;zones</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE — What changes immediately (8 cards, 4×2)
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cards">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">08</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title" style="margin-bottom: var(--space-2);">What changes&nbsp;immediately</h2>
+    <div class="cards-grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-3);">
+      <div class="card-item" style="flex-direction: row; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-6);">
+        <div class="icon-container icon-container--md icon-container--light" style="flex-shrink: 0;">
+          <svg width="20" height="20"><use href="#icon-check"/></svg>
+        </div>
+        <h3 class="card-title" style="margin: 0;">Partners stop booking&nbsp;travel</h3>
+      </div>
+      <div class="card-item" style="flex-direction: row; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-6);">
+        <div class="icon-container icon-container--md icon-container--light" style="flex-shrink: 0;">
+          <svg width="20" height="20"><use href="#icon-zap"/></svg>
+        </div>
+        <h3 class="card-title" style="margin: 0;">5-minute execution</h3>
+      </div>
+      <div class="card-item" style="flex-direction: row; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-6);">
+        <div class="icon-container icon-container--md icon-container--light" style="flex-shrink: 0;">
+          <svg width="20" height="20"><use href="#icon-dollar-sign"/></svg>
+        </div>
+        <h3 class="card-title" style="margin: 0;">Below-market fares</h3>
+      </div>
+      <div class="card-item" style="flex-direction: row; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-6);">
+        <div class="icon-container icon-container--md icon-container--light" style="flex-shrink: 0;">
+          <svg width="20" height="20"><use href="#icon-refresh-cw"/></svg>
+        </div>
+        <h3 class="card-title" style="margin: 0;">Instant changes</h3>
+      </div>
+      <div class="card-item" style="flex-direction: row; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-6);">
+        <div class="icon-container icon-container--md icon-container--light" style="flex-shrink: 0;">
+          <svg width="20" height="20"><use href="#icon-shield"/></svg>
+        </div>
+        <h3 class="card-title" style="margin: 0;">Proactive handling</h3>
+      </div>
+      <div class="card-item" style="flex-direction: row; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-6);">
+        <div class="icon-container icon-container--md icon-container--light" style="flex-shrink: 0;">
+          <svg width="20" height="20"><use href="#icon-clock"/></svg>
+        </div>
+        <h3 class="card-title" style="margin: 0;">60-second response</h3>
+      </div>
+      <div class="card-item" style="flex-direction: row; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-6);">
+        <div class="icon-container icon-container--md icon-container--light" style="flex-shrink: 0;">
+          <svg width="20" height="20"><use href="#icon-users"/></svg>
+        </div>
+        <h3 class="card-title" style="margin: 0;">Real humans</h3>
+      </div>
+      <div class="card-item" style="flex-direction: row; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-6);">
+        <div class="icon-container icon-container--md icon-container--light" style="flex-shrink: 0;">
+          <svg width="20" height="20"><use href="#icon-trending-up"/></svg>
+        </div>
+        <h3 class="card-title" style="margin: 0;">Disruptions managed&nbsp;proactively</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE — Savings across your route profile (4 cols)
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--four-col-metrics" data-autoshrink="1" style="position: relative;">
+  <img src="../Assets/Imagery/Travel/plane-sunrise-silhouette.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.5;">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">10</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content" style="position: relative; z-index: 2;">
+    <h2 class="slide-title">Savings across your route&nbsp;profile</h2>
+    <div class="metrics-grid">
+      <div class="metric-col">
+        <span class="pill pill--purple">US - EUROPE</span>
+        <span class="metric-number">~35%</span>
+        <p class="metric-subtitle">Premium cabin savings</p>
+        <p class="metric-desc">Core route. Highest&nbsp;volume.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">US - ME / ASIA</span>
+        <span class="metric-number">~20%</span>
+        <p class="metric-subtitle">Premium cabin savings</p>
+        <p class="metric-desc">Growing corridor.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">LAST-MINUTE</span>
+        <span class="metric-number">20%+</span>
+        <p class="metric-subtitle">Complex itineraries</p>
+        <p class="metric-desc">Highest time&nbsp;savings.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">HOTELS</span>
+        <span class="metric-number">~20%</span>
+        <p class="metric-subtitle">Savings + perks</p>
+        <p class="metric-desc">~80% upgrade success&nbsp;rate based on concierge calling on day of stay, not guaranteed </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 12 · RESULTS — ROI for your firm: 4 partners, 24 trips
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--results">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">12</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">ROI for your firm: 4 partners, 24&nbsp;trips</h2>
+    <div class="results-grid">
+      <div class="results-card">
+        <span class="pill pill--midnight">HARD SAVINGS</span>
+        <span class="results-value">$30,000</span>
+        <span class="results-unit">Annual flight&nbsp;savings</span>
+        <span class="results-delta">~$1,250 per trip</span>
+      </div>
+      <div class="results-card">
+        <span class="pill pill--purple">TIME VALUE</span>
+        <span class="results-value">$100k&ndash;$200k</span>
+        <span class="results-unit">Equivalent partner time&nbsp;reclaimed</span>
+        <span class="results-delta">60&ndash;120 hours/year</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 13 · THREE-COL PRICING — Tiered pricing that scales
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-pricing">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">13</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Tiered pricing that&nbsp;scales</h2>
+    <div class="pricing-grid">
+      <!-- Pricing card -->
+      <div class="pricing-card">
+        <h3 class="pricing-card-title">Executive tier</h3>
+        <p class="pricing-price">$1,500<span class="price-unit">/year</span></p>
+        <p class="pricing-alt">(4+ executives &mdash; or $200/month)</p>
+        <ul class="pricing-features">
+          <li class="check-item check-item--white">
+            <svg width="16" height="16"><use href="#icon-check"/></svg>
+            Unlimited trips
+          </li>
+          <li class="check-item check-item--white">
+            <svg width="16" height="16"><use href="#icon-check"/></svg>
+            No booking fees
+          </li>
+          <li class="check-item check-item--white">
+            <svg width="16" height="16"><use href="#icon-check"/></svg>
+            Business + personal travel
+          </li>
+        </ul>
+      </div>
+      <!-- ROI card -->
+      <div class="roi-card">
+        <div class="roi-title">
+          ROI example
+        </div>
+        <p class="roi-amount">$1,250</p>
+        <p class="roi-label">Avg. savings per US&ndash;EU flight</p>
+        <p class="roi-details">
+          &bull; 1 business class trip covers membership.<br>
+          &bull; 24 trips = $30,000 annual savings.<br>
+          &bull; <strong>10x+ ROI including time&nbsp;value.</strong>
+        </p>
+
+      </div>
+      <!-- Savings table -->
+      <div class="savings-card">
+        <h3 class="savings-heading">Team pricing (per person):</h3>
+        <table class="savings-table">
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>Annual</th>
+              <th>Monthly</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2&ndash;3 executives</td>
+              <td>$2,500</td>
+              <td>$300</td>
+            </tr>
+            <tr>
+              <td>4+ executives</td>
+              <td>$1,500</td>
+              <td>$200</td>
+            </tr>
+            <tr>
+              <td>New team members</td>
+              <td>$600</td>
+              <td>$50</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE — Why this structure works (split with image)
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list slide--split-reversed">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">13</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/traveler-businesswoman-arriving.jpg" alt="" class="photo-panel">
+      <div class="pills-overlay">
+        <svg width="24" height="14"><use href="#icon-ascend-arrow"/></svg>
+        <span class="pill">Break-even</span>
+        <span class="pill">1 trip</span>
+      </div>
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">Why this works</h2>
+    <div class="list-row">
+      <span class="list-num">01</span>
+      <span class="list-text">Aligns cost with usage and&nbsp;seniority</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">02</span>
+      <span class="list-text">Scales with hiring&nbsp;plans</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">03</span>
+      <span class="list-text">Maintains ROI at every&nbsp;level</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row">
+      <span class="list-num">04</span>
+      <span class="list-text">One US&ndash;EU trip covers membership&nbsp;cost</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE — Business case summary (two-col)
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--two-col-text">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">14</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">This is not a travel service, it&rsquo;s operational&nbsp;leverage</h2>
+    <div class="two-col-grid" style="grid-template-columns: 1fr 1fr;">
+      <div class="two-col-column">
+        <h3 class="col-title">Your current structure</h3>
+        <ul class="col-list">
+          <li>
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Cost: ~$6,000/year
+          </li>
+          <li>
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Hard savings: ~$30,000+
+          </li>
+          <li>
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Time value: substantial (deal-focused hours&nbsp;reclaimed)
+          </li>
+        </ul>
+      </div>
+      <div class="two-col-column">
+        <h3 class="col-title">Outcome</h3>
+        <ul class="col-list">
+          <li>
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            10x+ total&nbsp;ROI
+          </li>
+          <li>
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Zero operational burden on&nbsp;partners
+          </li>
+          <li>
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Reduced disruption&nbsp;risk
+          </li>
+          <li>
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Scales with team&nbsp;growth
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 15 · Multi-partner travel scenario (3 cards)
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-numbered">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">15</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Multi-partner travel&nbsp;scenario</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="mono-number">01</span>
+        <p><b>Scenario</b></p>
+        <ul style="margin: var(--space-2) 0 0; padding-left: var(--space-6); font-size: var(--text-base); line-height: var(--leading-normal);">
+          <li>Meetings across 3 cities (AUH &rarr; LHR &rarr;&nbsp;JFK)</li>
+          <li>Last-minute schedule&nbsp;changes</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="mono-number">02</span>
+        <p><b>Ascend handles</b></p>
+        <ul style="margin: var(--space-2) 0 0; padding-left: var(--space-6); font-size: var(--text-base); line-height: var(--leading-normal);">
+          <li>Multi-leg routing</li>
+          <li>Hotel + transport&nbsp;alignment</li>
+          <li>Real-time&nbsp;rebooking</li>
+        </ul>
+      </div>
+      <div class="card" style="background: var(--color-midnight);">
+        <span class="mono-number" style="color: var(--color-sun);">03</span>
+        <p style="color: var(--color-sun);"><b>Outcome</b></p>
+        <ul style="margin: var(--space-2) 0 0; padding-left: var(--space-6); font-size: var(--text-base); line-height: var(--leading-normal); color: var(--color-text-on-primary);">
+          <li>Zero partner&nbsp;involvement</li>
+          <li>Optimized cost + seamless&nbsp;execution</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE — Next steps (two-col)
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--two-col-text" style="background: var(--color-midnight); color: var(--color-text-on-primary);">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend &times; VivoPower</span>
+    <span class="topbar__num">15</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title" style="color: var(--color-text-on-primary);">No commitment. Immediate&nbsp;value.</h2>
+    <div class="two-col-grid" style="grid-template-columns: 1fr 1fr; color: var(--color-text-on-primary);">
+      <div class="two-col-column">
+        <h3 class="col-title" style="color: var(--color-text-on-primary);">Start with a 30-day trial</h3>
+        <ul class="col-list" style="color: var(--color-text-on-primary);">
+          <li style="color: inherit;">
+            <svg class="icon-check" width="16" height="16" style="color: var(--color-sun);"><use href="#icon-check"/></svg>
+            Full access for core&nbsp;partners
+          </li>
+          <li style="color: inherit;">
+            <svg class="icon-check" width="16" height="16" style="color: var(--color-sun);"><use href="#icon-check"/></svg>
+            Run across upcoming US + Europe&nbsp;travel
+          </li>
+          <li style="color: inherit;">
+            <svg class="icon-check" width="16" height="16" style="color: var(--color-sun);"><use href="#icon-check"/></svg>
+            Benchmark against current&nbsp;approach
+          </li>
+        </ul>
+      </div>
+      <div class="two-col-column">
+        <h3 class="col-title" style="color: var(--color-text-on-primary);">What you&rsquo;ll see immediately</h3>
+        <ul class="col-list" style="color: var(--color-text-on-primary);">
+          <li style="color: inherit;">
+            <svg class="icon-check" width="16" height="16" style="color: var(--color-sun);"><use href="#icon-check"/></svg>
+            Lower fares vs. current&nbsp;bookings
+          </li>
+          <li style="color: inherit;">
+            <svg class="icon-check" width="16" height="16" style="color: var(--color-sun);"><use href="#icon-check"/></svg>
+            Faster execution
+          </li>
+          <li style="color: inherit;">
+            <svg class="icon-check" width="16" height="16" style="color: var(--color-sun);"><use href="#icon-check"/></svg>
+            Zero time spent coordinating&nbsp;travel
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div><!-- /.deck-shell -->
+</body>
+</html>
