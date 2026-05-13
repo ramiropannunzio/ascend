@@ -10,12 +10,14 @@
 
 ## Prerequisites — Load Before Responding
 
-1. `05-CreativeOps/Clients/Ascend/Brand Assets/Slides/ascend-deck-template.html` — slide catalog (25+ types) + shell (head, sprite sheet). Single source: copy this file, strip unused slides, inject content.
-2. `05-CreativeOps/Clients/Ascend/Brand Assets/Slides/ascend-deck.css` — slide system (Layout, chrome, type modifiers, auto-shrink, print). Extends brand.css.
+1. `05-CreativeOps/Clients/Ascend/Brand/Slides/ascend-deck-template.html` — slide catalog (25+ types) + shell (head, sprite sheet). Single source: copy this file, strip unused slides, inject content.
+2. `05-CreativeOps/Clients/Ascend/Brand/Slides/ascend-deck.css` — slide system (Layout, chrome, type modifiers, auto-shrink, print). Extends brand.css.
 3. `05-CreativeOps/brain/raw/standards/Ascend/brand.css` — design tokens (colors, typography, spacing, radii, font-face declarations).
 4. `05-CreativeOps/Frameworks/deck-token-contract.md` — Layer 1 constants + Layer 2 variable naming contract.
-5. `05-CreativeOps/Clients/Ascend/Brand Assets/Ascend_StyleGuide.md` — brand rules and visual identity.
-6. `05-CreativeOps/Clients/Ascend/Brand Assets/Fonts/` — FT System Trial (Grotesk: Regular, Medium, Semibold, Bold) + FT System Mono (Regular, Medium).
+5. `05-CreativeOps/Clients/Ascend/Brand/Assets/Ascend_StyleGuide.md` — brand rules and visual identity.
+6. `05-CreativeOps/Clients/Ascend/Brand/Fonts/` — FT System Trial (Grotesk: Regular, Medium, Semibold, Bold) + FT System Mono (Regular, Medium).
+
+> **Asset path warning:** `brand.css` `@font-face` declarations use relative paths to `Brand/Fonts/`. Image paths in deck HTMLs point to `../Assets/Imagery/Travel/`. If folders are renamed or restructured, these paths break silently — fonts fall back to system sans-serif and images disappear. Always verify font rendering and image loading after any folder change.
 
 ---
 
@@ -1163,4 +1165,73 @@ Usage: `<section class="slide slide--four-col-metrics" data-cols="3">`
 
 ---
 
-*Guide v3.0 — The Creative Lever for Ascend (960×540)*
+## Build Rules — Learned from Production
+
+### 1. Always copy the full sprite sheet
+
+When creating a new deck from the template, copy the **entire** `<svg>` sprite block — not a subset. Mid-build icon additions cause avoidable rework.
+
+### 2. Body text color is always `--color-neutral-0`
+
+No exceptions on light-background slides. Do not use `--color-neutral-40` or any muted variant for body paragraphs. Muted colors are reserved for footnotes/disclaimers (`--text-xs` size) only.
+
+### 3. Density overrides for non-standard layouts
+
+Standard slide types are calibrated for their documented density limits. When exceeding them (e.g., 6 items in a `four-col-metrics` 3×2 grid, or `agenda` with a headline that wraps to 3+ lines), apply inline overrides:
+
+| Override | Values |
+|---|---|
+| Headline | `font-size: 32px` (down from 42px) |
+| Metric numbers | `font-size: 36px` (down from 48px) |
+| Column padding | `var(--space-4) var(--space-6)` (down from `var(--space-6)`) |
+| Column gap | `var(--space-2)` (down from `var(--space-3)`) |
+| Grid row-gap | `var(--space-4)` |
+| Content padding | `padding-top: var(--space-16); padding-bottom: var(--space-6)` |
+| Agenda steps gap | `var(--space-6)` (down from `var(--space-8)`) |
+
+### 4. `split-image-list` supports body text in right panel
+
+The right panel is not limited to numbered list rows. It accepts:
+- `.slide-title` (already styled at line 816 of `ascend-deck.css`)
+- `<p>` elements with inline body-text styles
+
+Use for narrative slides that need a photo panel without the numbered-list structure. Combine with `slide--split-reversed` and `data-split` as normal.
+
+```markdown
+## split-image-list
+variant: light
+photo: Assets/Imagery/Travel/photo.jpg
+# Headline here
+body: Paragraph text. Second sentence.
+```
+
+### 5. Slide type selection heuristics
+
+| Content pattern | Best slide type |
+|---|---|
+| 3 items with a prominent number each | `three-col-numbered` |
+| 4 items with icon + title + description | `cards` (2×2) |
+| 6+ icon+title items, no description | `cards` with `grid-template-columns: repeat(4, 1fr)` + `flex-direction: row` on cards |
+| Narrative text + photo | `split-image-list` with body text (see §4) |
+| 4 numbered activation steps | `agenda` |
+| Financial data, 4 metrics | `four-col-metrics` |
+| Financial data, 6 metrics | `four-col-metrics` `data-cols="3"` + density overrides (see §3) |
+
+### 6. Cards — horizontal layout for high item count
+
+When a `cards` slide has 6+ items with icon + title only (no description), switch cards to horizontal layout:
+
+```html
+<div class="card-item" style="flex-direction:row;align-items:center;padding:var(--space-4);gap:var(--space-3);">
+  <div class="icon-container icon-container--sm icon-container--light" style="flex-shrink:0;">
+    <svg width="16" height="16"><use href="#icon-name"/></svg>
+  </div>
+  <h3 class="card-title" style="font-size:var(--text-sm);margin:0;">Title</h3>
+</div>
+```
+
+This keeps card height compact and fits 8 items in a 4×2 grid within 540px.
+
+---
+
+*Guide v3.1 — The Creative Lever for Ascend (960×540)*
