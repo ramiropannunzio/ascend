@@ -38,6 +38,20 @@
 
    AUTO-SHRINK: data-autoshrink="1" (≤20px overflow) / "2" (21-40px)
    Never auto-shrink: cover-photo, section-break, closing-photo
+
+   IMAGE BUDGET (Layer 1 — viewport-driven, applies to all brands):
+   ┌──────────────────────┬──────────────┬────────────┬────────────────┐
+   │ Role                 │ Max res (2×) │ Max weight │ Format         │
+   ├──────────────────────┼──────────────┼────────────┼────────────────┤
+   │ Full-bleed (cover,   │ 1920×1080    │ 300 KB     │ JPEG 82% /WebP │
+   │ hero, closing)       │              │            │                │
+   │ Half-panel (split,   │ 960×1080     │ 200 KB     │ JPEG 82% /WebP │
+   │ agenda sidebar)      │              │            │                │
+   │ Card / thumbnail     │ 560×320      │ 80 KB      │ JPEG / WebP    │
+   │ Logo                 │ SVG or 96px h│ 15 KB      │ SVG > PNG      │
+   │ Pattern / decorative │ —            │ 20 KB      │ SVG always     │
+   └──────────────────────┴──────────────┴────────────┴────────────────┘
+   Total deck PDF target: ≤ 5 MB (safe for email attachment).
    ══════════════════════════════════════════════════════════ */
 
 
@@ -291,8 +305,11 @@ body {
   margin-top: -2px;
 }
 
-/* White variant — for dark BGs (Midnight, Land, Purple) */
-.topbar--white { color: var(--color-text-on-primary); }
+/* White variant — for dark BGs (Midnight, Land, Purple)
+   Uses !important to override slide-type-specific .topbar color resets
+   (e.g. .slide--content .topbar forces neutral-0). Without this,
+   a content slide with inline midnight BG would show a black topbar. */
+.topbar--white { color: var(--color-text-on-primary) !important; }
 
 /* Dark variant — for light BGs (Sky, White, Neutral-95) */
 .topbar--dark { color: var(--color-neutral-0); }
@@ -825,6 +842,23 @@ body {
 
 .slide--split-reversed .left-panel  { order: 2; }
 .slide--split-reversed .right-panel { order: 1; }
+
+/* ── 05 variant: unnumbered rows ─────────────────────── */
+/* Add .list-row--plain to remove numbering column.
+   Grid becomes [text] [chevron] instead of [num] [text] [chevron]. */
+.slide--split-image-list .list-row--plain {
+  grid-template-columns: 1fr 40px;
+}
+
+/* ── 05 variant: callout row (last row, no chevron/border) ── */
+/* Add .list-row--callout for a semibold closing statement. */
+.slide--split-image-list .list-row--callout {
+  grid-template-columns: 1fr;
+  border-bottom: none;
+}
+.slide--split-image-list .list-row--callout .list-text {
+  font-weight: var(--font-semibold);
+}
 
 /* ── 06. Three-Col Steps ──────────────────────────────── */
 .slide--three-col-steps { background: var(--color-sky); }
@@ -2571,4 +2605,68 @@ body {
 .slide--icon-library-light .slide-title { color: var(--color-neutral-0); }
 .slide--icon-library-light .slide-subtitle { color: var(--color-neutral-40); }
 .slide--icon-library-light .icon-label { color: var(--color-neutral-40);
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   ADDITIONS — v3.2
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Cover overlay — darken photo for text contrast ───── */
+/* Add data-overlay="20" (or 30, 40, 50) to .slide--cover-photo.
+   Creates a full-bleed black overlay between the photo and content. */
+.slide--cover-photo .cover-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0,0,0,.2);
+}
+.slide--cover-photo[data-overlay="30"] .cover-overlay { background: rgba(0,0,0,.3); }
+.slide--cover-photo[data-overlay="40"] .cover-overlay { background: rgba(0,0,0,.4); }
+.slide--cover-photo[data-overlay="50"] .cover-overlay { background: rgba(0,0,0,.5); }
+
+/* ── Icon Cards (service grid) ────────────────────────── */
+/* 5×2 grid of icon squircles + labels. Used for "One service" slides.
+   Density: 10 items (5×2). Neutral-95 BG. */
+.slide--icon-cards { background: var(--color-neutral-95); }
+.slide--icon-cards .content {
+  padding: var(--slide-pad-top) var(--slide-pad-x) var(--slide-pad-inner);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+.slide--icon-cards .slide-title {
+  font-size: var(--text-6xl);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-tight);
+  text-align: center;
+  margin: 0;
+  color: var(--color-neutral-0);
+}
+.slide--icon-cards .icon-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-6) var(--space-4);
+  width: 100%;
+}
+.slide--icon-cards .icon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+.slide--icon-cards .icon-card-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-neutral-0);
+}
+.slide--icon-cards .slide-body {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-neutral-0);
+  text-align: center;
+  margin: var(--space-2) 0 0;
 }

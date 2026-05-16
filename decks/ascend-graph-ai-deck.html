@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=960">
+<meta name="generator" content="TCL_OS · /deck">
+<title>Ascend — Graph AI Partnership</title>
+<link rel="stylesheet" href="../../../../brain/raw/standards/Ascend/brand.css">
+<link rel="stylesheet" href="ascend-deck.css">
+</head>
+<body>
+
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M7 10l5 5 5-5"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M5 13l4 4L19 7"/>
+    </symbol>
+    <symbol id="icon-ascend-arrow" viewBox="0 0 112 64" fill="currentColor">
+      <path d="M110.535 34.1101H82.6104C81.8444 34.1101 80.8032 34.728 80.8032 35.494L81.2265 62.6103C81.2265 64.1212 79.1442 64.5402 78.5601 63.1478L57.2294 15.0394C56.7427 13.9432 55.1852 13.9432 54.6985 15.0394L33.3678 63.1478C32.7838 64.5444 30.7015 64.1254 30.7015 62.6103V35.494C30.7015 34.728 30.0836 34.1101 29.3175 34.1101H1.3887C-0.0291135 34.1101 -0.532748 32.2352 0.694613 31.5199L52.6628 1.32258L54.051 0.514221C55.2318 -0.17141 56.6919 -0.17141 57.8727 0.514221L59.2609 1.32258L111.229 31.5199C112.452 32.2352 111.953 34.1101 110.535 34.1101Z"/>
+    </symbol>
+    <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+    </symbol>
+    <symbol id="icon-hotel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+    </symbol>
+    <symbol id="icon-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
+    </symbol>
+    <symbol id="icon-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+    </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="icon-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9h4"/><path d="M10 13h4"/><path d="M10 17h4"/>
+    </symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<div class="deck-shell" data-theme="light">
+
+<!-- ══════════════════════════════════════════════════════════
+     01 · COVER PHOTO
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cover-photo">
+  <img class="cover-bg photo-fill" src="../Assets/Imagery/Travel/aerial-clouds-town.jpg" alt="">
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,.2);z-index:1;"></div>
+  <div class="cover-content" style="z-index:2;">
+    <div class="cover-wordmark" style="gap:var(--space-4);align-items:center;">
+      <img src="../Assets/Logo/Wordmark/ascend-wordmark-white.svg" alt="Ascend" class="cover-logo" style="height:43px;">
+      <span style="font-family:var(--font-mono);font-size:var(--text-lg);color:rgba(255,255,255,.6);">&times;</span>
+      <img src="../Assets/Partner Logos/Graph AI logo.avif" alt="Graph AI" style="height:31px;width:auto;">
+    </div>
+    <p class="cover-tagline" style="color:#fff;">Travel handled. Growth protected.</p>
+    <p class="cover-tagline" style="font-size:var(--text-base);color:rgba(255,255,255,.85);">A 12-month Ascend partnership for Graph AI's founding team.</p>
+    <p class="cover-tagline" style="font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-none);margin-top:var(--space-4);color:rgba(255,255,255,.9);">US ‹› Europe &nbsp;/&nbsp; US ‹› India &nbsp;/&nbsp; Domestic &nbsp;/&nbsp; 24/7</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     02 · SPLIT IMAGE LIST — Built for the way Graph AI travels.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list slide--split-reversed" data-split="60-40">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × Graph AI</span>
+    <span class="topbar__num">02</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/traveler-airport-stride.jpg" alt="" class="photo-panel">
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">Built for the way Graph AI travels.</h2>
+    <div class="list-row" style="grid-template-columns:1fr 40px;">
+      <span class="list-text">Graph AI is a Bessemer Venture Partners portfolio company, operating across India and the West Coast.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row" style="grid-template-columns:1fr 40px;">
+      <span class="list-text">Bessemer led Ascend's most recent investment round, which is how the introduction began.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row" style="grid-template-columns:1fr;border-bottom:none;">
+      <span class="list-text" style="font-weight:var(--font-semibold);">The first phase is built around five executive travellers. The wider team can be added as Graph AI expands.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     03 · SPLIT IMAGE LIST — Booking should not slow the executive team down.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list slide--split-reversed" data-split="60-40">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × Graph AI</span>
+    <span class="topbar__num">03</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/traveler-man-airport-walking.jpg" alt="" class="photo-panel">
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">Booking should not slow the executive team down.</h2>
+    <div class="list-row" style="grid-template-columns:1fr 40px;">
+      <span class="list-text">As Graph AI scales, travel becomes more frequent, more complex and more distracting.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row" style="grid-template-columns:1fr 40px;">
+      <span class="list-text">Founders and executives should not be comparing flights, managing changes or chasing invoices across time zones.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row" style="grid-template-columns:1fr;border-bottom:none;">
+      <span class="list-text" style="font-weight:var(--font-semibold);">Ascend acts as a dedicated travel desk, without Graph AI needing to build one internally.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     04 · THREE-COL NUMBERED (4 cols, midnight) — Some routes optimise better than others.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-numbered slide--midnight" data-cols="4">
+  <div class="topbar">
+    <span class="topbar__title">Ascend × Graph AI</span>
+    <span class="topbar__num">04</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Some routes optimise better than others.</h2>
+    <div class="cards">
+      <div class="card" style="background:var(--color-bg) !important;">
+        <span class="mono-number" style="color:var(--color-primary) !important;font-size:64px;">01</span>
+        <p style="color:var(--color-neutral-0) !important;"><strong>US ‹› Europe</strong><br>Best opportunity for premium cabin optimisation.</p>
+      </div>
+      <div class="card" style="background:var(--color-bg) !important;">
+        <span class="mono-number" style="color:var(--color-primary) !important;font-size:64px;">02</span>
+        <p style="color:var(--color-neutral-0) !important;"><strong>US ‹› India</strong><br>Long-haul support, better routing and smoother changes. Savings are possible, but not the main case.</p>
+      </div>
+      <div class="card" style="background:var(--color-bg) !important;">
+        <span class="mono-number" style="color:var(--color-primary) !important;font-size:64px;">03</span>
+        <p style="color:var(--color-neutral-0) !important;"><strong>US domestic</strong><br>5–7% saving opportunity on business and first class.</p>
+      </div>
+      <div class="card" style="background:var(--color-bg) !important;">
+        <span class="mono-number" style="color:var(--color-primary) !important;font-size:64px;">04</span>
+        <p style="color:var(--color-neutral-0) !important;"><strong>Premium Economy</strong><br>Savings can be possible, but are not guaranteed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     05 · THREE-COL NUMBERED (4 cols) — Built for non-linear travel.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-numbered" data-cols="4">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × Graph AI</span>
+    <span class="topbar__num">05</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Built for non-linear travel.</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="mono-number" style="color:var(--color-primary);font-size:64px;">01</span>
+        <p><strong>One-way</strong><br>When a return is not needed or starts from a different city.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number" style="color:var(--color-primary);font-size:64px;">02</span>
+        <p><strong>Multi-city</strong><br>When the route changes across meetings, markets or time zones.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number" style="color:var(--color-primary);font-size:64px;">03</span>
+        <p><strong>Short-stay long haul</strong><br>When someone flies internationally and returns within days.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number" style="color:var(--color-primary);font-size:64px;">04</span>
+        <p><strong>Premium cabins</strong><br>Where better routing, timing and fare construction can materially change the outcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     06 · THREE-COL STEPS — One WhatsApp group. Full trip handled.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-steps">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × Graph AI</span>
+    <span class="topbar__num">06</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">One WhatsApp group.<br>Full trip handled.</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-ascend-arrow"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 01</p>
+          <h3 class="step-name">Text</h3>
+          <p class="step-desc">Send the route, dates, traveller, cabin and preferences.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-ascend-arrow"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 02</p>
+          <h3 class="step-name">Approve</h3>
+          <p class="step-desc">Receive clear options with pricing, timing and trade-offs.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-mockup">
+          <div class="ascend-icon-circle">
+            <svg width="20" height="18"><use href="#icon-ascend-arrow"/></svg>
+          </div>
+        </div>
+        <div class="step-meta">
+          <p class="step-label">Step 03</p>
+          <h3 class="step-name">Done</h3>
+          <p class="step-desc">We book, monitor and adjust the trip until the traveller arrives.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     07 · ICON CARDS — One service. Every trip.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--content" style="background:var(--color-neutral-95);">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × Graph AI</span>
+    <span class="topbar__num">07</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content" style="align-items:center;">
+    <h2 class="slide-title" style="text-align:center;">One service. Every trip.</h2>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-6) var(--space-4);width:100%;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-plane"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Flights</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-hotel"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Hotels</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-car"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Cars</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-refresh-cw"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Changes</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-x"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Cancellations</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-settings"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Preferences</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-star"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Loyalty details</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-users"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Traveller profiles</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-file-text"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Invoices</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-briefcase"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Business + personal</span>
+      </div>
+    </div>
+    <p class="slide-body" style="text-align:center;margin-top:var(--space-8);">Everything handled through Ascend, without adding work for the executive team.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     08 · FOUR-COL METRICS — Business case.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--four-col-metrics">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × Graph AI</span>
+    <span class="topbar__num">08</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Business case.</h2>
+    <div class="metrics-grid">
+      <div class="metric-col">
+        <span class="pill pill--purple">Executives</span>
+        <span class="metric-number">5</span>
+        <p class="metric-subtitle">Executive travellers</p>
+        <p class="metric-desc">Each taking 3 US ‹› Europe trips per year.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">Trips</span>
+        <span class="metric-number">15</span>
+        <p class="metric-subtitle">Eligible <br>trips</br></p>
+        <p class="metric-desc">Premium cabin optimisation on US ‹› Europe routes.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">Per trip</span>
+        <span class="metric-number">$1,200</span>
+        <p class="metric-subtitle">Average <br>saving</br></p>
+        <p class="metric-desc">Per premium cabin booking.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">Annual</span>
+        <span class="metric-number">$18,000</span>
+        <p class="metric-subtitle">Est. annual flight saving</p>
+        <p class="metric-desc">Before hotels, domestic, US ‹› India or personal travel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     09 · TESTIMONIALS — Real savings. Real firms.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--content" style="background:var(--color-midnight);">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend × Graph AI</span>
+    <span class="topbar__num">09</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title" style="color:var(--color-text-on-primary);text-align:center;">Real savings. Real firms.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);width:100%;">
+      <div style="background:var(--color-bg);border-radius:var(--radius-2xl);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-4);">
+        <span class="pill pill--purple">BITKRAFT Ventures</span>
+        <span style="font-family:var(--font-mono);font-size:var(--font-size-deck-metric);font-weight:var(--font-medium);line-height:1;color:var(--color-neutral-0);">$127,000</span>
+        <p style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);margin:0;">Saved for BITKRAFT Ventures</p>
+        <p style="font-size:var(--text-sm);color:var(--color-neutral-30);margin:0;">47 bookings over 6 months. 32% average savings.</p>
+      </div>
+      <div style="background:var(--color-bg);border-radius:var(--radius-2xl);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-4);">
+        <span class="pill pill--purple">Charlotte Tilbury</span>
+        <span style="font-family:var(--font-mono);font-size:var(--font-size-deck-metric);font-weight:var(--font-medium);line-height:1;color:var(--color-neutral-0);">$42,000</span>
+        <p style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);margin:0;">Saved for Charlotte Tilbury</p>
+        <p style="font-size:var(--text-sm);color:var(--color-neutral-30);margin:0;">18 executive bookings over 3 months.</p>
+      </div>
+    </div>
+    <p style="font-size:var(--text-sm);color:var(--color-sky);text-align:center;margin:0;">Proof from similar executive travel use cases: high-value travellers, premium routes and managed support.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     10 · SECTION BREAK — Proposal.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--section-purple">
+  <h2 class="section-headline">Proposal.</h2>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     11 · THREE-COL PRICING — Proposal details.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-pricing">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × Graph AI</span>
+    <span class="topbar__num">11</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">5 executive seats. 12 months.</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3 class="pricing-card-title">Graph AI Partnership</h3>
+        <p class="pricing-price">$500<span class="price-unit">/month</span></p>
+        <p class="pricing-alt">(5 executive seats)</p>
+        <ul class="pricing-features">
+          <li class="check-item check-item--white">
+            <svg width="16" height="16"><use href="#icon-check"/></svg>
+            $5,000 one-time joining fee
+          </li>
+          <li class="check-item check-item--white">
+            <svg width="16" height="16"><use href="#icon-check"/></svg>
+            Founders and senior travellers
+          </li>
+          <li class="check-item check-item--white">
+            <svg width="16" height="16"><use href="#icon-check"/></svg>
+            12-month partnership
+          </li>
+          <li class="check-item check-item--white">
+            <svg width="16" height="16"><use href="#icon-check"/></svg>
+            One-time setup and onboarding
+          </li>
+        </ul>
+      </div>
+      <div class="roi-card" style="gap:var(--space-4);">
+        <p style="font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--color-neutral-0);margin:0;"><strong>Includes</strong></p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2);">
+          <li class="check-item">
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Flights, hotels and cars
+          </li>
+          <li class="check-item">
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Changes and cancellations
+          </li>
+          <li class="check-item">
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Traveller profiles and loyalty details
+          </li>
+          <li class="check-item">
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Invoices and 24/7 WhatsApp support
+          </li>
+        </ul>
+      </div>
+      <div class="savings-card" style="background:var(--color-sun);">
+        <h3 class="savings-heading">Year-one value:</h3>
+        <table class="savings-table">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td>Joining fee</td>
+              <td>$5,000</td>
+            </tr>
+            <tr>
+              <td>12 × $500/month</td>
+              <td>$6,000</td>
+            </tr>
+            <tr>
+              <td style="font-weight:var(--font-semibold);">Total cost</td>
+              <td style="font-weight:var(--font-semibold);">$11,000</td>
+            </tr>
+            <tr>
+              <td style="font-weight:var(--font-semibold);color:var(--color-primary);">Est. flight savings</td>
+              <td style="font-weight:var(--font-semibold);color:var(--color-primary);">$18,000</td>
+            </tr>
+            <tr>
+              <td style="font-weight:var(--font-bold);">Net value</td>
+              <td style="font-weight:var(--font-bold);">$7,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     12 · AGENDA — Scales as Graph AI scales.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--agenda" style="grid-template-columns:2fr 3fr;">
+  <div class="agenda-accent">
+    <img src="../Assets/Graphic elements/arrow-pattern-purple.svg" alt="" aria-hidden="true">
+  </div>
+  <div class="agenda-body">
+    <h2 class="slide-title" style="white-space:nowrap;">Scales as Graph AI scales.</h2>
+    <ol class="agenda-steps">
+      <li class="agenda-step">
+        <span class="agenda-step-num">01</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Start with executive team</p>
+          <p class="agenda-step-desc">Cover the highest-value travellers first.</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">02</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Build travel profiles</p>
+          <p class="agenda-step-desc">Capture preferences, loyalty details and billing.</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">03</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Track value</p>
+          <p class="agenda-step-desc">Review savings, usage, service quality and time saved.</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">04</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Add travellers</p>
+          <p class="agenda-step-desc">Scale the partnership as hiring and travel volume increases.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     13 · AGENDA (reversed) — Next steps.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--agenda" style="grid-template-columns:3fr 2fr;">
+  <div class="agenda-body" style="padding-left:var(--slide-pad-x);">
+    <h2 class="slide-title" style="white-space:nowrap;">Next steps.</h2>
+    <ol class="agenda-steps">
+      <li class="agenda-step">
+        <span class="agenda-step-num">01</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Confirm seats</p>
+          <p class="agenda-step-desc">Agree the initial executive travellers.</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">02</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Set profiles</p>
+          <p class="agenda-step-desc">Add passport details, loyalty numbers, preferences, billing and assistant contacts.</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">03</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Launch WhatsApp access</p>
+          <p class="agenda-step-desc">Open direct booking support for approved travellers.</p>
+        </div>
+      </li>
+      <li class="agenda-step">
+        <span class="agenda-step-num">04</span>
+        <div class="agenda-step-content">
+          <p class="agenda-step-title">Review value</p>
+          <p class="agenda-step-desc">Track savings, usage, service quality, time saved and future team expansion.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+  <div class="agenda-accent">
+    <img src="../Assets/Graphic elements/arrow-pattern-purple.svg" alt="" aria-hidden="true">
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     14 · CLOSING — Making travel effortless.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cta-contacts">
+  <div class="content" style="padding-bottom:var(--space-6);padding-top:var(--slide-pad-top);">
+    <h2 class="cta-headline" style="font-size:var(--text-5xl);">Making travel effortless.</h2>
+    <div class="contacts" style="position:absolute;bottom:var(--space-8);right:var(--slide-pad-x);gap:var(--space-2);">
+      <div class="contact-row" style="padding:var(--space-1) var(--space-4) var(--space-1) var(--space-1);display:grid;grid-template-columns:36px 160px 1fr;gap:var(--space-3);align-items:center;">
+        <img src="../Assets/Headshots/Chloe Rose Mitchell.jpeg" alt="" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">
+        <span class="contact-name" style="min-width:auto;padding:var(--space-2) var(--space-4);">Chloe Rose Mitchell</span>
+        <span class="contact-email">chloe@flyascend.com</span>
+      </div>
+      <div class="contact-row" style="padding:var(--space-1) var(--space-4) var(--space-1) var(--space-1);display:grid;grid-template-columns:36px 160px 1fr;gap:var(--space-3);align-items:center;">
+        <img src="../Assets/Headshots/Zach Rensick.jpeg" alt="" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">
+        <span class="contact-name" style="min-width:auto;padding:var(--space-2) var(--space-4);">Zach Resnick</span>
+        <span class="contact-email">zach@flyascend.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     15 · CLOSING PHOTO — Thank you.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--closing-photo">
+  <img class="photo-bg" src="../Assets/Imagery/Travel/traveler-man-blue-sky.jpg" alt="" class="photo-fill">
+  <div class="closing-content" style="flex-direction:column;gap:var(--space-3);">
+    <div style="display:flex;align-items:center;gap:var(--space-4);">
+      Thank you
+      <svg width="64" height="37"><use href="#icon-ascend-arrow"/></svg>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

@@ -126,6 +126,27 @@ Make booking travel effortless
 photo: Assets/cover-sky.jpg
 ```
 
+**Co-branding variant:** When building a deck for a specific prospect or partner, include their logo next to the Ascend wordmark. Layout: `[Ascend wordmark] × [Client logo]` centered horizontally. The `×` separator uses mono font at `text-lg`, 60% white opacity. Client logo height matches Ascend wordmark visually (~52px). If the client logo is dark, apply `filter: brightness(0) invert(1)` to make it white. Client logos live in `Assets/Partner Logos/`.
+
+```markdown
+## cover-photo
+# ascend
+cobrand: Assets/Partner Logos/[client-logo].png
+Make booking travel effortless
+photo: Assets/cover-sky.jpg
+```
+
+```html
+<div class="cover-wordmark" style="gap:var(--space-4);align-items:center;">
+  <img src="../Assets/Logo/Wordmark/ascend-wordmark-white.svg" alt="Ascend" class="cover-logo">
+  <span style="font-family:var(--font-mono);font-size:var(--text-lg);color:rgba(255,255,255,.6);">&times;</span>
+  <img src="../Assets/Partner Logos/[logo]" alt="[Client]" style="height:52px;width:auto;filter:brightness(0) invert(1);">
+</div>
+```
+
+> **When to use:** Any deck targeting a named prospect or partner. Omit for generic capabilities or investor decks.
+> **Filter rule:** Apply `brightness(0) invert(1)` only if the source logo is dark. If a white version of the logo exists, use it directly without the filter.
+
 ---
 
 ### 2. `section-break`
@@ -501,12 +522,13 @@ Midnight background. White headline top-left + contact rows bottom-right. Topbar
 
 **Density:** Max 4 contact rows. Email always hyperlinked as `mailto:`.
 
+**Headshot rule:** When a contact has a headshot file in `Assets/Headshots/`, include it as a 36px circular photo at the start of the contact row. Grid changes from `[name] [email]` to `[headshot 36px] [name 160px] [email 1fr]`. Always check `Assets/Headshots/` before building the slide — if the file exists, include it. Available headshots are listed in `ascend-deck-blocks.md` § Team Roster.
+
 ```markdown
 ## cta-contacts
-# Ready to make travel effortless? Apply for membership.
-- name: Zach Resnick | email: zach@flyascend.com
-- name: Chloe X | email: chloe@flyascend.com
-- name: Mike X | email: mike@flyascend.com
+# Ready to make travel effortless?
+- name: Chloe Rose Mitchell | email: chloe@flyascend.com | photo: Assets/Headshots/Chloe Rose Mitchell.jpeg
+- name: Zach Resnick | email: zach@flyascend.com | photo: Assets/Headshots/Zach Rensick.jpeg
 ```
 
 ---
@@ -1232,6 +1254,68 @@ When a `cards` slide has 6+ items with icon + title only (no description), switc
 
 This keeps card height compact and fits 8 items in a 4×2 grid within 540px.
 
+### 7. Contact rows — include headshots when available
+
+Before building a `cta-contacts` slide, check `Assets/Headshots/` for each contact. If a headshot file exists, include it as a 36px circular image at the start of the row:
+
+```html
+<div class="contact-row" style="padding:var(--space-1) var(--space-4) var(--space-1) var(--space-1);display:grid;grid-template-columns:36px 160px 1fr;gap:var(--space-3);align-items:center;">
+  <img src="../Assets/Headshots/[file]" alt="" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">
+  <span class="contact-name" style="min-width:auto;padding:var(--space-2) var(--space-4);">[Name]</span>
+  <span class="contact-email">[email]</span>
+</div>
+```
+
+If no headshot exists for a contact, fall back to the standard 2-column grid (`[name] [email]`). Do not mix rows with and without headshots — if any contact lacks a photo, omit headshots from all rows.
+
+### 8. Cover overlay — use `.cover-overlay` div, not inline styles
+
+When a cover photo needs darkening for text contrast, add a `.cover-overlay` div and use `data-overlay` on the section instead of inline `rgba()` divs:
+
+```html
+<section class="slide slide--cover-photo" data-overlay="20">
+  <img class="cover-bg photo-fill" src="..." alt="">
+  <div class="cover-overlay"></div>
+  <div class="cover-content">...</div>
+</section>
+```
+
+Supported values: `20` (default), `30`, `40`, `50`. No `data-overlay` = no overlay.
+
+### 9. Unnumbered split-image rows — use `.list-row--plain`
+
+For narrative slides where numbered rows don't apply, add `.list-row--plain` instead of inline `grid-template-columns` overrides:
+
+```html
+<div class="list-row list-row--plain">
+  <span class="list-text">...</span>
+  <span class="chevron-circle icon-chevron">...</span>
+</div>
+```
+
+For the closing statement (semibold, no chevron, no border), use `.list-row--callout`:
+
+```html
+<div class="list-row list-row--callout">
+  <span class="list-text">Closing statement here.</span>
+</div>
+```
+
+### 10. Icon cards — use `slide--icon-cards` for service grids
+
+The "One service" slide is now a first-class slide type. No inline styles needed:
+
+```markdown
+## icon-cards
+# One service. Full trip.
+- icon: plane | label: Flights
+- icon: hotel | label: Hotels
+- icon: car | label: Cars
+footer: Everything handled through Ascend.
+```
+
+CSS class: `.slide--icon-cards`. Grid: `.icon-grid` (5×2). Items: `.icon-card` with `.icon-card-label`. Default BG: `neutral-95`.
+
 ---
 
-*Guide v3.1 — The Creative Lever for Ascend (960×540)*
+*Guide v3.3 — The Creative Lever for Ascend (960×540)*

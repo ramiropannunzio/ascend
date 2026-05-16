@@ -2777,6 +2777,143 @@
 </section>
 
 
+<!-- ══════════════════════════════════════════════════════════
+     NEW · COVER PHOTO — With overlay (data-overlay)
+     Add .cover-overlay div between photo and content.
+     Supports data-overlay="20|30|40|50" on the section.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cover-photo" data-overlay="20">
+  <img class="cover-bg photo-fill" src="../Assets/Imagery/Travel/plane-above-clouds.jpg" alt="">
+  <div class="cover-overlay"></div>
+  <div class="cover-content">
+    <div class="cover-wordmark">
+      <img src="../Assets/Logo/Wordmark/ascend-wordmark-white.svg" alt="Ascend" class="cover-logo">
+    </div>
+    <p class="cover-tagline">[Tagline or subtitle]</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     NEW · SPLIT IMAGE LIST — Unnumbered + callout row
+     .list-row--plain removes numbering column.
+     .list-row--callout = semibold, no chevron, no border.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list slide--split-reversed" data-split="60-40">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">[Deck title]</span>
+    <span class="topbar__num">XX</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/traveler-airport-stride.jpg" alt="" class="photo-panel">
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">[Headline]</h2>
+    <div class="list-row list-row--plain">
+      <span class="list-text">[Key point one]</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row list-row--plain">
+      <span class="list-text">[Key point two]</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row list-row--callout">
+      <span class="list-text">[Closing statement — semibold, no chevron]</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     NEW · ICON CARDS — 5×2 service grid
+     .slide--icon-cards with .icon-grid and .icon-card children.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--icon-cards">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">[Deck title]</span>
+    <span class="topbar__num">XX</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">[Headline]</h2>
+    <div class="icon-grid">
+      <div class="icon-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-plane"/></svg>
+        </div>
+        <span class="icon-card-label">Flights</span>
+      </div>
+      <div class="icon-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-hotel"/></svg>
+        </div>
+        <span class="icon-card-label">Hotels</span>
+      </div>
+      <div class="icon-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-car"/></svg>
+        </div>
+        <span class="icon-card-label">Cars</span>
+      </div>
+      <div class="icon-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-refresh-cw"/></svg>
+        </div>
+        <span class="icon-card-label">Changes</span>
+      </div>
+      <div class="icon-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-x"/></svg>
+        </div>
+        <span class="icon-card-label">Cancellations</span>
+      </div>
+      <div class="icon-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-settings"/></svg>
+        </div>
+        <span class="icon-card-label">Preferences</span>
+      </div>
+      <div class="icon-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-star"/></svg>
+        </div>
+        <span class="icon-card-label">Loyalty details</span>
+      </div>
+      <div class="icon-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-users"/></svg>
+        </div>
+        <span class="icon-card-label">Traveller profiles</span>
+      </div>
+      <div class="icon-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-file-text"/></svg>
+        </div>
+        <span class="icon-card-label">Invoices</span>
+      </div>
+      <div class="icon-card">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-briefcase"/></svg>
+        </div>
+        <span class="icon-card-label">Business + personal</span>
+      </div>
+    </div>
+    <p class="slide-body">[Footer text]</p>
+  </div>
+</section>
+
+
 </div><!-- /.deck-shell -->
 
 </body>

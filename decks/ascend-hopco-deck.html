@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=960">
+<meta name="generator" content="TCL_OS · /deck">
+<title>Ascend — HOPCo Proposal</title>
+<link rel="stylesheet" href="../../../../brain/raw/standards/Ascend/brand.css">
+<link rel="stylesheet" href="ascend-deck.css">
+</head>
+<body>
+
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M7 10l5 5 5-5"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M5 13l4 4L19 7"/>
+    </symbol>
+    <symbol id="icon-ascend-arrow" viewBox="0 0 112 64" fill="currentColor">
+      <path d="M110.535 34.1101H82.6104C81.8444 34.1101 80.8032 34.728 80.8032 35.494L81.2265 62.6103C81.2265 64.1212 79.1442 64.5402 78.5601 63.1478L57.2294 15.0394C56.7427 13.9432 55.1852 13.9432 54.6985 15.0394L33.3678 63.1478C32.7838 64.5444 30.7015 64.1254 30.7015 62.6103V35.494C30.7015 34.728 30.0836 34.1101 29.3175 34.1101H1.3887C-0.0291135 34.1101 -0.532748 32.2352 0.694613 31.5199L52.6628 1.32258L54.051 0.514221C55.2318 -0.17141 56.6919 -0.17141 57.8727 0.514221L59.2609 1.32258L111.229 31.5199C112.452 32.2352 111.953 34.1101 110.535 34.1101Z"/>
+    </symbol>
+    <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+    </symbol>
+    <symbol id="icon-hotel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+    </symbol>
+    <symbol id="icon-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
+    </symbol>
+    <symbol id="icon-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+    </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="icon-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9h4"/><path d="M10 13h4"/><path d="M10 17h4"/>
+    </symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<div class="deck-shell" data-theme="light">
+
+<!-- ══════════════════════════════════════════════════════════
+     01 · COVER PHOTO
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cover-photo">
+  <img class="cover-bg photo-fill" src="../Assets/Imagery/Travel/plane-above-clouds.jpg" alt="">
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,.2);z-index:1;"></div>
+  <div class="cover-content" style="z-index:2;">
+    <div class="cover-wordmark" style="gap:var(--space-4);align-items:center;">
+      <img src="../Assets/Logo/Wordmark/ascend-wordmark-white.svg" alt="Ascend" class="cover-logo" style="height:43px;">
+      <span style="font-family:var(--font-mono);font-size:var(--text-lg);color:rgba(255,255,255,.6);">&times;</span>
+      <img src="../Assets/Partner Logos/hopco logo.png" alt="HOPCo" style="height:31px;width:auto;filter:brightness(0) invert(1);">
+    </div>
+    <p class="cover-tagline" style="color:#fff;">Executive travel. Without the wait.</p>
+    <p class="cover-tagline" style="font-size:var(--text-base);color:rgba(255,255,255,.85);">Premium travel support for HOPCo executives and EAs.</p>
+    <p class="cover-tagline" style="font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-none);margin-top:var(--space-4);color:rgba(255,255,255,.9);">Business class &nbsp;/&nbsp; First class &nbsp;/&nbsp; Family travel &nbsp;/&nbsp; 24/7</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     02 · SPLIT IMAGE LIST — Built for how executives actually travel.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list slide--split-reversed" data-split="60-40">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">02</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/traveler-businessman-suitcase.jpg" alt="" class="photo-panel">
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">Built for how executives actually travel.</h2>
+    <div class="list-row" style="grid-template-columns:1fr 40px;">
+      <span class="list-text">Executive travel needs speed, control and flexibility.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row" style="grid-template-columns:1fr 40px;">
+      <span class="list-text">Flights change. Seats matter. Schedules move. Delays cannot wait on hold.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row" style="grid-template-columns:1fr;border-bottom:none;">
+      <span class="list-text" style="font-weight:var(--font-semibold);">Ascend gives executives and EAs a direct way to book, change and manage travel without losing control.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     03 · SPLIT IMAGE LIST — The problem with traditional agency support.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list slide--split-reversed" data-split="60-40">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">03</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/traveler-man-airport-phone.jpg" alt="" class="photo-panel">
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">The problem with traditional agency support.</h2>
+    <div class="list-row" style="grid-template-columns:1fr 40px;">
+      <span class="list-text">Current agency workflows can slow the trip down. Calls. Hold times. Back-and-forth. Delayed changes.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row" style="grid-template-columns:1fr 40px;">
+      <span class="list-text">That is why executives and EAs often go straight to airline websites. It feels faster and gives them more control.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row" style="grid-template-columns:1fr;border-bottom:none;">
+      <span class="list-text" style="font-weight:var(--font-semibold);">Ascend brings that speed back into a managed service.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     04 · SPLIT IMAGE LIST — WhatsApp first. Human always.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list" data-split="40-60" style="background:var(--color-bg);">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">04</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel" style="background:var(--color-bg);">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/traveler-mobile-phone.jpg" alt="" class="photo-panel">
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">WhatsApp first.<br>Human always.</h2>
+    <div class="list-row" style="grid-template-columns:1fr 40px;">
+      <span class="list-text">Send the request on WhatsApp.<br>A real person acknowledges it within a minute.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row" style="grid-template-columns:1fr 40px;">
+      <span class="list-text">Options are clear. Changes are handled quickly. <br>The traveller and EA stay in the loop.</br></span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row" style="grid-template-columns:1fr;border-bottom:none;">
+      <span class="list-text" style="font-weight:var(--font-semibold);">No portal dependency. No call queue. No chatbot loop.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     05 · THREE-COL NUMBERED (4 cols, midnight) — Built for non-linear travel.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-numbered slide--midnight" data-cols="4">
+  <div class="topbar">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">05</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Built for non-linear travel.</h2>
+    <div class="cards">
+      <div class="card" style="background:var(--color-bg) !important;">
+        <span class="mono-number" style="color:var(--color-primary) !important;font-size:64px;">01</span>
+        <p style="color:var(--color-neutral-0) !important;"><strong>One-way</strong><br>When a return is not needed or starts from a different city.</p>
+      </div>
+      <div class="card" style="background:var(--color-bg) !important;">
+        <span class="mono-number" style="color:var(--color-primary) !important;font-size:64px;">02</span>
+        <p style="color:var(--color-neutral-0) !important;"><strong>Multi-city</strong><br>When the route changes across meetings, family plans or time zones.</p>
+      </div>
+      <div class="card" style="background:var(--color-bg) !important;">
+        <span class="mono-number" style="color:var(--color-primary) !important;font-size:64px;">03</span>
+        <p style="color:var(--color-neutral-0) !important;"><strong>Short-stay <br>long haul</br></strong>When someone flies internationally and returns <br>within days.</br></p>
+      </div>
+      <div class="card" style="background:var(--color-bg) !important;">
+        <span class="mono-number" style="color:var(--color-primary) !important;font-size:64px;">04</span>
+        <p style="color:var(--color-neutral-0) !important;"><strong>Premium cabins</strong><br>Where better routing, timing and fare construction can materially change the outcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     06 · ICON CARDS — One service. Full trip.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--content" style="background:var(--color-neutral-95);">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">06</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content" style="align-items:center;">
+    <h2 class="slide-title" style="text-align:center;">One service. Full trip.</h2>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-6) var(--space-4);width:100%;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-plane"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Flights</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-hotel"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Hotels</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-car"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Cars</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-refresh-cw"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Changes</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-x"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Cancellations</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-settings"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Seat requests</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-star"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Loyalty details</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-users"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Traveller profiles</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-file-text"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Invoices</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center;">
+        <div class="icon-container icon-container--md icon-container--light">
+          <svg width="24" height="24"><use href="#icon-heart"/></svg>
+        </div>
+        <span style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);">Personal + family</span>
+      </div>
+    </div>
+    <p class="slide-body" style="text-align:center;margin-top:var(--space-8);">Everything handled through Ascend, without adding work for the executive or EA.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     07 · CONTENT — More than commercial flights.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--split-image-list" data-split="40-60" style="background:var(--color-bg);">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">07</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="left-panel" style="background:var(--color-bg);">
+    <div class="image-frame">
+      <img src="../Assets/Imagery/Travel/plane-flying.jpg" alt="" class="photo-panel">
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2 class="slide-title">More than commercial flights.</h2>
+    <div class="list-row" style="grid-template-columns:1fr 40px;">
+      <span class="list-text">Ascend also has strong private aviation partnerships.</span>
+      <span class="chevron-circle icon-chevron">
+        <svg width="20" height="20"><use href="#icon-chevron-down"/></svg>
+      </span>
+    </div>
+    <div class="list-row" style="grid-template-columns:1fr;border-bottom:none;">
+      <span class="list-text">For executives who need privacy, speed or routing that commercial aviation cannot support, we can help assess private options alongside commercial travel.</span>
+    </div>
+    <p style="font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-none);color:var(--color-neutral-30);margin-top:var(--space-6);">Commercial &nbsp;/&nbsp; Private &nbsp;/&nbsp; Hotel &nbsp;/&nbsp; Ground</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     08 · CONTENT (midnight) — Door to destination.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--content" style="background:var(--color-midnight);">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">08</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title" style="color:var(--color-text-on-primary);">Door to destination.</h2>
+    <p class="slide-body" style="color:var(--color-sky);">Booking travel is easy until something goes wrong.</p>
+    <p class="slide-body" style="color:var(--color-sky);">Ascend monitors the journey and handles the next move quickly: <br>flight changes, cancellations, hotel updates, cars and onward travel.</p>
+    <div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-4);">
+      <div style="display:flex;align-items:center;gap:var(--space-4);">
+        <span style="font-family:var(--font-mono);font-size:var(--font-size-deck-value);font-weight:var(--font-medium);color:var(--color-sun);min-width:100px;">02:47</span>
+        <span style="font-size:var(--text-base);color:var(--color-text-on-primary);">Flight cancelled</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:var(--space-4);">
+        <span style="font-family:var(--font-mono);font-size:var(--font-size-deck-value);font-weight:var(--font-medium);color:var(--color-sun);min-width:100px;">02:51</span>
+        <span style="font-size:var(--text-base);color:var(--color-text-on-primary);">Alternative held</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:var(--space-4);">
+        <span style="font-family:var(--font-mono);font-size:var(--font-size-deck-value);font-weight:var(--font-medium);color:var(--color-sun);min-width:100px;">08:00</span>
+        <span style="font-size:var(--text-base);color:var(--color-text-on-primary);">Executive wakes up to an updated plan</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     09 · THREE-COL NUMBERED (4 cols) — Value case.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-numbered" data-cols="4">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">09</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Value case.</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="mono-number" style="color:var(--color-primary);font-size:64px;">01</span>
+        <p><strong>Executive time</strong><br>Less searching, calling and chasing.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number" style="color:var(--color-primary);font-size:64px;">02</span>
+        <p><strong>EA support</strong><br>Fast answers, fewer escalations and less stress.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number" style="color:var(--color-primary);font-size:64px;">03</span>
+        <p><strong>Premium travel</strong><br>Savings opportunity on business and first class, especially US ‹› Europe.</p>
+      </div>
+      <div class="card">
+        <span class="mono-number" style="color:var(--color-primary);font-size:64px;">04</span>
+        <p><strong>Family travel</strong><br>A proven use case for HOPCo following Dr. Barsoom's referral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     10 · FOUR-COL METRICS — Business case.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--four-col-metrics">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">10</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title" style="margin-bottom:0;">Business case.</h2>
+    <p style="text-align:center;font-size:var(--text-sm);color:var(--color-neutral-30);margin:0 0 var(--space-4);">A simple case based on executive US ‹› Europe travel.</p>
+    <div class="metrics-grid">
+      <div class="metric-col">
+        <span class="pill pill--purple">Executive</span>
+        <span class="metric-number">1</span>
+        <p class="metric-subtitle">Executive traveller</p>
+        <p class="metric-desc">Taking 3 US ‹› Europe business class trips <br>per year.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">Trips</span>
+        <span class="metric-number">3</span>
+        <p class="metric-subtitle">Eligible trips</p>
+        <p class="metric-desc">Premium cabin optimisation on <br>US ‹› Europe routes.</br></p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">Per trip</span>
+        <span class="metric-number">$1,200</span>
+        <p class="metric-subtitle">Average saving</p>
+        <p class="metric-desc">Per premium cabin booking.</p>
+      </div>
+      <div class="metric-col">
+        <span class="pill pill--purple">Annual</span>
+        <span class="metric-number">$3,600</span>
+        <p class="metric-subtitle">Est. annual saving</p>
+        <p class="metric-desc">Per executive. Excludes hotels, domestic, family travel and EA time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     11 · TESTIMONIALS — Real savings. Real firms.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--content" style="background:var(--color-midnight);">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">11</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title" style="color:var(--color-text-on-primary);text-align:center;">Real savings. Real firms.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);width:100%;">
+      <div style="background:var(--color-bg);border-radius:var(--radius-2xl);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-4);">
+        <span class="pill pill--purple">BITKRAFT Ventures</span>
+        <span style="font-family:var(--font-mono);font-size:var(--font-size-deck-metric);font-weight:var(--font-medium);line-height:1;color:var(--color-neutral-0);">$127,000</span>
+        <p style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);margin:0;">Saved over 47 bookings in 6 months</p>
+        <p style="font-size:var(--text-sm);color:var(--color-neutral-30);margin:0;">32% average savings.</p>
+      </div>
+      <div style="background:var(--color-bg);border-radius:var(--radius-2xl);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-4);">
+        <span class="pill pill--purple">Charlotte Tilbury</span>
+        <span style="font-family:var(--font-mono);font-size:var(--font-size-deck-metric);font-weight:var(--font-medium);line-height:1;color:var(--color-neutral-0);">$42,000</span>
+        <p style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);margin:0;">Saved across 18 executive bookings in 3 months</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     12 · SECTION BREAK — Proposal.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--section-purple">
+  <h2 class="section-headline">Proposal.</h2>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     13 · THREE-COL PRICING — Tiered pricing.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--three-col-pricing">
+  <div class="topbar topbar--dark">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">13</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title">Executive membership.</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3 class="pricing-card-title">Per-person pricing</h3>
+        <p class="pricing-price">$1,500<span class="price-unit">/year</span></p>
+        <p class="pricing-alt">(4 executives)</p>
+        <ul class="pricing-features">
+          <li class="check-item check-item--white">
+            <svg width="16" height="16"><use href="#icon-check"/></svg>
+            No per-booking fees
+          </li>
+        </ul>
+      </div>
+      <div class="roi-card" style="gap:var(--space-4);">
+        <p style="font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--color-neutral-0);margin:0;"><strong>Includes</strong></p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2);">
+          <li class="check-item">
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Flights, hotels and cars
+          </li>
+          <li class="check-item">
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Changes and cancellations
+          </li>
+          <li class="check-item">
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Traveller profiles and loyalty details
+          </li>
+          <li class="check-item">
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            Personal and family travel
+          </li>
+          <li class="check-item">
+            <svg class="icon-check" width="16" height="16"><use href="#icon-check"/></svg>
+            24/7 WhatsApp support
+          </li>
+        </ul>
+      </div>
+      <div class="savings-card" style="background:var(--color-sun);">
+        <h3 class="savings-heading">Volume pricing:</h3>
+        <table class="savings-table">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td>1 executive</td>
+              <td>$2,500/year</td>
+            </tr>
+            <tr>
+              <td>2–3 executives</td>
+              <td>$2,250 pp/year</td>
+            </tr>
+            <tr>
+              <td>4 executives</td>
+              <td>$1,500 pp/year</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     14 · CARDS 2×2 — Start with the executives already travelling.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--content" style="background:var(--color-midnight);">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">14</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content">
+    <h2 class="slide-title" style="color:var(--color-text-on-primary);text-align:center;">Start with the executives already travelling.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);width:100%;">
+      <div style="background:var(--color-bg);border-radius:var(--radius-2xl);padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);">
+        <span style="font-family:var(--font-mono);font-size:64px;font-weight:var(--font-medium);line-height:1;color:var(--color-primary);">01</span>
+        <p style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);margin:0;">Select executives</p>
+        <p style="font-size:var(--text-sm);color:var(--color-neutral-30);margin:0;">Confirm the initial users and EA contacts.</p>
+      </div>
+      <div style="background:var(--color-bg);border-radius:var(--radius-2xl);padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);">
+        <span style="font-family:var(--font-mono);font-size:64px;font-weight:var(--font-medium);line-height:1;color:var(--color-primary);">02</span>
+        <p style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);margin:0;">Launch WhatsApp access</p>
+        <p style="font-size:var(--text-sm);color:var(--color-neutral-30);margin:0;">Open direct booking support via a short intro call.</p>
+      </div>
+      <div style="background:var(--color-bg);border-radius:var(--radius-2xl);padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);">
+        <span style="font-family:var(--font-mono);font-size:64px;font-weight:var(--font-medium);line-height:1;color:var(--color-primary);">03</span>
+        <p style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);margin:0;">Set profiles</p>
+        <p style="font-size:var(--text-sm);color:var(--color-neutral-30);margin:0;">Add loyalty numbers, preferences, seat choices and traveller details.</p>
+      </div>
+      <div style="background:var(--color-bg);border-radius:var(--radius-2xl);padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);">
+        <span style="font-family:var(--font-mono);font-size:64px;font-weight:var(--font-medium);line-height:1;color:var(--color-primary);">04</span>
+        <p style="font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--color-neutral-0);margin:0;">Review value</p>
+        <p style="font-size:var(--text-sm);color:var(--color-neutral-30);margin:0;">Measure usage, response speed, savings, EA feedback and traveller experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     15 · CTA CONTACTS — Making travel effortless.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--cta-contacts">
+  <div class="topbar topbar--white">
+    <span class="topbar__title">Ascend × HOPCo</span>
+    <span class="topbar__num">15</span>
+    <span class="topbar__icon">
+      <svg width="32" height="18"><use href="#icon-ascend-arrow"/></svg>
+    </span>
+  </div>
+  <div class="content" style="padding-bottom:var(--space-6);padding-top:var(--space-16);">
+    <h2 class="cta-headline" style="font-size:var(--text-5xl);">Making travel effortless.</h2>
+    <div class="contacts" style="position:absolute;bottom:var(--space-8);right:var(--slide-pad-x);gap:var(--space-2);">
+      <div class="contact-row" style="padding:var(--space-1) var(--space-4) var(--space-1) var(--space-1);display:grid;grid-template-columns:36px 160px 1fr;gap:var(--space-3);align-items:center;">
+        <img src="../Assets/Headshots/Chloe Rose Mitchell.jpeg" alt="" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">
+        <span class="contact-name" style="min-width:auto;padding:var(--space-2) var(--space-4);">Chloe Rose Mitchell</span>
+        <span class="contact-email">chloe@flyascend.com</span>
+      </div>
+      <div class="contact-row" style="padding:var(--space-1) var(--space-4) var(--space-1) var(--space-1);display:grid;grid-template-columns:36px 160px 1fr;gap:var(--space-3);align-items:center;">
+        <img src="../Assets/Headshots/Zach Rensick.jpeg" alt="" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">
+        <span class="contact-name" style="min-width:auto;padding:var(--space-2) var(--space-4);">Zach Resnick</span>
+        <span class="contact-email">zach@flyascend.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     16 · CLOSING PHOTO — Thank you.
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide slide--closing-photo">
+  <img class="photo-bg" src="../Assets/Imagery/Travel/traveler-man-blue-sky.jpg" alt="" class="photo-fill">
+  <div class="closing-content" style="flex-direction:column;gap:var(--space-3);">
+    <div style="display:flex;align-items:center;gap:var(--space-4);">
+      Thank you
+      <svg width="64" height="37"><use href="#icon-ascend-arrow"/></svg>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
