@@ -10,12 +10,15 @@
 
 ## Prerequisites — Load Before Responding
 
-1. `05-CreativeOps/Clients/Ascend/Brand/Slides/ascend-deck-template.html` — slide catalog (25+ types) + shell (head, sprite sheet). Single source: copy this file, strip unused slides, inject content.
-2. `05-CreativeOps/Clients/Ascend/Brand/Slides/ascend-deck.css` — slide system (Layout, chrome, type modifiers, auto-shrink, print). Extends brand.css.
-3. `05-CreativeOps/brain/raw/standards/Ascend/brand.css` — design tokens (colors, typography, spacing, radii, font-face declarations).
-4. `05-CreativeOps/Frameworks/deck-token-contract.md` — Layer 1 constants + Layer 2 variable naming contract.
-5. `05-CreativeOps/Clients/Ascend/Brand/Assets/Ascend_StyleGuide.md` — brand rules and visual identity.
-6. `05-CreativeOps/Clients/Ascend/Brand/Fonts/` — FT System Trial (Grotesk: Regular, Medium, Semibold, Bold) + FT System Mono (Regular, Medium).
+**Fast path (most decks):** Read `ascend-deck-partials.html` (~8K tokens) instead of the full template. It contains 13 pre-assembled slides covering the most common patterns (cover, split-image, icon cards, steps, metrics, testimonials, pricing, agenda, CTA, closing). Only fall back to the full template for slide types not in partials.
+
+1. `05-CreativeOps/Clients/Ascend/Brand/Slides/ascend-deck-partials.html` — **read first.** Pre-assembled HTML for 13 recurring slide patterns with [PLACEHOLDER] markers. Includes sprite sheet.
+2. `05-CreativeOps/Clients/Ascend/Brand/Slides/ascend-deck-template.html` — full slide catalog (30+ types). Read only for slide types not covered by partials.
+3. `05-CreativeOps/Clients/Ascend/Brand/Slides/ascend-deck.css` — slide system (Layout, chrome, type modifiers, auto-shrink, print). Extends brand.css.
+4. `05-CreativeOps/brain/raw/standards/Ascend/brand.css` — design tokens (colors, typography, spacing, radii, font-face declarations).
+5. `05-CreativeOps/Frameworks/deck-token-contract.md` — Layer 1 constants + Layer 2 variable naming contract.
+6. `05-CreativeOps/Clients/Ascend/Brand/Assets/Ascend_StyleGuide.md` — brand rules and visual identity.
+7. `05-CreativeOps/Clients/Ascend/Brand/Fonts/` — FT System Trial (Grotesk: Regular, Medium, Semibold, Bold) + FT System Mono (Regular, Medium).
 
 > **Asset path warning:** `brand.css` `@font-face` declarations use relative paths to `Brand/Fonts/`. Image paths in deck HTMLs point to `../Assets/Imagery/Travel/`. If folders are renamed or restructured, these paths break silently — fonts fall back to system sans-serif and images disappear. Always verify font rendering and image loading after any folder change.
 
