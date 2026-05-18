@@ -138,9 +138,9 @@ photo: Assets/Imagery/traveler-businessman-suitcase.jpg
 ```markdown
 ## cta-contacts
 # Ready to make travel effortless?
-- name: Zach Resnick | email: zach@flyascend.com
-- name: Chloe Rose Mitchell | email: chloe@flyascend.com
-- name: Mike Finneran | email: mike@flyascend.com
+- name: Zach Resnick | email: zach@joinascend.com
+- name: Chloe Rose Mitchell | email: chloe@joinascend.com
+- name: Mike Finneran | email: mike@joinascend.com
 ```
 
 ### `ascend-closing-photo`

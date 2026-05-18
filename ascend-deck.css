@@ -132,12 +132,22 @@
 }
 
 
-/* ── Anti-orphan — balance all headlines ──────────────────── */
+/* ── Anti-orphan — balance headlines + select body elements ── */
+/* Headlines: always balanced */
 .slide-title,
 .section-headline,
 .cta-headline,
 .cover-wordmark,
 .closing-content {
+  text-wrap: balance;
+}
+/* Body text: balanced where it won't conflict with containers */
+.slide-body,
+.metric-subtitle,
+.metric-desc,
+.step-desc,
+.agenda-step-desc,
+.cover-tagline {
   text-wrap: balance;
 }
 

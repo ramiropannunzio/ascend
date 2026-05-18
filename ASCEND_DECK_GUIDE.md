@@ -530,8 +530,8 @@ Midnight background. White headline top-left + contact rows bottom-right. Topbar
 ```markdown
 ## cta-contacts
 # Ready to make travel effortless?
-- name: Chloe Rose Mitchell | email: chloe@flyascend.com | photo: Assets/Headshots/Chloe Rose Mitchell.jpeg
-- name: Zach Resnick | email: zach@flyascend.com | photo: Assets/Headshots/Zach Rensick.jpeg
+- name: Chloe Rose Mitchell | email: chloe@joinascend.com | photo: Assets/Headshots/Chloe Rose Mitchell.jpeg
+- name: Zach Resnick | email: zach@joinascend.com | photo: Assets/Headshots/Zach Rensick.jpeg
 ```
 
 ---
